@@ -1,73 +1,50 @@
-# React + TypeScript + Vite
+# Rheon Onepage
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto refatorado para **React + Vite + TypeScript + Tailwind v4 + shadcn/ui**,
+com arquitetura modular para facilitar manutencao e evolucao sem regressao.
 
-Currently, two official plugins are available:
+## Stack
+- React 19
+- Vite 7
+- TypeScript
+- Tailwind CSS v4
+- shadcn/ui
+- ESLint
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Estrutura
+- `src/components/ui`: componentes base do shadcn
+- `src/components/layout`: estrutura global (header/footer)
+- `src/components/sections`: secoes da landing page
+- `src/components/common`: componentes compartilhados
+- `src/data`: conteudo e dados da pagina
+- `src/lib`: utilitarios
+- `legacy/rheon-onepage-v3.html`: versao original preservada
 
-## React Compiler
+## Scripts
+- `npm run dev`: ambiente local
+- `npm run build`: build de producao
+- `npm run preview`: preview do build
+- `npm run lint`: analise estatica
+- `npm run typecheck`: checagem de tipos
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Fluxo de edicao recomendado
+1. Edite textos/listas em `src/data/site-content.ts`.
+2. Edite layout por secao em `src/components/sections/*`.
+3. Reaproveite componentes de `src/components/ui` e `src/components/common`.
+4. Rode `npm run lint` e `npm run build` antes de publicar.
 
-## Expanding the ESLint configuration
+## Deploy
+### Vercel
+- Framework: Vite
+- Build command: `npm run build`
+- Output directory: `dist`
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Netlify
+- Build command: `npm run build`
+- Publish directory: `dist`
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Execucao local
+```bash
+npm install
+npm run dev
 ```
