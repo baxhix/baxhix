@@ -18,9 +18,21 @@ const BASE_CONTENT_SECTIONS: ContentSection[] = [
     title: 'Hero',
     fields: [
       {
-        id: 'hero_title',
-        label: 'Título principal',
-        original: 'Do físico ao digital — sem fricção.',
+        id: 'hero_title_line_1',
+        label: 'Título principal - Linha 1',
+        original: 'Do físico',
+        kind: 'line',
+      },
+      {
+        id: 'hero_title_line_2',
+        label: 'Título principal - Linha 2',
+        original: 'ao digital —',
+        kind: 'line',
+      },
+      {
+        id: 'hero_title_line_3',
+        label: 'Título principal - Linha 3',
+        original: 'sem fricção.',
         kind: 'line',
       },
       {
