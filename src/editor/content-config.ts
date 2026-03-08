@@ -341,7 +341,7 @@ function buildAutoFieldsBySection(html: string, coveredNormalizedTexts: Set<stri
     seenLabelCount.set(k, occurrence)
 
     bySection[target.sectionId].push({
-      id: `auto_${target.sectionId}_${String(counters[target.sectionId]).padStart(3, '0')}`,
+      id: `auto_v2_${target.sectionId}_${String(counters[target.sectionId]).padStart(3, '0')}`,
       label: occurrence > 1 ? `${baseLabel} (${occurrence})` : baseLabel,
       original: target.normalized,
       source: target.source,
