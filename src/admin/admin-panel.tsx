@@ -83,6 +83,7 @@ function buildFieldGroups(fields: Array<{ id: string; label: string; kind?: 'lin
 export function AdminPanel({ legacyHtml }: { legacyHtml: string }) {
   const [activeModule] = useState<PanelModule>('content')
   const [selectedSectionId, setSelectedSectionId] = useState<string | null>(null)
+  const [titlesSearch, setTitlesSearch] = useState('')
   const [theme, setTheme] = useState<'dark' | 'light'>(() => getStoredTheme())
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(() => localStorage.getItem(SIDEBAR_KEY) === '1')
   const [checkingAuth, setCheckingAuth] = useState(true)
@@ -101,6 +102,10 @@ export function AdminPanel({ legacyHtml }: { legacyHtml: string }) {
   useEffect(() => {
     setValues(defaultValues)
   }, [defaultValues])
+
+  useEffect(() => {
+    setTitlesSearch('')
+  }, [selectedSectionId])
 
   useEffect(() => {
     const root = document.documentElement
@@ -244,6 +249,13 @@ export function AdminPanel({ legacyHtml }: { legacyHtml: string }) {
   ]
   const selectedSection = contentSections.find((section) => section.id === selectedSectionId) ?? null
   const selectedSectionGroups = selectedSection ? buildFieldGroups(selectedSection.fields) : null
+  const isMarketHeadingsSection = selectedSection?.id === 'market-headings'
+  const visibleSingles = (selectedSectionGroups?.singles ?? []).filter((field) => {
+    if (!isMarketHeadingsSection || !titlesSearch.trim()) return true
+    const query = titlesSearch.toLowerCase()
+    const currentValue = (values[field.id] ?? '').toLowerCase()
+    return field.label.toLowerCase().includes(query) || currentValue.includes(query)
+  })
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -360,7 +372,32 @@ export function AdminPanel({ legacyHtml }: { legacyHtml: string }) {
                 </p>
               </CardHeader>
               <CardContent className="space-y-3">
-                {selectedSectionGroups?.singles.map((field) => (
+                {isMarketHeadingsSection && (
+                  <div className="space-y-2 rounded-md border border-border p-3">
+                    <label className="block">
+                      <span className="mb-1 block text-sm text-muted-foreground">
+                        Buscar item em Títulos Gerais
+                      </span>
+                      <Input
+                        list="market-headings-options"
+                        value={titlesSearch}
+                        onChange={(event) => setTitlesSearch(event.target.value)}
+                        placeholder="Digite para buscar e filtrar os itens"
+                        className="h-10 w-full rounded-[3px]"
+                      />
+                      <datalist id="market-headings-options">
+                        {(selectedSectionGroups?.singles ?? []).map((field) => (
+                          <option key={field.id} value={field.label} />
+                        ))}
+                        {(selectedSectionGroups?.singles ?? []).map((field) => (
+                          <option key={`${field.id}-value`} value={values[field.id] ?? ''} />
+                        ))}
+                      </datalist>
+                    </label>
+                  </div>
+                )}
+
+                {visibleSingles.map((field) => (
                   <label key={field.id} className="block">
                     <span className="mb-1 block text-sm text-muted-foreground">{field.label}</span>
                     {field.kind === 'line' || isButtonField(field) ? (
