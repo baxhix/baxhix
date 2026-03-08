@@ -23,6 +23,7 @@ com arquitetura modular para facilitar manutencao e evolucao sem regressao.
 ## Scripts
 - `npm run dev`: ambiente local
 - `npm run build`: build de producao
+- `npm run start:vps`: sobe API + site estatico (requer `dist` gerado e Postgres configurado)
 - `npm run preview`: preview do build
 - `npm run lint`: analise estatica
 - `npm run typecheck`: checagem de tipos
@@ -34,6 +35,27 @@ com arquitetura modular para facilitar manutencao e evolucao sem regressao.
 4. Rode `npm run lint` e `npm run build` antes de publicar.
 
 ## Deploy
+### VPS (Docker)
+1. Ajuste credenciais em `docker-compose.yml` (usuario/senha e `CMS_AUTH_SECRET`).
+2. Suba containers:
+```bash
+docker compose up -d --build
+```
+3. App fica em `http://SEU_IP:3000`.
+4. Painel: `http://SEU_IP:3000/?admin=1`.
+
+### VPS (sem Docker)
+1. Crie `.env` baseado em `.env.vps.example`.
+2. Instale dependencias e gere build:
+```bash
+npm install
+npm run build
+```
+3. Suba servidor:
+```bash
+npm run start:vps
+```
+
 ### Vercel
 - Framework: Vite
 - Build command: `npm run build`
