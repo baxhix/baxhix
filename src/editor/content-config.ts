@@ -4,6 +4,11 @@ export type ContentField = {
   original: string
   source?: string
   kind?: 'line' | 'area'
+  locator?: {
+    type: 'text' | 'attr'
+    index: number
+    attrName?: 'placeholder' | 'value' | 'title' | 'aria-label'
+  }
 }
 
 export type ContentSection = {
@@ -12,17 +17,23 @@ export type ContentSection = {
   fields: ContentField[]
 }
 
+type PanelSectionId =
+  | 'hero'
+  | 'solution'
+  | 'cases'
+  | 'testimonials'
+  | 'framework'
+  | 'contact'
+  | 'market-headings'
+
 const BASE_CONTENT_SECTIONS: ContentSection[] = [
   {
     id: 'hero',
     title: 'Hero',
     fields: [
-      {
-        id: 'hero_title',
-        label: 'Título principal',
-        original: 'Do físico ao digital — sem fricção.',
-        kind: 'line',
-      },
+      { id: 'hero_title_line_1', label: 'Título principal - Linha 1', original: 'Do físico', kind: 'line' },
+      { id: 'hero_title_line_2', label: 'Título principal - Linha 2', original: 'ao digital —', kind: 'line' },
+      { id: 'hero_title_line_3', label: 'Título principal - Linha 3', original: 'sem fricção.', kind: 'line' },
       {
         id: 'hero_sub',
         label: 'Subtítulo',
@@ -39,12 +50,7 @@ const BASE_CONTENT_SECTIONS: ContentSection[] = [
     title: 'A Solução Especializada',
     fields: [
       { id: 'section_solution', label: 'Título da seção', original: 'A solução especializada', kind: 'line' },
-      {
-        id: 'layer_01_title',
-        label: 'Camada 01 - Título',
-        original: 'App Commerce',
-        kind: 'line',
-      },
+      { id: 'layer_01_title', label: 'Camada 01 - Título', original: 'App Commerce', kind: 'line' },
       {
         id: 'layer_01_desc',
         label: 'Camada 01 - Descrição',
@@ -52,12 +58,7 @@ const BASE_CONTENT_SECTIONS: ContentSection[] = [
           'Lean App — iOS e Android nativos. +20% de receita online após implantação. Go-live em 25 dias úteis.',
         kind: 'area',
       },
-      {
-        id: 'layer_02_title',
-        label: 'Camada 02 - Título',
-        original: 'E-commerce & Marketplace',
-        kind: 'line',
-      },
+      { id: 'layer_02_title', label: 'Camada 02 - Título', original: 'E-commerce & Marketplace', kind: 'line' },
       {
         id: 'layer_02_desc',
         label: 'Camada 02 - Descrição',
@@ -65,12 +66,7 @@ const BASE_CONTENT_SECTIONS: ContentSection[] = [
           'Plataforma enterprise com recursos exclusivos para Farma: SNGPC, PBMs, convênios, catálogo regulado.',
         kind: 'area',
       },
-      {
-        id: 'layer_03_title',
-        label: 'Camada 03 - Título',
-        original: 'Full Points — Fidelização',
-        kind: 'line',
-      },
+      { id: 'layer_03_title', label: 'Camada 03 - Título', original: 'Full Points — Fidelização', kind: 'line' },
       {
         id: 'layer_03_desc',
         label: 'Camada 03 - Descrição',
@@ -97,12 +93,7 @@ const BASE_CONTENT_SECTIONS: ContentSection[] = [
           'Plataforma digital gerenciada desde 2019. Site e app em produção ininterrupta há +7 anos, atendendo picos de 45K pedidos/dia sem degradação de performance.',
         kind: 'area',
       },
-      {
-        id: 'case_02_headline',
-        label: 'Case 02 - Título',
-        original: 'App cresceu 6,5x mais que o site em 2 anos.',
-        kind: 'line',
-      },
+      { id: 'case_02_headline', label: 'Case 02 - Título', original: 'App cresceu 6,5x mais que o site em 2 anos.', kind: 'line' },
       {
         id: 'case_02_detail',
         label: 'Case 02 - Descrição',
@@ -138,36 +129,16 @@ const BASE_CONTENT_SECTIONS: ContentSection[] = [
     title: 'Framework de Entrega',
     fields: [
       { id: 'section_framework', label: 'Título da seção', original: 'Framework de entrega', kind: 'line' },
-      {
-        id: 'framework_01_title',
-        label: 'Card 01 - Título',
-        original: 'Alinhamento Estratégico',
-        kind: 'line',
-      },
-      {
-        id: 'framework_01_desc',
-        label: 'Card 01 - Descrição',
-        original: 'Escopo validado e plano de execução',
-        kind: 'area',
-      },
-      {
-        id: 'framework_02_title',
-        label: 'Card 02 - Título',
-        original: 'Onboarding e Execução',
-        kind: 'line',
-      },
+      { id: 'framework_01_title', label: 'Card 01 - Título', original: 'Alinhamento Estratégico', kind: 'line' },
+      { id: 'framework_01_desc', label: 'Card 01 - Descrição', original: 'Escopo validado e plano de execução', kind: 'area' },
+      { id: 'framework_02_title', label: 'Card 02 - Título', original: 'Onboarding e Execução', kind: 'line' },
       {
         id: 'framework_02_desc',
         label: 'Card 02 - Descrição',
         original: 'Operação homologada conforme plano validado',
         kind: 'area',
       },
-      {
-        id: 'framework_03_title',
-        label: 'Card 03 - Título',
-        original: 'Go-live e Evolução',
-        kind: 'line',
-      },
+      { id: 'framework_03_title', label: 'Card 03 - Título', original: 'Go-live e Evolução', kind: 'line' },
       {
         id: 'framework_03_desc',
         label: 'Card 03 - Descrição',
@@ -180,12 +151,7 @@ const BASE_CONTENT_SECTIONS: ContentSection[] = [
     id: 'contact',
     title: 'Fale Conosco',
     fields: [
-      {
-        id: 'cta_title',
-        label: 'Título CTA',
-        original: 'Vamos construir o futuro da sua operação?',
-        kind: 'line',
-      },
+      { id: 'cta_title', label: 'Título CTA', original: 'Vamos construir o futuro da sua operação?', kind: 'line' },
       {
         id: 'cta_sub',
         label: 'Subtítulo CTA',
@@ -194,12 +160,7 @@ const BASE_CONTENT_SECTIONS: ContentSection[] = [
         kind: 'area',
       },
       { id: 'contact_form_title', label: 'Título do formulário', original: 'Envie uma mensagem', kind: 'line' },
-      {
-        id: 'contact_side_title',
-        label: 'Título lateral',
-        original: 'Fale com<br>quem decide<br>junto com você.',
-        kind: 'area',
-      },
+      { id: 'contact_side_title', label: 'Título lateral', original: 'Fale com<br>quem decide<br>junto com você.', kind: 'area' },
     ],
   },
   {
@@ -222,61 +183,134 @@ function shouldIncludeText(value: string) {
   return /[A-Za-zÀ-ÿ0-9]/.test(value)
 }
 
-function stripIgnoredHtml(rawHtml: string) {
-  return rawHtml
-    .replace(/<script[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[\s\S]*?<\/style>/gi, '')
-    .replace(/<noscript[\s\S]*?<\/noscript>/gi, '')
+function resolvePanelSectionId(el: Element | null): PanelSectionId {
+  const section = el?.closest('section')
+  const id = section?.id?.toLowerCase() ?? ''
+  const cls = section?.className?.toString().toLowerCase() ?? ''
+
+  if (id === 'home') return 'hero'
+  if (id === 'solucao') return 'solution'
+  if (id === 'cases' || cls.includes('clients')) return 'cases'
+  if (id === 'metodologia') return 'framework'
+  if (id === 'contato') return 'contact'
+  if (id === 'mercado' || id === 'problema' || id === 'numeros') return 'market-headings'
+  if (cls.includes('testimonials')) return 'testimonials'
+
+  return 'market-headings'
 }
 
-function buildAutoFields(html: string, coveredNormalizedTexts: Set<string>) {
-  const output: ContentField[] = []
-  const seenNormalized = new Set<string>()
-  const safeHtml = stripIgnoredHtml(html)
+type EditableTarget = {
+  type: 'text' | 'attr'
+  sectionId: PanelSectionId
+  source: string
+  normalized: string
+  index: number
+  attrName?: 'placeholder' | 'value' | 'title' | 'aria-label'
+}
 
-  const textRegex = />([^<>]+)</g
-  let textMatch = textRegex.exec(safeHtml)
-  while (textMatch) {
-    const source = textMatch[1] ?? ''
-    const normalized = normalizeText(source)
+function collectEditableTargets(html: string): EditableTarget[] {
+  if (typeof DOMParser === 'undefined') return []
 
-    if (shouldIncludeText(normalized) && !coveredNormalizedTexts.has(normalized) && !seenNormalized.has(normalized)) {
-      const nextIndex = output.length + 1
-      output.push({
-        id: `auto_${String(nextIndex).padStart(4, '0')}`,
-        label: normalized.length > 80 ? `${normalized.slice(0, 80)}...` : normalized,
-        original: normalized,
-        source,
-        kind: normalized.length <= 80 ? 'line' : 'area',
-      })
-      seenNormalized.add(normalized)
+  const parser = new DOMParser()
+  const doc = parser.parseFromString(html, 'text/html')
+  const output: EditableTarget[] = []
+
+  const textWalker = doc.createTreeWalker(doc.documentElement, NodeFilter.SHOW_TEXT)
+  let textIndex = 0
+  let current = textWalker.nextNode()
+  while (current) {
+    const node = current as Text
+    const parent = node.parentElement
+    const parentTag = parent?.tagName?.toUpperCase()
+
+    if (parentTag !== 'SCRIPT' && parentTag !== 'STYLE' && parentTag !== 'NOSCRIPT') {
+      const source = node.nodeValue ?? ''
+      const normalized = normalizeText(source)
+      if (shouldIncludeText(normalized)) {
+        output.push({
+          type: 'text',
+          sectionId: resolvePanelSectionId(parent),
+          source,
+          normalized,
+          index: textIndex,
+        })
+        textIndex += 1
+      }
     }
 
-    textMatch = textRegex.exec(safeHtml)
+    current = textWalker.nextNode()
   }
 
-  const attrRegex = /\b(placeholder|value|title|aria-label)=(["'])(.*?)\2/gi
-  let attrMatch = attrRegex.exec(safeHtml)
-  while (attrMatch) {
-    const source = attrMatch[3] ?? ''
-    const normalized = normalizeText(source)
+  const attrNames: Array<'placeholder' | 'value' | 'title' | 'aria-label'> = ['placeholder', 'value', 'title', 'aria-label']
+  let attrIndex = 0
+  for (const el of Array.from(doc.querySelectorAll('*'))) {
+    for (const attrName of attrNames) {
+      const source = el.getAttribute(attrName) ?? ''
+      const normalized = normalizeText(source)
+      if (!shouldIncludeText(normalized)) continue
 
-    if (shouldIncludeText(normalized) && !coveredNormalizedTexts.has(normalized) && !seenNormalized.has(normalized)) {
-      const nextIndex = output.length + 1
       output.push({
-        id: `auto_${String(nextIndex).padStart(4, '0')}`,
-        label: normalized.length > 80 ? `${normalized.slice(0, 80)}...` : normalized,
-        original: normalized,
+        type: 'attr',
+        sectionId: resolvePanelSectionId(el),
         source,
-        kind: 'line',
+        normalized,
+        index: attrIndex,
+        attrName,
       })
-      seenNormalized.add(normalized)
+      attrIndex += 1
     }
-
-    attrMatch = attrRegex.exec(safeHtml)
   }
 
   return output
+}
+
+function buildAutoFieldsBySection(html: string, coveredNormalizedTexts: Set<string>) {
+  const bySection: Record<PanelSectionId, ContentField[]> = {
+    hero: [],
+    solution: [],
+    cases: [],
+    testimonials: [],
+    framework: [],
+    contact: [],
+    'market-headings': [],
+  }
+
+  const counters: Record<PanelSectionId, number> = {
+    hero: 0,
+    solution: 0,
+    cases: 0,
+    testimonials: 0,
+    framework: 0,
+    contact: 0,
+    'market-headings': 0,
+  }
+
+  const seenLabelCount = new Map<string, number>()
+
+  for (const target of collectEditableTargets(html)) {
+    if (coveredNormalizedTexts.has(target.normalized)) continue
+
+    counters[target.sectionId] += 1
+    const baseLabel = target.normalized.length > 80 ? `${target.normalized.slice(0, 80)}...` : target.normalized
+    const k = `${target.sectionId}:${baseLabel}`
+    const occurrence = (seenLabelCount.get(k) ?? 0) + 1
+    seenLabelCount.set(k, occurrence)
+
+    bySection[target.sectionId].push({
+      id: `auto_${target.sectionId}_${String(counters[target.sectionId]).padStart(3, '0')}`,
+      label: occurrence > 1 ? `${baseLabel} (${occurrence})` : baseLabel,
+      original: target.normalized,
+      source: target.source,
+      kind: target.type === 'attr' || target.normalized.length <= 80 ? 'line' : 'area',
+      locator: {
+        type: target.type,
+        index: target.index,
+        attrName: target.attrName,
+      },
+    })
+  }
+
+  return bySection
 }
 
 export function buildContentSections(legacyHtml: string): ContentSection[] {
@@ -284,20 +318,16 @@ export function buildContentSections(legacyHtml: string): ContentSection[] {
     BASE_CONTENT_SECTIONS.flatMap((section) => section.fields.map((field) => normalizeText(field.original))),
   )
 
-  const autoFields = buildAutoFields(legacyHtml, coveredNormalizedTexts)
+  const autoFieldsBySection = buildAutoFieldsBySection(legacyHtml, coveredNormalizedTexts)
 
-  if (autoFields.length === 0) {
-    return BASE_CONTENT_SECTIONS
-  }
-
-  return [
-    ...BASE_CONTENT_SECTIONS,
-    {
-      id: 'extra',
-      title: 'Textos Adicionais do Site',
-      fields: autoFields,
-    },
-  ]
+  return BASE_CONTENT_SECTIONS.map((section) => {
+    const autoFields = autoFieldsBySection[section.id as PanelSectionId] ?? []
+    if (autoFields.length === 0) return section
+    return {
+      ...section,
+      fields: [...section.fields, ...autoFields],
+    }
+  })
 }
 
 export function buildDefaultTextValues(sections: ContentSection[]) {
