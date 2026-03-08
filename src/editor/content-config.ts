@@ -24,6 +24,7 @@ type PanelSectionId =
   | 'testimonials'
   | 'framework'
   | 'contact'
+  | 'contact-form'
   | 'market-headings'
 
 const BASE_CONTENT_SECTIONS: ContentSection[] = [
@@ -159,8 +160,48 @@ const BASE_CONTENT_SECTIONS: ContentSection[] = [
           'Fale com nossos especialistas e descubra como o ecossistema Rheon pode transformar sua operação.',
         kind: 'area',
       },
-      { id: 'contact_form_title', label: 'Título do formulário', original: 'Envie uma mensagem', kind: 'line' },
       { id: 'contact_side_title', label: 'Título lateral', original: 'Fale com<br>quem decide<br>junto com você.', kind: 'area' },
+    ],
+  },
+  {
+    id: 'contact-form',
+    title: 'Formulário de Contato',
+    fields: [
+      { id: 'contact_form_heading', label: 'Título do formulário', original: 'Envie uma mensagem', kind: 'line' },
+      { id: 'contact_form_name_label', label: 'Label - Nome', original: 'Nome', kind: 'line' },
+      { id: 'contact_form_name_placeholder', label: 'Placeholder - Nome', original: 'Seu nome', kind: 'line' },
+      { id: 'contact_form_company_label', label: 'Label - Empresa', original: 'Empresa', kind: 'line' },
+      { id: 'contact_form_company_placeholder', label: 'Placeholder - Empresa', original: 'Nome da empresa', kind: 'line' },
+      { id: 'contact_form_email_label', label: 'Label - E-mail', original: 'E-mail', kind: 'line' },
+      { id: 'contact_form_email_placeholder', label: 'Placeholder - E-mail', original: 'seu@email.com.br', kind: 'line' },
+      { id: 'contact_form_phone_label', label: 'Label - WhatsApp', original: 'WhatsApp', kind: 'line' },
+      { id: 'contact_form_phone_placeholder', label: 'Placeholder - WhatsApp', original: '(43) 99999-9999', kind: 'line' },
+      { id: 'contact_form_segment_label', label: 'Label - Segmento', original: 'Segmento', kind: 'line' },
+      {
+        id: 'contact_form_segment_placeholder',
+        label: 'Opção padrão - Segmento',
+        original: 'Selecione seu segmento',
+        kind: 'line',
+      },
+      { id: 'contact_form_segment_option_farma', label: 'Opção - Farma', original: 'Farmacêutico / Drogaria', kind: 'line' },
+      { id: 'contact_form_segment_option_beleza', label: 'Opção - Beleza', original: 'Beleza / Cosméticos', kind: 'line' },
+      { id: 'contact_form_segment_option_pet', label: 'Opção - Pet', original: 'Pet Shop', kind: 'line' },
+      { id: 'contact_form_segment_option_outro', label: 'Opção - Outro', original: 'Outro', kind: 'line' },
+      { id: 'contact_form_message_label', label: 'Label - Mensagem', original: 'Como podemos ajudar?', kind: 'line' },
+      {
+        id: 'contact_form_message_placeholder',
+        label: 'Placeholder - Mensagem',
+        original: 'Descreva brevemente sua operação e o que você busca...',
+        kind: 'area',
+      },
+      { id: 'contact_form_submit', label: 'Botão enviar', original: 'Enviar mensagem', kind: 'line' },
+      { id: 'contact_form_success_title', label: 'Sucesso - Título', original: 'Mensagem enviada!', kind: 'line' },
+      {
+        id: 'contact_form_success_desc',
+        label: 'Sucesso - Descrição',
+        original: 'Nosso time entrará em contato em breve.',
+        kind: 'line',
+      },
     ],
   },
   {
@@ -192,6 +233,7 @@ function resolvePanelSectionId(el: Element | null): PanelSectionId {
   if (id === 'solucao') return 'solution'
   if (id === 'cases' || cls.includes('clients')) return 'cases'
   if (id === 'metodologia') return 'framework'
+  if (el?.closest('#contactForm') || el?.closest('.contact-form-side')) return 'contact-form'
   if (id === 'contato') return 'contact'
   if (id === 'mercado' || id === 'problema' || id === 'numeros') return 'market-headings'
   if (cls.includes('testimonials')) return 'testimonials'
@@ -272,6 +314,7 @@ function buildAutoFieldsBySection(html: string, coveredNormalizedTexts: Set<stri
     testimonials: [],
     framework: [],
     contact: [],
+    'contact-form': [],
     'market-headings': [],
   }
 
@@ -282,6 +325,7 @@ function buildAutoFieldsBySection(html: string, coveredNormalizedTexts: Set<stri
     testimonials: 0,
     framework: 0,
     contact: 0,
+    'contact-form': 0,
     'market-headings': 0,
   }
 
