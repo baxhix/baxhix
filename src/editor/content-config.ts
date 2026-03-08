@@ -4,6 +4,11 @@ export type ContentField = {
   original: string
   source?: string
   kind?: 'line' | 'area'
+  locator?: {
+    type: 'text' | 'attr'
+    index: number
+    attrName?: 'placeholder' | 'value' | 'title' | 'aria-label'
+  }
 }
 
 export type ContentSection = {
@@ -234,58 +239,91 @@ function shouldIncludeText(value: string) {
   return /[A-Za-zÀ-ÿ0-9]/.test(value)
 }
 
-function stripIgnoredHtml(rawHtml: string) {
-  return rawHtml
-    .replace(/<script[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[\s\S]*?<\/style>/gi, '')
-    .replace(/<noscript[\s\S]*?<\/noscript>/gi, '')
+type EditableTarget = {
+  type: 'text' | 'attr'
+  index: number
+  source: string
+  normalized: string
+  attrName?: 'placeholder' | 'value' | 'title' | 'aria-label'
+}
+
+function collectEditableTargets(html: string): EditableTarget[] {
+  if (typeof DOMParser === 'undefined') return []
+
+  const parser = new DOMParser()
+  const doc = parser.parseFromString(html, 'text/html')
+  const targets: EditableTarget[] = []
+
+  const textWalker = doc.createTreeWalker(doc.documentElement, NodeFilter.SHOW_TEXT)
+  let textIndex = 0
+  let textNode = textWalker.nextNode()
+  while (textNode) {
+    const parent = textNode.parentElement
+    const parentTag = parent?.tagName?.toUpperCase()
+    if (!parentTag || (parentTag !== 'SCRIPT' && parentTag !== 'STYLE' && parentTag !== 'NOSCRIPT')) {
+      const source = textNode.nodeValue ?? ''
+      const normalized = normalizeText(source)
+      if (shouldIncludeText(normalized)) {
+        targets.push({
+          type: 'text',
+          index: textIndex,
+          source,
+          normalized,
+        })
+        textIndex += 1
+      }
+    }
+
+    textNode = textWalker.nextNode()
+  }
+
+  const attrNames: Array<'placeholder' | 'value' | 'title' | 'aria-label'> = ['placeholder', 'value', 'title', 'aria-label']
+  let attrIndex = 0
+  for (const el of Array.from(doc.querySelectorAll('*'))) {
+    for (const attrName of attrNames) {
+      const source = el.getAttribute(attrName) ?? ''
+      const normalized = normalizeText(source)
+      if (!shouldIncludeText(normalized)) continue
+
+      targets.push({
+        type: 'attr',
+        index: attrIndex,
+        source,
+        normalized,
+        attrName,
+      })
+      attrIndex += 1
+    }
+  }
+
+  return targets
 }
 
 function buildAutoFields(html: string, coveredNormalizedTexts: Set<string>) {
   const output: ContentField[] = []
-  const seenNormalized = new Set<string>()
-  const safeHtml = stripIgnoredHtml(html)
+  const seenLabels = new Map<string, number>()
+  const targets = collectEditableTargets(html)
 
-  const textRegex = />([^<>]+)</g
-  let textMatch = textRegex.exec(safeHtml)
-  while (textMatch) {
-    const source = textMatch[1] ?? ''
-    const normalized = normalizeText(source)
+  for (const target of targets) {
+    if (coveredNormalizedTexts.has(target.normalized)) continue
 
-    if (shouldIncludeText(normalized) && !coveredNormalizedTexts.has(normalized) && !seenNormalized.has(normalized)) {
-      const nextIndex = output.length + 1
-      output.push({
-        id: `auto_${String(nextIndex).padStart(4, '0')}`,
-        label: normalized.length > 80 ? `${normalized.slice(0, 80)}...` : normalized,
-        original: normalized,
-        source,
-        kind: normalized.length <= 80 ? 'line' : 'area',
-      })
-      seenNormalized.add(normalized)
-    }
+    const nextIndex = output.length + 1
+    const labelBase = target.normalized.length > 80 ? `${target.normalized.slice(0, 80)}...` : target.normalized
+    const occurrence = (seenLabels.get(labelBase) ?? 0) + 1
+    seenLabels.set(labelBase, occurrence)
 
-    textMatch = textRegex.exec(safeHtml)
-  }
-
-  const attrRegex = /\b(placeholder|value|title|aria-label)=(["'])(.*?)\2/gi
-  let attrMatch = attrRegex.exec(safeHtml)
-  while (attrMatch) {
-    const source = attrMatch[3] ?? ''
-    const normalized = normalizeText(source)
-
-    if (shouldIncludeText(normalized) && !coveredNormalizedTexts.has(normalized) && !seenNormalized.has(normalized)) {
-      const nextIndex = output.length + 1
-      output.push({
-        id: `auto_${String(nextIndex).padStart(4, '0')}`,
-        label: normalized.length > 80 ? `${normalized.slice(0, 80)}...` : normalized,
-        original: normalized,
-        source,
-        kind: 'line',
-      })
-      seenNormalized.add(normalized)
-    }
-
-    attrMatch = attrRegex.exec(safeHtml)
+    output.push({
+      id: `auto_${String(nextIndex).padStart(4, '0')}`,
+      label: occurrence > 1 ? `${labelBase} (${occurrence})` : labelBase,
+      original: target.normalized,
+      source: target.source,
+      kind: target.type === 'attr' || target.normalized.length <= 80 ? 'line' : 'area',
+      locator: {
+        type: target.type,
+        index: target.index,
+        attrName: target.attrName,
+      },
+    })
   }
 
   return output
