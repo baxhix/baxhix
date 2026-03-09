@@ -106,5 +106,7 @@ export function applyLegacyContent(
     }
   }
 
+  output = output.replace(/\(?\s*CANAIS DIGITAIS B2C,\s*B2B E D2C\s*\)?/gi, '')
+
   return output
 }

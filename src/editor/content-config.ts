@@ -224,6 +224,8 @@ function normalizeText(value: string) {
 
 function shouldIncludeText(value: string) {
   if (value.length < 2) return false
+  const upper = value.toUpperCase()
+  if (upper.includes('CANAIS DIGITAIS B2C, B2B E D2C')) return false
   return /[A-Za-zÀ-ÿ0-9]/.test(value)
 }
 
