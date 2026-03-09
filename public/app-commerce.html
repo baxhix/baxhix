@@ -149,14 +149,13 @@
       gap: 20px;
     }
     .panorama-card {
-      border: 1px solid rgba(255,255,255,0.12);
       background: #141412;
       padding: 28px 24px;
       min-height: 360px;
     }
     .panorama-icon {
-      width: 32px;
-      height: 32px;
+      width: 48px;
+      height: 48px;
       color: #8e8e89;
       margin-bottom: 18px;
     }
@@ -169,7 +168,11 @@
     .panorama-text {
       font-size: 16px;
       line-height: 1.6;
-      color: var(--gray-200);
+      color: #d8d8d4;
+    }
+    .panorama-emphasis {
+      font-weight: 700;
+      color: var(--white);
     }
     .panorama-line {
       width: 42px;
@@ -181,6 +184,129 @@
       margin-top: 28px;
       font-size: 14px;
       color: var(--gray-400);
+    }
+
+    .retailer-pains {
+      background: var(--black);
+      color: var(--white);
+      padding-top: 20px;
+    }
+    .retailer-pains-wrap {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+    .retailer-pains h2 {
+      font-size: clamp(34px, 4.5vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      font-weight: 800;
+    }
+    .retailer-pains-subtitle {
+      font-size: 22px;
+      line-height: 1.45;
+      color: var(--gray-200);
+      margin-bottom: 42px;
+    }
+    .retailer-pains-subtitle strong {
+      color: var(--white);
+      font-weight: 700;
+    }
+    .pains-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .pain-card {
+      background: #141412;
+      position: relative;
+      padding: 26px 22px 24px;
+      min-height: 230px;
+    }
+    .pain-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--white);
+    }
+    .pain-icon {
+      width: 38px;
+      height: 38px;
+      margin-bottom: 16px;
+      color: #94948f;
+      display: block;
+    }
+    .pain-text {
+      font-size: 16px;
+      line-height: 1.62;
+      color: #d8d8d4;
+    }
+    .pain-text strong {
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .how-we-solve {
+      background: var(--black);
+      color: var(--white);
+      padding-top: 20px;
+    }
+    .how-we-solve-wrap {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+    .how-we-solve h2 {
+      font-size: clamp(34px, 4.5vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      font-weight: 800;
+    }
+    .how-we-solve-subtitle {
+      font-size: 22px;
+      line-height: 1.45;
+      color: var(--gray-200);
+      margin-bottom: 42px;
+    }
+    .how-we-solve-subtitle strong {
+      color: var(--white);
+      font-weight: 700;
+    }
+    .solve-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .solve-card {
+      background: #141412;
+      padding: 28px 24px;
+      min-height: 330px;
+    }
+    .solve-icon {
+      width: 48px;
+      height: 48px;
+      color: #8e8e89;
+      margin-bottom: 18px;
+      display: block;
+    }
+    .solve-highlight {
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+    .solve-text {
+      font-size: 16px;
+      line-height: 1.62;
+      color: #d8d8d4;
+      margin-bottom: 14px;
+    }
+    .solve-text:last-child {
+      margin-bottom: 0;
     }
 
     footer {
@@ -221,6 +347,10 @@
       .app-hero p { font-size: 18px; }
       .panorama-grid { grid-template-columns: 1fr; }
       .panorama-card { min-height: auto; }
+      .pains-grid { grid-template-columns: 1fr; }
+      .pain-card { min-height: auto; }
+      .solve-grid { grid-template-columns: 1fr; }
+      .solve-card { min-height: auto; }
       footer { padding: 210px 24px 198px; }
       .footer-top, .footer-mid { grid-template-columns: 1fr; gap: 18px; }
     }
@@ -268,29 +398,93 @@
           <article class="panorama-card">
             <svg class="panorama-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="7" y="2" width="10" height="20" rx="2" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="18" r="1" fill="currentColor"/></svg>
             <div class="panorama-highlight">+75%</div>
-            <p class="panorama-text">de todo o tráfego de e-commerce no Brasil já vem de celular.</p>
+            <p class="panorama-text">de todo o tráfego de e-commerce no <strong class="panorama-emphasis">Brasil</strong> já vem de celular.</p>
             <div class="panorama-line"></div>
-            <p class="panorama-text">Os melhores clientes de qualquer marca — os que mais compram — preferem app.</p>
+            <p class="panorama-text">Os melhores clientes de <strong class="panorama-emphasis">qualquer marca</strong> — os que mais compram — preferem app.</p>
           </article>
 
           <article class="panorama-card">
             <svg class="panorama-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="9" r="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M3 18c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1.8"/><path d="M13 18c.2-2 1.9-3.6 4-3.6 2.2 0 4 1.8 4 4" stroke="currentColor" stroke-width="1.8"/></svg>
             <div class="panorama-highlight">Líderes</div>
-            <p class="panorama-text">de mercado já tratam seus aplicativos como um pilar estratégico de vendas.</p>
+            <p class="panorama-text">de mercado já tratam seus aplicativos como um pilar estratégico <strong class="panorama-emphasis">de vendas</strong>.</p>
             <div class="panorama-line"></div>
-            <p class="panorama-text">Usuários de app compram mais vezes, gastam mais e têm retenção muito superior ao web.</p>
+            <p class="panorama-text">Usuários de app <strong class="panorama-emphasis">compram mais vezes</strong>, gastam mais e têm retenção muito superior ao <strong class="panorama-emphasis">web</strong>.</p>
           </article>
 
           <article class="panorama-card">
             <svg class="panorama-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 18h16" stroke="currentColor" stroke-width="1.8"/><path d="M6 16V9" stroke="currentColor" stroke-width="1.8"/><path d="M11 16V6" stroke="currentColor" stroke-width="1.8"/><path d="M16 16v-4" stroke="currentColor" stroke-width="1.8"/><path d="M4 6l5-2 4 2 7-3" stroke="currentColor" stroke-width="1.8"/></svg>
             <div class="panorama-highlight">CAC</div>
-            <p class="panorama-text">Com o aumento do custo de mídia, depender apenas de tráfego pago representa um CAC cada vez mais alto.</p>
+            <p class="panorama-text">Com o aumento do <strong class="panorama-emphasis">custo</strong> de mídia, depender apenas de tráfego pago representa um CAC <strong class="panorama-emphasis">cada vez mais alto</strong>.</p>
             <div class="panorama-line"></div>
-            <p class="panorama-text">Com o Lean App você cria um canal direto de vendas, reduzindo dependência de mídia.</p>
+            <p class="panorama-text">Com o Lean App você cria um <strong class="panorama-emphasis">canal direto de vendas</strong>, reduzindo dependência de mídia.</p>
           </article>
         </div>
 
         <p class="panorama-source">Fontes: Conversion, B&amp;P, Appreach e análises de SimilarWeb.</p>
+      </div>
+    </section>
+
+    <section class="retailer-pains">
+      <div class="retailer-pains-wrap">
+        <h2>Dores do Varejista</h2>
+        <p class="retailer-pains-subtitle">É hora de transformar <strong>tráfego em retenção, e retenção em LTV.</strong></p>
+
+        <div class="pains-grid">
+          <article class="pain-card">
+            <svg class="pain-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <p class="pain-text">O web mobile <strong>não cria hábito</strong>, não gera <strong>recorrência</strong> e não oferece ferramentas de <strong>reengajamento</strong>.</p>
+          </article>
+          <article class="pain-card">
+            <svg class="pain-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <p class="pain-text">Sem notificações, ofertas personalizadas e <strong>relacionamento</strong> contínuo, a <strong>recompra</strong> desaparece.</p>
+          </article>
+          <article class="pain-card">
+            <svg class="pain-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <p class="pain-text">Um <strong>app</strong> dá a sensação de <strong>marca forte</strong>, profissional e presente — <strong>diferenciação</strong> que pesa na <strong>percepção</strong> do cliente.</p>
+          </article>
+          <article class="pain-card">
+            <svg class="pain-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <p class="pain-text">Um app <strong>elimina</strong> dores estruturais, transforma problemas crônicos em um <strong>motor</strong> de vendas previsível, <strong>escalável</strong> e direto.</p>
+          </article>
+          <article class="pain-card">
+            <svg class="pain-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <p class="pain-text">Com CPC e CPM cada vez mais altos, o <strong>CAC dispara</strong> — e sem um app, você não tem uma <strong>alternativa real</strong> de vendas sem mídia.</p>
+          </article>
+          <article class="pain-card">
+            <svg class="pain-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <p class="pain-text">Sem um <strong>canal próprio</strong> para comunicação, reativar clientes se torna uma tarefa difícil — impactando diretamente o <strong>LTV</strong>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-we-solve">
+      <div class="how-we-solve-wrap">
+        <h2>Como resolvemos</h2>
+        <p class="how-we-solve-subtitle">Tudo no Lean App foi desenhado <strong>para aumentar conversão e retenção.</strong></p>
+
+        <div class="solve-grid">
+          <article class="solve-card">
+            <svg class="solve-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M8 12l2.4 2.4L16 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="solve-highlight">Maior taxa de conversão — Experiência Nativa</div>
+            <p class="solve-text">O Lean App é rápido, fluido e sem fricções.</p>
+            <p class="solve-text">Entregamos uma navegação pensada para mobile, sem fricções típicas do web mobile ou apps híbridos.</p>
+          </article>
+
+          <article class="solve-card">
+            <svg class="solve-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M8 12l2.4 2.4L16 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="solve-highlight">Retenção e Recorrência</div>
+            <p class="solve-text">Funcionalidades e recursos criados para aumentar escala e retenção.</p>
+            <p class="solve-text">Com notificações nativas e personalizadas, o app reativa clientes sem custo por clique.</p>
+          </article>
+
+          <article class="solve-card">
+            <svg class="solve-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M8 12l2.4 2.4L16 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="solve-highlight">Nova Fonte de Receita</div>
+            <p class="solve-text">Acréscimo de pelo menos 20% da receita online após implantação.</p>
+            <p class="solve-text">Um app profissional e nativo cria presença contínua na tela do cliente e reforça a autoridade da marca.</p>
+          </article>
+        </div>
       </div>
     </section>
   </main>
