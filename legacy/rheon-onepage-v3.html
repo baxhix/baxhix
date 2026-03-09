@@ -474,7 +474,7 @@
   .problem-card:hover { background: #dededb; }
 
   .problem-number {
-    font-size: 11px;
+    font-size: 16px;
     font-weight: 700;
     letter-spacing: 0.15em;
     color: rgba(0,0,0,0.45);
@@ -507,7 +507,7 @@
   .problem-impact-label {
     display: block;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
     color: rgba(0,0,0,0.9);
     margin-bottom: 8px;
   }
@@ -517,6 +517,67 @@
     line-height: 1.6;
     color: rgba(0,0,0,0.72);
     text-align: left;
+  }
+
+  /* ─── RISCOS DE PLATAFORMA ─── */
+  .platform-risks {
+    background: var(--white);
+    color: var(--black);
+    padding-top: 24px;
+  }
+
+  .platform-risks-title {
+    font-size: clamp(32px, 4.2vw, 54px);
+    font-weight: 800;
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    margin-bottom: 44px;
+  }
+
+  .platform-risks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .platform-risk-card {
+    padding: 36px 32px;
+    border-top: 4px solid var(--black);
+  }
+
+  .platform-risk-card--dark {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  .platform-risk-card--gray {
+    background: #e8e8e6;
+    color: var(--black);
+  }
+
+  .platform-risk-title {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 14px;
+  }
+
+  .platform-risk-desc {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(0,0,0,0.72);
+  }
+
+  .platform-risk-card--dark .platform-risk-desc {
+    color: rgba(245,245,243,0.72);
+  }
+
+  .platform-risks-footnote {
+    margin-top: 38px;
+    font-size: 28px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--black);
   }
 
   /* ─── SOLUÇÃO ─── */
@@ -1408,6 +1469,7 @@
     section { padding: 80px 32px; }
     .market-grid { grid-template-columns: 1fr; }
     .problem-grid { grid-template-columns: 1fr; }
+    .platform-risks-grid { grid-template-columns: 1fr; }
     .solution-inner { grid-template-columns: 1fr; gap: 60px; }
     .numbers-grid { grid-template-columns: repeat(2, 1fr); }
     .cases-grid { grid-template-columns: 1fr; }
@@ -1535,7 +1597,7 @@
 <section class="problem" id="problema">
   <div class="section-label">O desafio</div>
   <h2 class="section-headline reveal">
-    Ignorar a complexidade<br><em>compromete margem.</em>
+    Ignorar a complexidade, compromete margem e te afasta do foco estratégico do seu negócio.
   </h2>
   <div class="problem-grid">
     <div class="problem-card reveal">
@@ -1575,6 +1637,34 @@
       </div>
     </div>
   </div>
+</section>
+
+<!-- RISCOS DE PLATAFORMA -->
+<section class="platform-risks" id="riscos-plataforma">
+  <h2 class="platform-risks-title reveal">Plataformas genéricas não foram feitas para setores específicos:</h2>
+
+  <div class="platform-risks-grid">
+    <div class="platform-risk-card platform-risk-card--dark reveal">
+      <div class="platform-risk-title">Projetos Proprietários</div>
+      <p class="platform-risk-desc">
+        São como construir um <strong>hospital do zero</strong>.<br>
+        O resultado pode ser ideal, mas o processo é longo, caro e de alto risco. Você depende 100% de um construtor que pode não ter a expertise necessária.
+      </p>
+    </div>
+
+    <div class="platform-risk-card platform-risk-card--gray reveal reveal-delay-1">
+      <div class="platform-risk-title">Plataformas SaaS Genéricas</div>
+      <p class="platform-risk-desc">
+        São como um <strong>prédio comercial</strong>. Versáteis e rápidos de ocupar, mas inadequados para a complexidade de um hospital.
+        <strong>As adaptações geram débito técnico, custos recorrentes e risco contínuo.</strong>
+      </p>
+    </div>
+  </div>
+
+  <p class="platform-risks-footnote reveal reveal-delay-2">
+    Cada abordagem traz um tipo diferente de risco operacional.<br>
+    <strong>O correto é a tecnologia servir ao negócio.</strong>
+  </p>
 </section>
 
 <!-- SOLUÇÃO -->
