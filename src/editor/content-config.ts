@@ -218,14 +218,12 @@ const BASE_CONTENT_SECTIONS: ContentSection[] = [
   },
 ]
 
-function normalizeText(value: string) {
+export function normalizeText(value: string) {
   return value.replace(/\s+/g, ' ').trim()
 }
 
-function shouldIncludeText(value: string) {
+export function shouldIncludeText(value: string) {
   if (value.length < 2) return false
-  const upper = value.toUpperCase()
-  if (upper.includes('CANAIS DIGITAIS B2C, B2B E D2C')) return false
   return /[A-Za-zÀ-ÿ0-9]/.test(value)
 }
 
@@ -255,7 +253,7 @@ type EditableTarget = {
   attrName?: 'placeholder' | 'value' | 'title' | 'aria-label'
 }
 
-function collectEditableTargets(html: string): EditableTarget[] {
+export function collectEditableTargets(html: string): EditableTarget[] {
   if (typeof DOMParser === 'undefined') return []
 
   const parser = new DOMParser()
@@ -311,6 +309,43 @@ function collectEditableTargets(html: string): EditableTarget[] {
   return output
 }
 
+function attachLocatorsToBaseSections(baseSections: ContentSection[], targets: EditableTarget[]): ContentSection[] {
+  const used = new Set<string>()
+
+  return baseSections.map((section) => {
+    const nextFields = section.fields.map((field) => {
+      if (field.locator) return field
+      const normalizedOriginal = normalizeText(field.original)
+      const match = targets.find((target) => {
+        if (target.sectionId !== section.id) return false
+        if (target.normalized !== normalizedOriginal) return false
+        const key = `${target.type}:${target.index}:${target.attrName ?? ''}`
+        return !used.has(key)
+      })
+
+      if (!match) return field
+
+      const key = `${match.type}:${match.index}:${match.attrName ?? ''}`
+      used.add(key)
+
+      return {
+        ...field,
+        source: match.source,
+        locator: {
+          type: match.type,
+          index: match.index,
+          attrName: match.attrName,
+        },
+      }
+    })
+
+    return {
+      ...section,
+      fields: nextFields,
+    }
+  })
+}
+
 function buildAutoFieldsBySection(html: string, coveredNormalizedTexts: Set<string>) {
   const bySection: Record<PanelSectionId, ContentField[]> = {
     hero: [],
@@ -363,13 +398,15 @@ function buildAutoFieldsBySection(html: string, coveredNormalizedTexts: Set<stri
 }
 
 export function buildContentSections(legacyHtml: string): ContentSection[] {
+  const targets = collectEditableTargets(legacyHtml)
+  const baseSections = attachLocatorsToBaseSections(BASE_CONTENT_SECTIONS, targets)
   const coveredNormalizedTexts = new Set(
-    BASE_CONTENT_SECTIONS.flatMap((section) => section.fields.map((field) => normalizeText(field.original))),
+    baseSections.flatMap((section) => section.fields.map((field) => normalizeText(field.original))),
   )
 
   const autoFieldsBySection = buildAutoFieldsBySection(legacyHtml, coveredNormalizedTexts)
 
-  return BASE_CONTENT_SECTIONS.map((section) => {
+  return baseSections.map((section) => {
     const autoFields = autoFieldsBySection[section.id as PanelSectionId] ?? []
     if (autoFields.length === 0) return section
     return {

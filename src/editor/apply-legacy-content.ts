@@ -1,4 +1,9 @@
-import { type ContentSection, buildContentSections } from '@/editor/content-config'
+import {
+  type ContentSection,
+  buildContentSections,
+  normalizeText,
+  shouldIncludeText,
+} from '@/editor/content-config'
 
 type EditableTextNode = {
   index: number
@@ -22,9 +27,14 @@ function collectEditableNodes(doc: Document) {
     const node = current as Text
     const parent = node.parentElement
     const parentTag = parent?.tagName?.toUpperCase()
-    const normalized = node.nodeValue?.replace(/\s+/g, ' ').trim() ?? ''
+    const normalized = normalizeText(node.nodeValue ?? '')
 
-    if (normalized && parentTag !== 'SCRIPT' && parentTag !== 'STYLE' && parentTag !== 'NOSCRIPT') {
+    if (
+      parentTag !== 'SCRIPT' &&
+      parentTag !== 'STYLE' &&
+      parentTag !== 'NOSCRIPT' &&
+      shouldIncludeText(normalized)
+    ) {
       textNodes.push({ index: textIndex, node })
       textIndex += 1
     }
@@ -37,8 +47,8 @@ function collectEditableNodes(doc: Document) {
   for (const el of Array.from(doc.querySelectorAll('*'))) {
     for (const attrName of attrNames) {
       const raw = el.getAttribute(attrName)
-      const normalized = raw?.replace(/\s+/g, ' ').trim() ?? ''
-      if (!normalized) continue
+      const normalized = normalizeText(raw ?? '')
+      if (!shouldIncludeText(normalized)) continue
 
       attrNodes.push({ index: attrIndex, el, attrName })
       attrIndex += 1
@@ -46,6 +56,13 @@ function collectEditableNodes(doc: Document) {
   }
 
   return { textNodes, attrNodes }
+}
+
+function replaceFirst(source: string, searchValue: string, replaceValue: string) {
+  if (!searchValue) return source
+  const index = source.indexOf(searchValue)
+  if (index < 0) return source
+  return source.slice(0, index) + replaceValue + source.slice(index + searchValue.length)
 }
 
 export function applyLegacyContent(
@@ -99,14 +116,12 @@ export function applyLegacyContent(
   }
 
   for (const field of manualFields) {
-    output = output.split(field.source).join(field.nextValue)
+    output = replaceFirst(output, field.source, field.nextValue)
 
     if (field.source !== field.original) {
-      output = output.split(field.original).join(field.nextValue)
+      output = replaceFirst(output, field.original, field.nextValue)
     }
   }
-
-  output = output.replace(/\(?\s*CANAIS DIGITAIS B2C,\s*B2B E D2C\s*\)?/gi, '')
 
   return output
 }
