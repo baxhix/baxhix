@@ -32,9 +32,12 @@ const BASE_CONTENT_SECTIONS: ContentSection[] = [
     id: 'hero',
     title: 'Hero',
     fields: [
-      { id: 'hero_title_line_1', label: 'Título principal - Linha 1', original: 'Do físico', kind: 'line' },
-      { id: 'hero_title_line_2', label: 'Título principal - Linha 2', original: 'ao digital —', kind: 'line' },
-      { id: 'hero_title_line_3', label: 'Título principal - Linha 3', original: 'sem fricção.', kind: 'line' },
+      {
+        id: 'hero_title',
+        label: 'Título principal',
+        original: 'O ecossistema completo para Farma, Beleza e Pet',
+        kind: 'line',
+      },
       {
         id: 'hero_sub',
         label: 'Subtítulo',
