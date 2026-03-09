@@ -268,8 +268,16 @@ export function collectEditableTargets(html: string): EditableTarget[] {
     const parentTag = parent?.tagName?.toUpperCase()
     const insideProblem = Boolean(parent?.closest('#problema'))
     const insidePlatformRisks = Boolean(parent?.closest('#riscos-plataforma'))
+    const insideUnifiedArchitecture = Boolean(parent?.closest('#arquitetura-unificada'))
 
-    if (!insideProblem && !insidePlatformRisks && parentTag !== 'SCRIPT' && parentTag !== 'STYLE' && parentTag !== 'NOSCRIPT') {
+    if (
+      !insideProblem &&
+      !insidePlatformRisks &&
+      !insideUnifiedArchitecture &&
+      parentTag !== 'SCRIPT' &&
+      parentTag !== 'STYLE' &&
+      parentTag !== 'NOSCRIPT'
+    ) {
       const source = node.nodeValue ?? ''
       const normalized = normalizeText(source)
       if (shouldIncludeText(normalized)) {
@@ -292,7 +300,8 @@ export function collectEditableTargets(html: string): EditableTarget[] {
   for (const el of Array.from(doc.querySelectorAll('*'))) {
     const insideProblem = Boolean(el.closest('#problema'))
     const insidePlatformRisks = Boolean(el.closest('#riscos-plataforma'))
-    if (insideProblem || insidePlatformRisks) continue
+    const insideUnifiedArchitecture = Boolean(el.closest('#arquitetura-unificada'))
+    if (insideProblem || insidePlatformRisks || insideUnifiedArchitecture) continue
     for (const attrName of attrNames) {
       const source = el.getAttribute(attrName) ?? ''
       const normalized = normalizeText(source)

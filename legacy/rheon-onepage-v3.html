@@ -538,6 +538,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
   }
 
   .platform-risk-card {
@@ -574,10 +576,40 @@
 
   .platform-risks-footnote {
     margin-top: 38px;
-    font-size: 28px;
+    font-size: 32px;
     line-height: 1.25;
     letter-spacing: -0.01em;
     color: var(--black);
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ─── ARQUITETURA UNIFICADA ─── */
+  .unified-architecture {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  .unified-architecture-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .unified-architecture-title {
+    font-size: clamp(42px, 5.2vw, 76px);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin-bottom: 26px;
+  }
+
+  .unified-architecture-sub {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(245,245,243,0.74);
   }
 
   /* ─── SOLUÇÃO ─── */
@@ -1665,6 +1697,21 @@
     Cada abordagem traz um tipo diferente de risco operacional.<br>
     <strong>O correto é a tecnologia servir ao negócio.</strong>
   </p>
+</section>
+
+<!-- ARQUITETURA UNIFICADA -->
+<section class="unified-architecture" id="arquitetura-unificada">
+  <div class="unified-architecture-wrap">
+    <h2 class="unified-architecture-title reveal">
+      Tudo conectado.<br>
+      Tudo na mesma arquitetura.<br>
+      Sem integrações improvisadas.
+    </h2>
+    <p class="unified-architecture-sub reveal reveal-delay-1">
+      Rheon não entrega módulos.<br>
+      Entrega infraestrutura de crescimento.
+    </p>
+  </div>
 </section>
 
 <!-- SOLUÇÃO -->
