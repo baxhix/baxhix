@@ -309,6 +309,62 @@
       margin-bottom: 0;
     }
 
+    .app-advantages {
+      background: var(--white);
+      color: var(--black);
+    }
+    .app-advantages-wrap {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+    .app-advantages h2 {
+      font-size: clamp(34px, 4.5vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 36px;
+      font-weight: 800;
+      color: var(--black);
+    }
+    .advantages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .adv-card {
+      background: #ebebe8;
+      position: relative;
+      padding: 28px 24px 26px;
+      min-height: 210px;
+    }
+    .adv-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--black);
+    }
+    .adv-icon {
+      width: 40px;
+      height: 40px;
+      color: rgba(0,0,0,0.55);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .adv-title {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.28;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+    .adv-text {
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(0,0,0,0.74);
+    }
+
     footer {
       background: var(--black);
       padding: 238px 28px 220px;
@@ -351,6 +407,8 @@
       .pain-card { min-height: auto; }
       .solve-grid { grid-template-columns: 1fr; }
       .solve-card { min-height: auto; }
+      .advantages-grid { grid-template-columns: 1fr; }
+      .adv-card { min-height: auto; }
       footer { padding: 210px 24px 198px; }
       .footer-top, .footer-mid { grid-template-columns: 1fr; gap: 18px; }
     }
@@ -483,6 +541,58 @@
             <div class="solve-highlight">Nova Fonte de Receita</div>
             <p class="solve-text">Acréscimo de pelo menos 20% da receita online após implantação.</p>
             <p class="solve-text">Um app profissional e nativo cria presença contínua na tela do cliente e reforça a autoridade da marca.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-advantages">
+      <div class="app-advantages-wrap">
+        <h2>Vantagens do App Commerce</h2>
+        <div class="advantages-grid">
+          <article class="adv-card">
+            <svg class="adv-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 8.5a3.5 3.5 0 017 0v6a3.5 3.5 0 11-7 0v-6z" stroke="currentColor" stroke-width="1.8"/><path d="M4 12h4m12 0h-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <div class="adv-title">Audiência e aquisição</div>
+            <p class="adv-text">Facilidade de implementar ações de marketing</p>
+          </article>
+          <article class="adv-card">
+            <svg class="adv-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6.5h16v9H8l-4 3v-12z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            <div class="adv-title">Retenção e engajamento</div>
+            <p class="adv-text">via push notifications segmentados</p>
+          </article>
+          <article class="adv-card">
+            <svg class="adv-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 3l8 8-5 1-3 5-1-5-5-3 6-6z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            <div class="adv-title">25 dias úteis para Go Live</div>
+            <p class="adv-text">Lançamento nas Apps Stores</p>
+          </article>
+          <article class="adv-card">
+            <svg class="adv-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 8l-4 4 4 4m6-8l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="adv-title">CMS Low-code e no-code</div>
+            <p class="adv-text">Gestão autônoma de vitrines, landing pages</p>
+          </article>
+          <article class="adv-card">
+            <svg class="adv-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="18" r="1.5" fill="currentColor"/><circle cx="17" cy="18" r="1.5" fill="currentColor"/><path d="M4 6h2l2 8h10l2-6H7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="adv-title">Checkout</div>
+            <p class="adv-text">100% nativo com alto desempenho e taxa de conversão</p>
+          </article>
+          <article class="adv-card">
+            <svg class="adv-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 8l-4 4 4 4m8-8l4 4-4 4M10 12h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="adv-title">Arquitetura Flexível e API aberta para novas integrações</div>
+          </article>
+          <article class="adv-card">
+            <svg class="adv-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3.5" y="5" width="17" height="12" rx="1.5" stroke="currentColor" stroke-width="1.8"/><path d="M10 20h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <div class="adv-title">Painel exclusivo do canal mobile</div>
+            <p class="adv-text">Configurações sem necessidade de gerar novas versões</p>
+          </article>
+          <article class="adv-card">
+            <svg class="adv-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 4a8 8 0 100 16 8 8 0 000-16z" stroke="currentColor" stroke-width="1.8"/><path d="M12 4v8h8" stroke="currentColor" stroke-width="1.8"/></svg>
+            <div class="adv-title">Dados &amp; Insights</div>
+            <p class="adv-text">Maior coleta de dados e trackeamento do mercado</p>
+          </article>
+          <article class="adv-card">
+            <svg class="adv-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h4M16 8h4M8 4v4M8 16v4M20 16h-4M8 20h8M4 16h4M16 4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><rect x="9" y="9" width="6" height="6" stroke="currentColor" stroke-width="1.8"/></svg>
+            <div class="adv-title">Especialidade</div>
+            <p class="adv-text">Recursos e funcionalidades exclusivas do setor</p>
           </article>
         </div>
       </div>
