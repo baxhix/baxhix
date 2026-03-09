@@ -497,7 +497,7 @@
     }
     .arch-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(6, minmax(0, 1fr));
       gap: 20px;
     }
     .arch-card {
@@ -519,6 +519,13 @@
       font-size: 16px;
       line-height: 1.62;
       color: rgba(0,0,0,0.78);
+    }
+    .arch-icon {
+      width: 30px;
+      height: 30px;
+      color: rgba(0,0,0,0.6);
+      margin-bottom: 12px;
+      display: block;
     }
 
     footer {
@@ -828,12 +835,30 @@
         </div>
 
         <div class="arch-grid">
-          <article class="arch-card"><p class="arch-text">Apps com até 3x menos o tamanho de um app com tecnologia híbrida.</p></article>
-          <article class="arch-card"><p class="arch-text">Usabilidade e navegação exclusiva para cada sistema operacional, mantendo o uso nativo do usuário.</p></article>
-          <article class="arch-card"><p class="arch-text">Acesso antecipado as novidades da tecnologia por serem tecnologias nativas das empresas proprietárias.</p></article>
-          <article class="arch-card"><p class="arch-text">Navegação estável e fluída, com maior performance de carregamento.</p></article>
-          <article class="arch-card"><p class="arch-text">Possibilidade de uso de recursos nativos do sistema operacional (geolocalização, acessibilidade e etc).</p></article>
-          <article class="arch-card"><p class="arch-text">Coleta de dados constante, proporcionando maior volume de dados analíticos.</p></article>
+          <article class="arch-card">
+            <svg class="arch-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 8.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7z" stroke="currentColor" stroke-width="1.8"/><path d="M19 12l2-1-1-2-2 .2a7.5 7.5 0 00-1.2-1.2l.2-2-2-1-1 2a7.8 7.8 0 00-1.6 0l-1-2-2 1 .2 2A7.5 7.5 0 007 9.2L5 9l-1 2 2 1a7.8 7.8 0 000 1.6l-2 1 1 2 2-.2c.3.4.8.9 1.2 1.2l-.2 2 2 1 1-2a7.8 7.8 0 001.6 0l1 2 2-1-.2-2c.4-.3.9-.8 1.2-1.2l2 .2 1-2-2-1c.1-.5.1-1.1 0-1.6z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            <p class="arch-text">Apps com até 3x menos o tamanho de um app com tecnologia híbrida.</p>
+          </article>
+          <article class="arch-card">
+            <svg class="arch-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 8.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7z" stroke="currentColor" stroke-width="1.8"/><path d="M19 12l2-1-1-2-2 .2a7.5 7.5 0 00-1.2-1.2l.2-2-2-1-1 2a7.8 7.8 0 00-1.6 0l-1-2-2 1 .2 2A7.5 7.5 0 007 9.2L5 9l-1 2 2 1a7.8 7.8 0 000 1.6l-2 1 1 2 2-.2c.3.4.8.9 1.2 1.2l-.2 2 2 1 1-2a7.8 7.8 0 001.6 0l1 2 2-1-.2-2c.4-.3.9-.8 1.2-1.2l2 .2 1-2-2-1c.1-.5.1-1.1 0-1.6z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            <p class="arch-text">Usabilidade e navegação exclusiva para cada sistema operacional, mantendo o uso nativo do usuário.</p>
+          </article>
+          <article class="arch-card">
+            <svg class="arch-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 8.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7z" stroke="currentColor" stroke-width="1.8"/><path d="M19 12l2-1-1-2-2 .2a7.5 7.5 0 00-1.2-1.2l.2-2-2-1-1 2a7.8 7.8 0 00-1.6 0l-1-2-2 1 .2 2A7.5 7.5 0 007 9.2L5 9l-1 2 2 1a7.8 7.8 0 000 1.6l-2 1 1 2 2-.2c.3.4.8.9 1.2 1.2l-.2 2 2 1 1-2a7.8 7.8 0 001.6 0l1 2 2-1-.2-2c.4-.3.9-.8 1.2-1.2l2 .2 1-2-2-1c.1-.5.1-1.1 0-1.6z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            <p class="arch-text">Acesso antecipado as novidades da tecnologia por serem tecnologias nativas das empresas proprietárias.</p>
+          </article>
+          <article class="arch-card">
+            <svg class="arch-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 8.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7z" stroke="currentColor" stroke-width="1.8"/><path d="M19 12l2-1-1-2-2 .2a7.5 7.5 0 00-1.2-1.2l.2-2-2-1-1 2a7.8 7.8 0 00-1.6 0l-1-2-2 1 .2 2A7.5 7.5 0 007 9.2L5 9l-1 2 2 1a7.8 7.8 0 000 1.6l-2 1 1 2 2-.2c.3.4.8.9 1.2 1.2l-.2 2 2 1 1-2a7.8 7.8 0 001.6 0l1 2 2-1-.2-2c.4-.3.9-.8 1.2-1.2l2 .2 1-2-2-1c.1-.5.1-1.1 0-1.6z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            <p class="arch-text">Navegação estável e fluída, com maior performance de carregamento.</p>
+          </article>
+          <article class="arch-card">
+            <svg class="arch-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 8.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7z" stroke="currentColor" stroke-width="1.8"/><path d="M19 12l2-1-1-2-2 .2a7.5 7.5 0 00-1.2-1.2l.2-2-2-1-1 2a7.8 7.8 0 00-1.6 0l-1-2-2 1 .2 2A7.5 7.5 0 007 9.2L5 9l-1 2 2 1a7.8 7.8 0 000 1.6l-2 1 1 2 2-.2c.3.4.8.9 1.2 1.2l-.2 2 2 1 1-2a7.8 7.8 0 001.6 0l1 2 2-1-.2-2c.4-.3.9-.8 1.2-1.2l2 .2 1-2-2-1c.1-.5.1-1.1 0-1.6z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            <p class="arch-text">Possibilidade de uso de recursos nativos do sistema operacional (geolocalização, acessibilidade e etc).</p>
+          </article>
+          <article class="arch-card">
+            <svg class="arch-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 8.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7z" stroke="currentColor" stroke-width="1.8"/><path d="M19 12l2-1-1-2-2 .2a7.5 7.5 0 00-1.2-1.2l.2-2-2-1-1 2a7.8 7.8 0 00-1.6 0l-1-2-2 1 .2 2A7.5 7.5 0 007 9.2L5 9l-1 2 2 1a7.8 7.8 0 000 1.6l-2 1 1 2 2-.2c.3.4.8.9 1.2 1.2l-.2 2 2 1 1-2a7.8 7.8 0 001.6 0l1 2 2-1-.2-2c.4-.3.9-.8 1.2-1.2l2 .2 1-2-2-1c.1-.5.1-1.1 0-1.6z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            <p class="arch-text">Coleta de dados constante, proporcionando maior volume de dados analíticos.</p>
+          </article>
         </div>
       </div>
     </section>
