@@ -365,6 +365,69 @@
       color: rgba(0,0,0,0.74);
     }
 
+    .ecommerce-features {
+      background: var(--white);
+      color: var(--black);
+      padding-top: 20px;
+    }
+    .ecommerce-features-wrap {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+    .ecommerce-features h2 {
+      font-size: clamp(34px, 4.5vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      font-weight: 800;
+      color: var(--black);
+    }
+    .ecommerce-features-subtitle {
+      font-size: 22px;
+      line-height: 1.45;
+      color: rgba(0,0,0,0.62);
+      margin-bottom: 38px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: #ebebe8;
+      position: relative;
+      padding: 28px 24px 26px;
+      min-height: 220px;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--black);
+    }
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      color: rgba(0,0,0,0.55);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .feature-title {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.28;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+    .feature-text {
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(0,0,0,0.74);
+    }
+
     footer {
       background: var(--black);
       padding: 238px 28px 220px;
@@ -409,6 +472,8 @@
       .solve-card { min-height: auto; }
       .advantages-grid { grid-template-columns: 1fr; }
       .adv-card { min-height: auto; }
+      .features-grid { grid-template-columns: 1fr; }
+      .feature-card { min-height: auto; }
       footer { padding: 210px 24px 198px; }
       .footer-top, .footer-mid { grid-template-columns: 1fr; gap: 18px; }
     }
@@ -593,6 +658,51 @@
             <svg class="adv-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h4M16 8h4M8 4v4M8 16v4M20 16h-4M8 20h8M4 16h4M16 4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><rect x="9" y="9" width="6" height="6" stroke="currentColor" stroke-width="1.8"/></svg>
             <div class="adv-title">Especialidade</div>
             <p class="adv-text">Recursos e funcionalidades exclusivas do setor</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ecommerce-features">
+      <div class="ecommerce-features-wrap">
+        <h2>Funcionalidades e dados consumidos do e-commerce</h2>
+        <p class="ecommerce-features-subtitle">Integração nativa com a estrutura digital</p>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="7" height="7" stroke="currentColor" stroke-width="1.8"/><rect x="13" y="4" width="7" height="7" stroke="currentColor" stroke-width="1.8"/><rect x="4" y="13" width="7" height="7" stroke="currentColor" stroke-width="1.8"/><rect x="13" y="13" width="7" height="7" stroke="currentColor" stroke-width="1.8"/></svg>
+            <div class="feature-title">Catálogo e Coleções de Produtos</div>
+            <p class="feature-text">Detalhes do produto<br>Categoria, grades, descrições, atributos</p>
+          </article>
+
+          <article class="feature-card">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12v7m0-7l7-7m-7 7l7 7m9-14v14m0-14l-7 3m7-3l-7-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="feature-title">Experiência e Marketing</div>
+            <p class="feature-text">Integrações com ferramentas de marketing (aquisição e retenção)</p>
+          </article>
+
+          <article class="feature-card">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M15 9.5c0-1.4-1.2-2.5-3-2.5s-3 1-3 2.2c0 1.4 1.3 2 3 2.3 1.8.3 3 .9 3 2.5 0 1.3-1.3 2.3-3 2.3s-3-.8-3.1-2.3M12 6.5v11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <div class="feature-title">Recursos Exclusivos</div>
+            <p class="feature-text">Funcionalidades e Recursos exclusivos para o canal mobile</p>
+          </article>
+
+          <article class="feature-card">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 9l8-4 8 4v9H4V9z" stroke="currentColor" stroke-width="1.8"/><path d="M9 18v-4h6v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <div class="feature-title">Autenticação e Dados de clientes</div>
+            <p class="feature-text">Sincronização e atualização em tempo real</p>
+          </article>
+
+          <article class="feature-card">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 10h18" stroke="currentColor" stroke-width="1.8"/><path d="M7 14h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <div class="feature-title">Checkout Nativo</div>
+            <p class="feature-text">Carrinho, Entrega e Meios de pagamento</p>
+          </article>
+
+          <article class="feature-card">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 18h16" stroke="currentColor" stroke-width="1.8"/><path d="M6 16V11m4 5V8m4 8v-4m4 4V6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <div class="feature-title">Dashboard e analytics</div>
+            <p class="feature-text">Traqueamento e integrações com ferramentas de marketing</p>
           </article>
         </div>
       </div>
