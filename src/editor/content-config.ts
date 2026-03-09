@@ -137,7 +137,7 @@ const BASE_CONTENT_SECTIONS: ContentSection[] = [
         id: 'cta_sub',
         label: 'Subtítulo CTA',
         original:
-          'Fale com nossos especialistas e descubra como o ecossistema Rheon pode transformar sua operação.',
+          'Fale com nossos especialistas e descubra como o ecossistema RHEON pode transformar sua operação.',
         kind: 'area',
       },
       { id: 'contact_side_title', label: 'Título lateral', original: 'Fale com<br>quem decide<br>junto com você.', kind: 'area' },

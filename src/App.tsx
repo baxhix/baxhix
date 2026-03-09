@@ -56,7 +56,7 @@ function App() {
 
   return (
     <iframe
-      title="Rheon Onepage Legacy"
+      title="RHEON Onepage Legacy"
       srcDoc={siteHtml}
       style={{ width: '100%', height: '100vh', border: '0', display: 'block' }}
     />
