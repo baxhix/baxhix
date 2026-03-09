@@ -54,29 +54,6 @@ const BASE_CONTENT_SECTIONS: ContentSection[] = [
     title: 'A Solução Especializada',
     fields: [
       { id: 'section_solution', label: 'Título da seção', original: 'A solução especializada', kind: 'line' },
-      { id: 'layer_01_title', label: 'Camada 01 - Título', original: 'App Commerce', kind: 'line' },
-      {
-        id: 'layer_01_desc',
-        label: 'Camada 01 - Descrição',
-        original:
-          'Lean App — iOS e Android nativos. +20% de receita online após implantação. Go-live em 25 dias úteis.',
-        kind: 'area',
-      },
-      { id: 'layer_02_title', label: 'Camada 02 - Título', original: 'E-commerce & Marketplace', kind: 'line' },
-      {
-        id: 'layer_02_desc',
-        label: 'Camada 02 - Descrição',
-        original:
-          'Plataforma enterprise com recursos exclusivos para Farma: SNGPC, PBMs, convênios, catálogo regulado.',
-        kind: 'area',
-      },
-      { id: 'layer_03_title', label: 'Camada 03 - Título', original: 'Full Points — Fidelização', kind: 'line' },
-      {
-        id: 'layer_03_desc',
-        label: 'Camada 03 - Descrição',
-        original: 'CRM e cashback omnichannel. +5% de retenção pode gerar até 95% de crescimento em lucro.',
-        kind: 'area',
-      },
     ],
   },
   {
