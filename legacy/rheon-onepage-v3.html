@@ -1086,7 +1086,33 @@
     font-style: italic;
   }
 
-  .testimonial-author {}
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .testimonial-author-logo-wrap {
+    width: 146px;
+    flex: 0 0 146px;
+    min-height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .testimonial-author-logo {
+    display: block;
+    max-width: 146px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .testimonial-author-meta {
+    min-width: 0;
+  }
+
   .testimonial-name {
     font-size: 16px;
     font-weight: 800;
@@ -1646,6 +1672,15 @@
     .cases-grid { grid-template-columns: 1fr; }
     .methodology-steps { grid-template-columns: 1fr; }
     .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonial-author {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .testimonial-author-logo-wrap {
+      width: 146px;
+      flex-basis: auto;
+    }
     .hero-stats { gap: 32px; flex-wrap: wrap; }
     .market-header { flex-direction: column; gap: 32px; }
     .market-total { text-align: left; }
@@ -2250,29 +2285,49 @@
     <div class="testimonial-card reveal">
       <div class="testimonial-quote">"A Leanwork trouxe muito conhecimento e agilidade com um atendimento bastante próximo, tornando uma extensão da nossa equipe interna. Consideramos a Leanwork hoje uma peça importante para o nosso crescimento."</div>
       <div class="testimonial-author">
-        <div class="testimonial-name">Sidney Oliveira</div>
-        <div class="testimonial-role">Fundador e Presidente — Ultrafarma</div>
+        <div class="testimonial-author-logo-wrap">
+          <img class="testimonial-author-logo" src="/ultrafarma-negativo.png" alt="Ultrafarma">
+        </div>
+        <div class="testimonial-author-meta">
+          <div class="testimonial-name">Sidney Oliveira</div>
+          <div class="testimonial-role">Fundador e Presidente — Ultrafarma</div>
+        </div>
       </div>
     </div>
     <div class="testimonial-card reveal reveal-delay-1">
       <div class="testimonial-quote">"O tempo de desenvolvimento e a qualidade da entrega, além da flexibilidade de migração, nos fez migrar com muita segurança. Quebramos o recorde histórico do canal nos primeiros 60 dias."</div>
       <div class="testimonial-author">
-        <div class="testimonial-name">Fábio França</div>
-        <div class="testimonial-role">Superintendente de Estratégia Digital — Lojas Rede</div>
+        <div class="testimonial-author-logo-wrap">
+          <img class="testimonial-author-logo" src="/lojas-rede-negativo.svg" alt="Lojas Rede">
+        </div>
+        <div class="testimonial-author-meta">
+          <div class="testimonial-name">Fábio França</div>
+          <div class="testimonial-role">Superintendente de Estratégia Digital — Lojas Rede</div>
+        </div>
       </div>
     </div>
     <div class="testimonial-card reveal reveal-delay-2">
       <div class="testimonial-quote">"Durante nossa parceria, tivemos experiências excepcionais. Desde o primeiro contato, fomos impactados pela excelência e pelo valor agregado das soluções. Cada interação e entrega superaram nossas expectativas."</div>
       <div class="testimonial-author">
-        <div class="testimonial-name">Marcel Grilo</div>
-        <div class="testimonial-role">Gerente — Grupo SC</div>
+        <div class="testimonial-author-logo-wrap">
+          <img class="testimonial-author-logo" src="/grupo-sc-negativo.png" alt="Grupo SC">
+        </div>
+        <div class="testimonial-author-meta">
+          <div class="testimonial-name">Marcel Grilo</div>
+          <div class="testimonial-role">Gerente — Grupo SC</div>
+        </div>
       </div>
     </div>
     <div class="testimonial-card reveal reveal-delay-3">
       <div class="testimonial-quote">"Estão sempre presentes e comprometidos a nos atender não só tecnicamente, mas com excelente atendimento e proatividade em trazer soluções ao invés de questionar problemas. Na prática, acabam sendo mais que um fornecedor."</div>
       <div class="testimonial-author">
-        <div class="testimonial-name">Daniel Vidotti</div>
-        <div class="testimonial-role">CTO — Tok&Stok</div>
+        <div class="testimonial-author-logo-wrap">
+          <img class="testimonial-author-logo" src="/tokstok-negativo.png" alt="Tok&Stok">
+        </div>
+        <div class="testimonial-author-meta">
+          <div class="testimonial-name">Daniel Vidotti</div>
+          <div class="testimonial-role">CTO — Tok&Stok</div>
+        </div>
       </div>
     </div>
   </div>
