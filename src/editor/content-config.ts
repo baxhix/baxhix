@@ -212,7 +212,6 @@ const BASE_CONTENT_SECTIONS: ContentSection[] = [
     title: 'Títulos Gerais',
     fields: [
       { id: 'section_market', label: 'Contexto de mercado', original: 'Contexto de mercado', kind: 'line' },
-      { id: 'section_problem', label: 'O desafio', original: 'O desafio', kind: 'line' },
       { id: 'section_numbers', label: 'Estrutura consolidada', original: 'Estrutura consolidada', kind: 'line' },
     ],
   },
@@ -267,8 +266,9 @@ export function collectEditableTargets(html: string): EditableTarget[] {
     const node = current as Text
     const parent = node.parentElement
     const parentTag = parent?.tagName?.toUpperCase()
+    const insideProblem = Boolean(parent?.closest('#problema'))
 
-    if (parentTag !== 'SCRIPT' && parentTag !== 'STYLE' && parentTag !== 'NOSCRIPT') {
+    if (!insideProblem && parentTag !== 'SCRIPT' && parentTag !== 'STYLE' && parentTag !== 'NOSCRIPT') {
       const source = node.nodeValue ?? ''
       const normalized = normalizeText(source)
       if (shouldIncludeText(normalized)) {
@@ -289,6 +289,8 @@ export function collectEditableTargets(html: string): EditableTarget[] {
   const attrNames: Array<'placeholder' | 'value' | 'title' | 'aria-label'> = ['placeholder', 'value', 'title', 'aria-label']
   let attrIndex = 0
   for (const el of Array.from(doc.querySelectorAll('*'))) {
+    const insideProblem = Boolean(el.closest('#problema'))
+    if (insideProblem) continue
     for (const attrName of attrNames) {
       const source = el.getAttribute(attrName) ?? ''
       const normalized = normalizeText(source)

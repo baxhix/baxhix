@@ -27,9 +27,11 @@ function collectEditableNodes(doc: Document) {
     const node = current as Text
     const parent = node.parentElement
     const parentTag = parent?.tagName?.toUpperCase()
+    const insideProblem = Boolean(parent?.closest('#problema'))
     const normalized = normalizeText(node.nodeValue ?? '')
 
     if (
+      !insideProblem &&
       parentTag !== 'SCRIPT' &&
       parentTag !== 'STYLE' &&
       parentTag !== 'NOSCRIPT' &&
@@ -45,6 +47,8 @@ function collectEditableNodes(doc: Document) {
   const attrNames: Array<'placeholder' | 'value' | 'title' | 'aria-label'> = ['placeholder', 'value', 'title', 'aria-label']
   let attrIndex = 0
   for (const el of Array.from(doc.querySelectorAll('*'))) {
+    const insideProblem = Boolean(el.closest('#problema'))
+    if (insideProblem) continue
     for (const attrName of attrNames) {
       const raw = el.getAttribute(attrName)
       const normalized = normalizeText(raw ?? '')

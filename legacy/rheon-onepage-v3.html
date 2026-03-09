@@ -447,7 +447,6 @@
   .problem .section-label { color: rgba(0,0,0,0.35); }
   .problem .section-label::before { background: rgba(0,0,0,0.2); }
   .problem .section-headline { color: var(--black); }
-  .problem .section-headline em { color: rgba(0,0,0,0.35); }
 
   .problem-grid {
     display: grid;
@@ -506,7 +505,11 @@
   }
 
   .problem-impact-label {
-    display: none;
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.9);
+    margin-bottom: 8px;
   }
 
   .problem-impact-text {
@@ -1530,9 +1533,9 @@
 
 <!-- PROBLEMA -->
 <section class="problem" id="problema">
-  <div class="section-label reveal">O desafio</div>
+  <div class="section-label">O desafio</div>
   <h2 class="section-headline reveal">
-    Ignorar a complexidade.
+    Ignorar a complexidade<br><em>compromete margem.</em>
   </h2>
   <div class="problem-grid">
     <div class="problem-card reveal">
@@ -1540,20 +1543,25 @@
       <div class="problem-title">Risco Regulatório</div>
       <div class="problem-desc">Falta de adequação aos órgãos regulatórios, controle de medicamentos controlados (SNGPC) e publicidade inadequada.</div>
       <div class="problem-impact">
+        <div class="problem-impact-label">Impacto:</div>
         <div class="problem-impact-text">Suspensão da operação e multas de até R$ 1,5 milhão (ANVISA).</div>
       </div>
     </div>
     <div class="problem-card reveal reveal-delay-1">
       <div class="problem-number">02</div>
       <div class="problem-title">Risco Operacional</div>
+      <div class="problem-desc">Ruptura de estoque entre canais, logística híbrida ineficiente e falta de visibilidade da jornada do cliente.</div>
       <div class="problem-impact">
+        <div class="problem-impact-label">Impacto:</div>
         <div class="problem-impact-text">Perda de vendas, custo elevado e impacto direto na margem operacional.</div>
       </div>
     </div>
     <div class="problem-card reveal reveal-delay-2">
       <div class="problem-number">03</div>
+      <div class="problem-title">Risco de Governança</div>
       <div class="problem-desc">Dados fragmentados, falta de controle sobre informações sensíveis (LGPD) e decisões baseadas em achismos.</div>
       <div class="problem-impact">
+        <div class="problem-impact-label">Impacto:</div>
         <div class="problem-impact-text">Incapacidade estratégica e exposição a litígios por dados sensíveis de saúde.</div>
       </div>
     </div>
@@ -1562,6 +1570,7 @@
       <div class="problem-title">Risco de Experiência</div>
       <div class="problem-desc">Falta de personalizações, funcionalidades exclusivas e integrações específicas do setor (PBMs, convênios).</div>
       <div class="problem-impact">
+        <div class="problem-impact-label">Impacto:</div>
         <div class="problem-impact-text">Baixa conversão na jornada de compra e dificuldade de retenção e escala.</div>
       </div>
     </div>
