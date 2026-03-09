@@ -777,7 +777,7 @@
   .ecosystem-layer-row:nth-child(even) { background: #f3f3f1; }
 
   .ecosystem-layer-left {
-    padding: 24px 22px 24px 0;
+    padding: 24px 22px 24px 16px;
     display: grid;
     grid-template-columns: max-content 1fr;
     column-gap: 18px;
@@ -827,7 +827,7 @@
   .ecosystem-cta-wrap {
     margin-top: 34px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .ecosystem-cta {
@@ -906,8 +906,23 @@
   }
   .case-card:hover { background: #252523; }
 
+  .case-logo {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 18px;
+  }
+
+  .case-logo-ultrafarma {
+    max-width: 212px;
+  }
+
+  .case-logo-rede {
+    max-width: 112px;
+  }
+
   .case-client {
-    font-size: 10px;
+    font-size: 16px;
     font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -2010,6 +2025,7 @@
 
   <div class="cases-grid">
     <div class="case-card reveal">
+      <img class="case-logo case-logo-ultrafarma" src="/ultrafarma-negativo.png" alt="Ultrafarma">
       <div class="case-client">Ultrafarma · Web + App</div>
       <div class="case-headline">Escala comprovada em operação de alta demanda.</div>
       <div class="case-metrics">
@@ -2030,6 +2046,7 @@
     </div>
 
     <div class="case-card reveal reveal-delay-1">
+      <img class="case-logo case-logo-rede" src="/lojas-rede-negativo.svg" alt="Lojas Rede">
       <div class="case-client">Rede Varejista · Canal Mobile</div>
       <div class="case-headline">App cresceu 6,5x mais que o site em 2 anos.</div>
       <div class="case-metrics">
