@@ -189,7 +189,6 @@ const BASE_CONTENT_SECTIONS: ContentSection[] = [
     title: 'Títulos Gerais',
     fields: [
       { id: 'section_market', label: 'Contexto de mercado', original: 'Contexto de mercado', kind: 'line' },
-      { id: 'section_numbers', label: 'Estrutura consolidada', original: 'Estrutura consolidada', kind: 'line' },
     ],
   },
 ]
@@ -214,7 +213,7 @@ function resolvePanelSectionId(el: Element | null): PanelSectionId {
   if (id === 'metodologia') return 'framework'
   if (el?.closest('#contactForm') || el?.closest('.contact-form-side')) return 'contact-form'
   if (id === 'contato') return 'contact'
-  if (id === 'mercado' || id === 'problema' || id === 'numeros') return 'market-headings'
+  if (id === 'mercado' || id === 'problema') return 'market-headings'
   if (cls.includes('testimonials')) return 'testimonials'
 
   return 'market-headings'
@@ -246,11 +245,13 @@ export function collectEditableTargets(html: string): EditableTarget[] {
     const insideProblem = Boolean(parent?.closest('#problema'))
     const insidePlatformRisks = Boolean(parent?.closest('#riscos-plataforma'))
     const insideUnifiedArchitecture = Boolean(parent?.closest('#arquitetura-unificada'))
+    const insideNumbers = Boolean(parent?.closest('#numeros'))
 
     if (
       !insideProblem &&
       !insidePlatformRisks &&
       !insideUnifiedArchitecture &&
+      !insideNumbers &&
       parentTag !== 'SCRIPT' &&
       parentTag !== 'STYLE' &&
       parentTag !== 'NOSCRIPT'
@@ -278,7 +279,8 @@ export function collectEditableTargets(html: string): EditableTarget[] {
     const insideProblem = Boolean(el.closest('#problema'))
     const insidePlatformRisks = Boolean(el.closest('#riscos-plataforma'))
     const insideUnifiedArchitecture = Boolean(el.closest('#arquitetura-unificada'))
-    if (insideProblem || insidePlatformRisks || insideUnifiedArchitecture) continue
+    const insideNumbers = Boolean(el.closest('#numeros'))
+    if (insideProblem || insidePlatformRisks || insideUnifiedArchitecture || insideNumbers) continue
     for (const attrName of attrNames) {
       const source = el.getAttribute(attrName) ?? ''
       const normalized = normalizeText(source)
