@@ -7,45 +7,17 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, X64]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup SSH
+      - name: Deploy on self-hosted VPS
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.VPS_SSH_KEY }}
-          VPS_HOST: ${{ secrets.VPS_HOST }}
-          VPS_SSH_PORT: ${{ secrets.VPS_SSH_PORT }}
-        run: |
-          set -euo pipefail
-          if [ -z "${SSH_PRIVATE_KEY:-}" ]; then
-            echo "Secret VPS_SSH_KEY ausente"
-            exit 1
-          fi
-          if [ -z "${VPS_HOST:-}" ]; then
-            echo "Secret VPS_HOST ausente"
-            exit 1
-          fi
-          SSH_PORT="${VPS_SSH_PORT:-22}"
-          mkdir -p ~/.ssh
-          printf '%s' "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          touch ~/.ssh/known_hosts
-          chmod 644 ~/.ssh/known_hosts
-          ssh-keyscan -T 10 -p "$SSH_PORT" -H "$VPS_HOST" >> ~/.ssh/known_hosts || echo "ssh-keyscan falhou; seguindo com StrictHostKeyChecking=accept-new"
-
-      - name: Deploy on VPS
-        env:
-          VPS_USER: ${{ secrets.VPS_USER }}
-          VPS_HOST: ${{ secrets.VPS_HOST }}
           VPS_APP_DIR: ${{ secrets.VPS_APP_DIR }}
-          VPS_SSH_PORT: ${{ secrets.VPS_SSH_PORT }}
         run: |
           set -euo pipefail
-          if [ -z "${VPS_USER:-}" ] || [ -z "${VPS_HOST:-}" ] || [ -z "${VPS_APP_DIR:-}" ]; then
-            echo "Secrets VPS_USER/VPS_HOST/VPS_APP_DIR ausentes"
+          if [ -z "${VPS_APP_DIR:-}" ]; then
+            echo "Secret VPS_APP_DIR ausente"
             exit 1
           fi
-          SSH_PORT="${VPS_SSH_PORT:-22}"
-          ssh -p "$SSH_PORT" -o ConnectTimeout=15 -o StrictHostKeyChecking=accept-new "$VPS_USER@$VPS_HOST" "cd '$VPS_APP_DIR' && git pull origin main && docker compose up -d --build"
+          cd "$VPS_APP_DIR"
+          git pull origin main
+          docker compose up -d --build
