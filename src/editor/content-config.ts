@@ -267,8 +267,9 @@ export function collectEditableTargets(html: string): EditableTarget[] {
     const parent = node.parentElement
     const parentTag = parent?.tagName?.toUpperCase()
     const insideProblem = Boolean(parent?.closest('#problema'))
+    const insidePlatformRisks = Boolean(parent?.closest('#riscos-plataforma'))
 
-    if (!insideProblem && parentTag !== 'SCRIPT' && parentTag !== 'STYLE' && parentTag !== 'NOSCRIPT') {
+    if (!insideProblem && !insidePlatformRisks && parentTag !== 'SCRIPT' && parentTag !== 'STYLE' && parentTag !== 'NOSCRIPT') {
       const source = node.nodeValue ?? ''
       const normalized = normalizeText(source)
       if (shouldIncludeText(normalized)) {
@@ -290,7 +291,8 @@ export function collectEditableTargets(html: string): EditableTarget[] {
   let attrIndex = 0
   for (const el of Array.from(doc.querySelectorAll('*'))) {
     const insideProblem = Boolean(el.closest('#problema'))
-    if (insideProblem) continue
+    const insidePlatformRisks = Boolean(el.closest('#riscos-plataforma'))
+    if (insideProblem || insidePlatformRisks) continue
     for (const attrName of attrNames) {
       const source = el.getAttribute(attrName) ?? ''
       const normalized = normalizeText(source)
