@@ -24,6 +24,5 @@ jobs:
             echo "Diretório não encontrado: $APP_DIR"
             exit 1
           fi
-          cd "$APP_DIR"
-          git pull origin main
-          docker compose up -d --build
+          git -C "$APP_DIR" pull origin main
+          docker compose --project-directory "$APP_DIR" up -d --build
