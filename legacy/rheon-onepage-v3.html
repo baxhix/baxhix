@@ -738,6 +738,80 @@
     line-height: 1.6;
   }
 
+  /* ─── CAMADAS DO ECOSSISTEMA ─── */
+  .ecosystem-layers {
+    background: var(--white);
+    color: var(--black);
+  }
+
+  .ecosystem-layers-title {
+    font-size: clamp(34px, 4.3vw, 56px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+
+  .ecosystem-layers-subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.45;
+    color: rgba(0,0,0,0.62);
+    margin-bottom: 42px;
+  }
+
+  .ecosystem-layers-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid rgba(0,0,0,0.12);
+  }
+
+  .ecosystem-layer-row {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+  }
+
+  .ecosystem-layer-left {
+    padding: 24px 22px 24px 0;
+  }
+
+  .ecosystem-layer-right {
+    padding: 24px 0 24px 28px;
+    border-left: 1px solid rgba(0,0,0,0.22);
+  }
+
+  .ecosystem-layer-index {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(0,0,0,0.55);
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+
+  .ecosystem-layer-title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--black);
+    margin-bottom: 6px;
+  }
+
+  .ecosystem-layer-sub {
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1.5;
+    color: rgba(0,0,0,0.62);
+  }
+
+  .ecosystem-layer-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(0,0,0,0.78);
+  }
+
   /* ─── NÚMEROS ─── */
   .numbers {
     background: var(--white);
@@ -1517,6 +1591,9 @@
     .platform-risks-grid { grid-template-columns: 1fr; }
     .solution-inner { grid-template-columns: 1fr; gap: 60px; }
     .solution-pillars { grid-template-columns: 1fr; }
+    .ecosystem-layer-row { grid-template-columns: 1fr; }
+    .ecosystem-layer-right { padding: 0 0 24px 0; border-left: none; }
+    .ecosystem-layer-left { padding: 24px 0 16px 0; }
     .numbers-grid { grid-template-columns: repeat(2, 1fr); }
     .cases-grid { grid-template-columns: 1fr; }
     .methodology-steps { grid-template-columns: 1fr; }
@@ -1778,6 +1855,69 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- CAMADAS DO ECOSSISTEMA -->
+<section class="ecosystem-layers" id="camadas-ecossistema">
+  <h2 class="ecosystem-layers-title reveal">Soluções para cada camada do ecossistema.</h2>
+  <p class="ecosystem-layers-subtitle reveal reveal-delay-1">Cinco grandes camadas. Cada uma com função clara na operação.</p>
+
+  <div class="ecosystem-layers-grid">
+    <div class="ecosystem-layer-row reveal">
+      <div class="ecosystem-layer-left">
+        <div class="ecosystem-layer-index">01</div>
+        <div class="ecosystem-layer-title">Aplicativos de venda (iOS e Android)</div>
+        <div class="ecosystem-layer-sub">Canal online focado em retenção que possui a maior taxa de conversão.</div>
+      </div>
+      <div class="ecosystem-layer-right">
+        <div class="ecosystem-layer-desc">App Commerce SaaS B2C (consumidor final) e B2B Enterprise (venda por volume)</div>
+      </div>
+    </div>
+
+    <div class="ecosystem-layer-row reveal reveal-delay-1">
+      <div class="ecosystem-layer-left">
+        <div class="ecosystem-layer-index">02</div>
+        <div class="ecosystem-layer-title">Plataforma Comércio Digital ou Marketplace com recursos exclusivos do setor de Farma</div>
+        <div class="ecosystem-layer-sub">Estrutura enterprise de e-commerce</div>
+      </div>
+      <div class="ecosystem-layer-right">
+        <div class="ecosystem-layer-desc">Estrutura backoffice completa de e-commerce: Catálogo · Preço · Pagamento · Pedidos · OMS · Checkout Headless · CMS · Busca Avançada · Campanhas · Marketing · PBM · Sellers · ...</div>
+      </div>
+    </div>
+
+    <div class="ecosystem-layer-row reveal reveal-delay-2">
+      <div class="ecosystem-layer-left">
+        <div class="ecosystem-layer-index">03</div>
+        <div class="ecosystem-layer-title">Full Points — Plataforma de Fidelização e Cashback</div>
+        <div class="ecosystem-layer-sub">Plataforma de fidelização e cashback omnichannel</div>
+      </div>
+      <div class="ecosystem-layer-right">
+        <div class="ecosystem-layer-desc">Plataforma de fidelização e cashback omnichannel, criado para o setor de Farma, Beleza e Pet e (integração em todas as camadas do ecossistema: ERP, PDV e canais digitais)</div>
+      </div>
+    </div>
+
+    <div class="ecosystem-layer-row reveal reveal-delay-3">
+      <div class="ecosystem-layer-left">
+        <div class="ecosystem-layer-index">04</div>
+        <div class="ecosystem-layer-title">Cosmos Pro — Hub de Integração</div>
+        <div class="ecosystem-layer-sub">Construtores de processos empresariais (tecnologia no-code e low-code)</div>
+      </div>
+      <div class="ecosystem-layer-right">
+        <div class="ecosystem-layer-desc">Plataforma digital SaaS que simplifica a comunicação, automatiza dos processos empresariais e permite criar aplicações personalizadas.</div>
+      </div>
+    </div>
+
+    <div class="ecosystem-layer-row reveal reveal-delay-4">
+      <div class="ecosystem-layer-left">
+        <div class="ecosystem-layer-index">05</div>
+        <div class="ecosystem-layer-title">Procfit Business Suite Sistemas Enterprise de Gestão Empresarial</div>
+        <div class="ecosystem-layer-sub">Plataformas de gestão enterprise que conecta toda a operação</div>
+      </div>
+      <div class="ecosystem-layer-right">
+        <div class="ecosystem-layer-desc">Sistemas enterprise de gestão empresarial ERP · WMS · RMS · DMS</div>
+      </div>
+    </div>
   </div>
 </section>
 
