@@ -1131,7 +1131,7 @@
 
   /* ─── METODOLOGIA ─── */
   .methodology {
-    background: transparent;
+    background: var(--white);
     color: var(--black);
   }
 
@@ -1830,13 +1830,22 @@
     .ecosystem-layer-left { padding: 24px 0 16px 0; }
     .numbers-grid { grid-template-columns: repeat(2, 1fr); }
     .cases-grid { grid-template-columns: 1fr; }
+    .methodology-diagram {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 8px;
+    }
     .method-top,
     .method-mid,
-    .method-bottom { grid-template-columns: 1fr; gap: 24px; }
-    .method-phase::after { display: none; }
-    .method-col::after { display: none; }
-    .method-track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .method-track::before { display: none; }
+    .method-bottom {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 38px;
+      min-width: 1120px;
+    }
+    .method-phase::after { display: block; }
+    .method-col::after { display: block; }
+    .method-track { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .method-track::before { display: block; }
     .testimonials-grid { grid-template-columns: 1fr; }
     .testimonial-author {
       flex-direction: column;
@@ -2501,7 +2510,8 @@
 
 <!-- METODOLOGIA -->
 <section class="methodology" id="metodologia">
-  <div class="section-label reveal">Metodologia de Implementação</div>
+  <div class="section-label reveal">Framework de Entrega</div>
+  <h2 class="section-headline reveal">Metodologia de Implementação</h2>
   <div class="methodology-diagram">
     <div class="method-top">
       <div class="method-col reveal">
