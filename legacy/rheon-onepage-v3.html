@@ -448,29 +448,40 @@
   .problem-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: rgba(0,0,0,0.1);
+    gap: 20px;
     margin-top: 60px;
   }
 
   .problem-card {
-    background: var(--white);
+    background: #e8e8e6;
     padding: 48px 40px;
     transition: background 0.3s;
+    position: relative;
+    text-align: left;
   }
-  .problem-card:hover { background: #eeeeec; }
+  .problem-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--black);
+  }
+  .problem-card:hover { background: #dededb; }
 
   .problem-number {
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.15em;
-    color: rgba(0,0,0,0.25);
+    color: rgba(0,0,0,0.45);
     margin-bottom: 20px;
+    margin-top: 8px;
   }
 
   .problem-title {
     font-size: 22px;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--black);
     margin-bottom: 12px;
     letter-spacing: -0.01em;
@@ -485,24 +496,20 @@
   }
 
   .problem-impact {
-    padding: 20px;
-    background: var(--black);
-    color: var(--white);
+    padding: 0;
+    background: transparent;
+    color: var(--black);
   }
 
   .problem-impact-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 8px;
+    display: none;
   }
 
   .problem-impact-text {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.6;
-    color: rgba(255,255,255,0.8);
+    color: rgba(0,0,0,0.72);
+    text-align: left;
   }
 
   /* ─── SOLUÇÃO ─── */
@@ -1529,7 +1536,6 @@
       <div class="problem-title">Risco Regulatório</div>
       <div class="problem-desc">Falta de adequação aos órgãos regulatórios, controle de medicamentos controlados (SNGPC) e publicidade inadequada.</div>
       <div class="problem-impact">
-        <div class="problem-impact-label">Impacto</div>
         <div class="problem-impact-text">Suspensão da operação e multas de até R$ 1,5 milhão (ANVISA).</div>
       </div>
     </div>
@@ -1538,7 +1544,6 @@
       <div class="problem-title">Risco Operacional</div>
       <div class="problem-desc">Ruptura de estoque entre canais, logística híbrida ineficiente e falta de visibilidade da jornada do cliente.</div>
       <div class="problem-impact">
-        <div class="problem-impact-label">Impacto</div>
         <div class="problem-impact-text">Perda de vendas, custo elevado e impacto direto na margem operacional.</div>
       </div>
     </div>
@@ -1547,7 +1552,6 @@
       <div class="problem-title">Risco de Governança</div>
       <div class="problem-desc">Dados fragmentados, falta de controle sobre informações sensíveis (LGPD) e decisões baseadas em achismos.</div>
       <div class="problem-impact">
-        <div class="problem-impact-label">Impacto</div>
         <div class="problem-impact-text">Incapacidade estratégica e exposição a litígios por dados sensíveis de saúde.</div>
       </div>
     </div>
@@ -1556,7 +1560,6 @@
       <div class="problem-title">Risco de Experiência</div>
       <div class="problem-desc">Falta de personalizações, funcionalidades exclusivas e integrações específicas do setor (PBMs, convênios).</div>
       <div class="problem-impact">
-        <div class="problem-impact-label">Impacto</div>
         <div class="problem-impact-text">Baixa conversão na jornada de compra e dificuldade de retenção e escala.</div>
       </div>
     </div>
