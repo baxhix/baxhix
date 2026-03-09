@@ -371,15 +371,32 @@
     letter-spacing: -0.04em;
     color: var(--white);
     display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 10px;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .market-total-value {
+    white-space: nowrap;
+  }
+  .market-total-growth {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    min-width: 0;
   }
   .market-total-growth-intro {
     font-size: 24px;
     font-weight: 700;
     letter-spacing: 0;
     color: var(--white);
+    line-height: 1.1;
+  }
+  .market-total-growth-sub {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
   }
 
   .market-grid {
@@ -1765,18 +1782,52 @@
   }
 
   .footer-wrap {
-    max-width: 1640px;
+    max-width: 1320px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 56px;
   }
 
+  .footer-logo-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-logo-top img {
+    width: 200px;
+    height: auto;
+    display: block;
+  }
+
   .footer-top {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 32px;
+    grid-template-columns: 1fr 1fr 1fr 220px;
+    gap: 20px;
     align-items: start;
+  }
+
+  .footer-qr-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .footer-qr-col img {
+    width: 150px;
+    height: auto;
+    display: block;
+    background: transparent;
+  }
+
+  .footer-qr-text {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.35;
+    color: rgba(255,255,255,0.6);
   }
 
   .footer-col-title {
@@ -1896,7 +1947,7 @@
     .market-total { text-align: left; }
     .clients { padding: 60px 32px; }
     footer { padding: 60px 24px 48px; }
-    .footer-top { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 18px; }
     .footer-mid { grid-template-columns: 1fr; }
     .cta { padding: 100px 32px; }
     .contact-grid { grid-template-columns: 1fr; }
@@ -2012,8 +2063,11 @@
     <div class="market-card market-card-total market-total reveal reveal-delay-2">
       <div class="market-total-label">Oportunidade total combinada:</div>
       <div class="market-total-number">
-        <span class="market-total-growth-intro">Crescimento médio: 6-7% a.a. entre os três setores</span>
-        R$ 512 bilhões.
+        <span class="market-total-value">R$ 512 bilhões.</span>
+        <span class="market-total-growth">
+          <span class="market-total-growth-intro">Crescimento médio:</span>
+          <span class="market-total-growth-sub">6-7% a.a. entre os três setores</span>
+        </span>
       </div>
     </div>
   </div>
@@ -2859,6 +2913,9 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-wrap">
+    <div class="footer-logo-top">
+      <img src="/rheon-logo.png" alt="RHEON">
+    </div>
     <div class="footer-top">
       <div>
         <div class="footer-col-title">Produtos</div>
@@ -2886,6 +2943,10 @@
           <a href="#depoimentos">Depoimentos</a>
           <a href="#metodologia">Framework de entrega</a>
         </div>
+      </div>
+      <div class="footer-qr-col">
+        <img src="/qr-code.png" alt="QR Code">
+        <p class="footer-qr-text">Se preferir, continue a navegação no seu celular</p>
       </div>
     </div>
     <div class="footer-mid">
