@@ -358,7 +358,7 @@
     text-align: left;
   }
   .market-total-label {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -370,11 +370,22 @@
     font-weight: 900;
     letter-spacing: -0.04em;
     color: var(--white);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .market-total-growth-intro {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    color: var(--gray-400);
   }
   .market-total-sub {
-    font-size: 13px;
-    color: var(--gray-400);
-    margin-top: 4px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--white);
+    margin-top: 8px;
   }
 
   .market-grid {
@@ -398,11 +409,11 @@
   .market-card:hover { background: #252523; }
 
   .market-sector {
-    font-size: 10px;
+    font-size: 18px;
     font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gray-600);
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--white);
     margin-bottom: 20px;
   }
 
@@ -415,7 +426,7 @@
   }
 
   .market-period {
-    font-size: 14px;
+    font-size: 16px;
     color: var(--gray-400);
     margin-bottom: 24px;
   }
@@ -428,7 +439,7 @@
   }
 
   .market-growth-label {
-    font-size: 14px;
+    font-size: 16px;
     color: var(--gray-400);
   }
 
@@ -650,7 +661,7 @@
     cursor: default;
     background: #141412;
     position: relative;
-    min-height: 220px;
+    min-height: 270px;
   }
   .pillar-item::before {
     content: '';
@@ -1760,7 +1771,7 @@
   }
 
   .footer-wrap {
-    max-width: 1240px;
+    max-width: 1640px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -1936,8 +1947,8 @@
       O ecossistema completo para Farma, Beleza e Pet
     </p>
     <div class="hero-actions reveal reveal-delay-3">
-      <a href="#camadas-ecossistema" class="btn-primary">Conhecer o ecossistema</a>
-      <a href="#cases" class="btn-ghost">Ver cases</a>
+      <a href="#camadas-ecossistema" class="btn-primary">SOLICITE UM DIAGNÓSTICO E DEMONSTRAÇÃO</a>
+      <a href="#cases" class="btn-ghost">SAIBA MAIS</a>
     </div>
   </div>
 
@@ -1977,7 +1988,7 @@
   <div class="market-header">
     <div>
       <h2 class="section-headline reveal">
-        Oportunidade em
+        Oportunidade em Farma, Beleza e Pet
       </h2>
     </div>
   </div>
@@ -2005,9 +2016,12 @@
       <div class="market-growth-label">3º maior mercado pet do mundo</div>
     </div>
     <div class="market-card market-card-total market-total reveal reveal-delay-2">
-      <div class="market-total-label">Oportunidade combinada</div>
-      <div class="market-total-number">R$ 512 bi</div>
-      <div class="market-total-sub">Crescimento médio 6–7% a.a.</div>
+      <div class="market-total-label">Oportunidade total combinada:</div>
+      <div class="market-total-number">
+        R$ 512 bilhões.
+        <span class="market-total-growth-intro">Crescimento médio:</span>
+      </div>
+      <div class="market-total-sub">6-7% a.a. entre os três setores</div>
     </div>
   </div>
 </section>
@@ -2953,6 +2967,20 @@
       });
     });
   }
+
+  // Internal anchor links fallback for iframe/srcDoc rendering.
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', (event) => {
+      const href = anchor.getAttribute('href');
+      if (!href || href === '#') return;
+      const target = document.querySelector(href);
+      if (!target) return;
+      event.preventDefault();
+      const navOffset = 96;
+      const top = target.getBoundingClientRect().top + window.scrollY - navOffset;
+      window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+    });
+  });
 </script>
 </body>
 </html>
