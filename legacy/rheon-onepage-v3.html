@@ -911,6 +911,8 @@
     width: 100%;
     height: auto;
     margin-bottom: 18px;
+    background: transparent;
+    mix-blend-mode: multiply;
   }
 
   .case-logo-ultrafarma {
@@ -1099,6 +1101,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    background: transparent;
   }
 
   .testimonial-author-logo {
@@ -1107,6 +1110,8 @@
     width: 100%;
     height: auto;
     object-fit: contain;
+    background: transparent;
+    mix-blend-mode: multiply;
   }
 
   .testimonial-author-meta {
@@ -1126,87 +1131,214 @@
 
   /* ─── METODOLOGIA ─── */
   .methodology {
-    background: var(--black);
+    background: var(--white);
+    color: var(--black);
   }
 
-  .methodology-steps {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: rgba(255,255,255,0.06);
+  .methodology .section-label { color: rgba(0,0,0,0.35); }
+  .methodology .section-label::before { background: rgba(0,0,0,0.2); }
+
+  .methodology-diagram {
     margin-top: 60px;
+    background: #fff;
   }
 
-  .method-step {
-    background: var(--black);
-    padding: 48px 40px;
+  .method-top {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 38px;
+    margin-bottom: 18px;
+  }
+
+  .method-col {
     position: relative;
-    transition: background 0.25s;
-  }
-  .method-step:hover { background: var(--gray-800); }
-
-  .method-num {
-    font-size: 80px;
-    font-weight: 900;
-    color: rgba(255,255,255,0.04);
-    line-height: 1;
-    letter-spacing: -0.05em;
-    margin-bottom: -20px;
   }
 
-  .method-title {
-    font-size: 11px;
+  .method-objective {
+    background: #d8d8d6;
+    padding: 18px 20px 22px;
+    text-align: center;
+    margin-bottom: 12px;
+    min-height: 124px;
+  }
+
+  .method-objective-label,
+  .method-delivery-label {
+    font-size: 24px;
     font-weight: 700;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--gray-600);
-    margin-bottom: 16px;
-  }
-
-  .method-headline {
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--white);
-    letter-spacing: -0.02em;
-    margin-bottom: 16px;
-  }
-
-  .method-deliver {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gray-600);
+    color: rgba(0,0,0,0.65);
     margin-bottom: 8px;
   }
 
-  .method-deliver-value {
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--gray-100);
-    margin-bottom: 28px;
-    line-height: 1.5;
+  .method-objective-title {
+    font-size: 38px;
+    font-weight: 800;
+    color: #444;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
   }
 
-  .method-items {
-    list-style: none;
+  .method-delivery {
+    background: #000;
+    color: var(--white);
+    padding: 16px 20px 22px;
+    text-align: center;
+    min-height: 148px;
+  }
+
+  .method-delivery-label {
+    color: rgba(255,255,255,0.64);
+  }
+
+  .method-delivery-title {
+    font-size: 41px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+
+  .method-col::after {
+    content: '';
+    position: relative;
+    display: block;
+    width: 2px;
+    height: 56px;
+    background: rgba(0,0,0,0.16);
+    margin: 0 auto;
+  }
+
+  .method-mid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 38px;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .method-mid::before {
+    content: '';
+    position: absolute;
+    left: 16.66%;
+    right: 16.66%;
+    top: 50%;
+    height: 2px;
+    background: rgba(0,0,0,0.16);
+    transform: translateY(-50%);
+  }
+
+  .method-phase {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .method-phase-circle {
+    width: 136px;
+    height: 136px;
+    border-radius: 50%;
+    margin: 0 auto;
+    background: #d1d1cf;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
   }
-  .method-items li {
-    font-size: 16px;
-    font-weight: 300;
-    color: var(--gray-200);
-    padding-left: 16px;
+
+  .method-phase-circle.is-dark {
+    background: #000;
+    color: var(--white);
+  }
+
+  .method-phase-num {
+    font-size: 58px;
+    font-weight: 800;
+    color: #4b4b49;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .method-phase-circle.is-dark .method-phase-num {
+    color: var(--white);
+  }
+
+  .method-phase-name {
+    margin-top: 8px;
+    font-size: 19px;
+    font-weight: 700;
+    color: #565654;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .method-phase-circle.is-dark .method-phase-name {
+    color: rgba(255,255,255,0.9);
+  }
+
+  .method-bottom {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 38px;
+  }
+
+  .method-track {
     position: relative;
-    line-height: 1.5;
+    border-top: 3px solid rgba(0,0,0,0.14);
+    padding-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
   }
-  .method-items li::before {
-    content: '—';
+
+  .method-track::before {
+    content: '';
     position: absolute;
-    left: 0;
-    color: var(--gray-200);
+    left: 50%;
+    top: -24px;
+    width: 2px;
+    height: 24px;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.14);
+  }
+
+  .method-item {
+    text-align: center;
+    position: relative;
+    padding-top: 18px;
+  }
+
+  .method-item::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -24px;
+    width: 2px;
+    height: 24px;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.14);
+  }
+
+  .method-item-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    border: 2px solid rgba(0,0,0,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    color: #4c4c4a;
+  }
+
+  .method-item-text {
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 700;
+    color: #444;
   }
 
   /* ─── CTA ─── */
@@ -1670,7 +1802,13 @@
     .ecosystem-layer-left { padding: 24px 0 16px 0; }
     .numbers-grid { grid-template-columns: repeat(2, 1fr); }
     .cases-grid { grid-template-columns: 1fr; }
-    .methodology-steps { grid-template-columns: 1fr; }
+    .method-top,
+    .method-mid,
+    .method-bottom { grid-template-columns: 1fr; gap: 24px; }
+    .method-mid::before { display: none; }
+    .method-col::after { display: none; }
+    .method-track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .method-track::before { display: none; }
     .testimonials-grid { grid-template-columns: 1fr; }
     .testimonial-author {
       flex-direction: column;
@@ -2335,50 +2473,121 @@
 
 <!-- METODOLOGIA -->
 <section class="methodology" id="metodologia">
-  <div class="section-label reveal">Framework de entrega</div>
-  <h2 class="section-headline reveal">
-    Da estratégia<br><em>à operação em escala.</em>
-  </h2>
+  <div class="section-label reveal">Metodologia de Implementação</div>
+  <div class="methodology-diagram">
+    <div class="method-top">
+      <div class="method-col reveal">
+        <div class="method-objective">
+          <div class="method-objective-label">OBJETIVO</div>
+          <div class="method-objective-title">Alinhamento Estratégico</div>
+        </div>
+        <div class="method-delivery">
+          <div class="method-delivery-label">ENTREGA</div>
+          <div class="method-delivery-title">Escopo validado e<br>plano de execução</div>
+        </div>
+      </div>
 
-  <div class="methodology-steps">
-    <div class="method-step reveal">
-      <div class="method-num">01</div>
-      <div class="method-title">Kick-off</div>
-      <div class="method-headline">Alinhamento Estratégico</div>
-      <div class="method-deliver">Entrega</div>
-      <div class="method-deliver-value">Escopo validado e plano de execução</div>
-      <ul class="method-items">
-        <li>Alinhamento do negócio e time-to-market</li>
-        <li>Mapeamento da jornada do cliente</li>
-        <li>Levantamento de requisitos técnicos</li>
-        <li>Definição de regras de negócio</li>
-      </ul>
+      <div class="method-col reveal reveal-delay-1">
+        <div class="method-objective">
+          <div class="method-objective-label">OBJETIVO</div>
+          <div class="method-objective-title">Onboarding e Implantação</div>
+        </div>
+        <div class="method-delivery">
+          <div class="method-delivery-label">ENTREGA (POR FASES)</div>
+          <div class="method-delivery-title">Operação homologada<br>de acordo com plano validado</div>
+        </div>
+      </div>
+
+      <div class="method-col reveal reveal-delay-2">
+        <div class="method-objective">
+          <div class="method-objective-label">OBJETIVO</div>
+          <div class="method-objective-title">Lançamento e plano de evolução</div>
+        </div>
+        <div class="method-delivery">
+          <div class="method-delivery-label">ENTREGA</div>
+          <div class="method-delivery-title">Publicação em produção<br>e sustentação pós-venda</div>
+        </div>
+      </div>
     </div>
-    <div class="method-step reveal reveal-delay-1">
-      <div class="method-num">02</div>
-      <div class="method-title">Implantação</div>
-      <div class="method-headline">Onboarding e Execução</div>
-      <div class="method-deliver">Entrega (por fases)</div>
-      <div class="method-deliver-value">Operação homologada conforme plano validado</div>
-      <ul class="method-items">
-        <li>Desenho da solução e integrações</li>
-        <li>Desenvolvimento do plano de execução</li>
-        <li>Refinamentos e validação de negócio</li>
-        <li>Homologação, QA e treinamento</li>
-      </ul>
+
+    <div class="method-mid">
+      <div class="method-phase reveal">
+        <div class="method-phase-circle">
+          <div class="method-phase-num">01</div>
+          <div class="method-phase-name">KICK-OFF</div>
+        </div>
+      </div>
+      <div class="method-phase reveal reveal-delay-1">
+        <div class="method-phase-circle">
+          <div class="method-phase-num">02</div>
+          <div class="method-phase-name">IMPLANTAÇÃO</div>
+        </div>
+      </div>
+      <div class="method-phase reveal reveal-delay-2">
+        <div class="method-phase-circle is-dark">
+          <div class="method-phase-num">03</div>
+          <div class="method-phase-name">LANÇAMENTO</div>
+        </div>
+      </div>
     </div>
-    <div class="method-step reveal reveal-delay-2">
-      <div class="method-num">03</div>
-      <div class="method-title">Lançamento</div>
-      <div class="method-headline">Go-live e Evolução</div>
-      <div class="method-deliver">Entrega</div>
-      <div class="method-deliver-value">Publicação em produção e sustentação pós-venda</div>
-      <ul class="method-items">
-        <li>Go-live planejado e assistido</li>
-        <li>Monitoramento 24/7</li>
-        <li>Suporte contínuo especializado</li>
-        <li>Roadmap evolutivo</li>
-      </ul>
+
+    <div class="method-bottom">
+      <div class="method-track reveal">
+        <div class="method-item">
+          <div class="method-item-icon">GR</div>
+          <div class="method-item-text">Alinhamento do negócio com time-to-market (Definição KPIs)</div>
+        </div>
+        <div class="method-item">
+          <div class="method-item-icon">MP</div>
+          <div class="method-item-text">Mapeamento Jornada do Cliente e Canais de venda</div>
+        </div>
+        <div class="method-item">
+          <div class="method-item-icon">☰</div>
+          <div class="method-item-text">Levantamento de Requisitos Técnicos e Customizações</div>
+        </div>
+        <div class="method-item">
+          <div class="method-item-icon">RG</div>
+          <div class="method-item-text">Definição de Regras de Negócio</div>
+        </div>
+      </div>
+
+      <div class="method-track reveal reveal-delay-1">
+        <div class="method-item">
+          <div class="method-item-icon">DS</div>
+          <div class="method-item-text">Desenho da Solução e Integrações</div>
+        </div>
+        <div class="method-item">
+          <div class="method-item-icon">&lt;/&gt;</div>
+          <div class="method-item-text">Desenvolvimento do plano de execução</div>
+        </div>
+        <div class="method-item">
+          <div class="method-item-icon">RV</div>
+          <div class="method-item-text">Refinamentos e validação de negócio</div>
+        </div>
+        <div class="method-item">
+          <div class="method-item-icon">OK</div>
+          <div class="method-item-text">Homologação, QA e Treinamento</div>
+        </div>
+      </div>
+
+      <div class="method-track reveal reveal-delay-2">
+        <div class="method-item">
+          <div class="method-item-icon">GO</div>
+          <div class="method-item-text">Go-live Planejado e Assistido</div>
+        </div>
+        <div class="method-item">
+          <div class="method-item-icon">MN</div>
+          <div class="method-item-text">Monitoramento 24/7</div>
+        </div>
+        <div class="method-item">
+          <div class="method-item-icon">SP</div>
+          <div class="method-item-text">Suporte Contínuo Especializado</div>
+        </div>
+        <div class="method-item">
+          <div class="method-item-icon">RD</div>
+          <div class="method-item-text">Roadmap Evolutivo</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
