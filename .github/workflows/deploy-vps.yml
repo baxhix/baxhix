@@ -18,6 +18,12 @@ jobs:
             echo "Secret VPS_APP_DIR ausente"
             exit 1
           fi
-          cd "$VPS_APP_DIR"
+          APP_DIR="$(printf '%s' "$VPS_APP_DIR" | tr -d '\r\n')"
+          echo "Deploy dir: $APP_DIR"
+          if [ ! -d "$APP_DIR" ]; then
+            echo "Diretório não encontrado: $APP_DIR"
+            exit 1
+          fi
+          cd "$APP_DIR"
           git pull origin main
           docker compose up -d --build
