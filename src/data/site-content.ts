@@ -78,6 +78,6 @@ export const METHODOLOGY = [
 
 export const CONTACT = {
   email: 'comercial@leanwork.com.br',
-  phoneLabel: '(43) 99921-8521',
-  whatsappNumber: '5543999218521',
+  phoneLabel: '(43) 99849-0231',
+  whatsappNumber: '5543998490231',
 }
