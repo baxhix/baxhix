@@ -1910,9 +1910,19 @@
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 1024px) {
-    nav { padding: 16px 16px; }
+    nav {
+      padding: 16px 16px;
+      justify-content: center;
+    }
     .nav-links { display: none; }
     .nav-cta { display: none; }
+    .nav-logo {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
     .nav-logo img { height: 22px !important; width: auto !important; }
     .nav-whatsapp { display: none; }
     .hero { padding: 0 32px; }
@@ -1928,10 +1938,34 @@
     .solution-inner { grid-template-columns: 1fr; gap: 60px; }
     .solution-pillars { grid-template-columns: 1fr; }
     .ecosystem-layer-row { grid-template-columns: 1fr; }
-    .ecosystem-layer-right { padding: 0 0 24px 0; border-left: none; }
-    .ecosystem-layer-left { padding: 24px 0 16px 0; }
+    .ecosystem-layer-right { padding: 0 20px 24px 20px; border-left: none; }
+    .ecosystem-layer-left { padding: 24px 20px 16px 20px; }
     .numbers-grid { grid-template-columns: repeat(2, 1fr); }
-    .cases-grid { grid-template-columns: 1fr; }
+    .cases-grid {
+      grid-template-columns: 1fr;
+      margin-top: 40px;
+    }
+    .case-card {
+      padding: 36px 24px;
+      overflow: hidden;
+    }
+    .case-logo {
+      max-width: 100%;
+      height: auto;
+    }
+    .case-client,
+    .case-headline,
+    .case-detail,
+    .case-metric-label,
+    .case-metric-value {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    .case-metrics {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
     .methodology-diagram {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
@@ -1963,7 +1997,7 @@
     .market-total { text-align: left; }
     .clients { padding: 60px 32px; }
     footer { padding: 210px 24px 198px; }
-    .footer-top { grid-template-columns: 1fr 1fr; gap: 18px; }
+    .footer-top { grid-template-columns: 1fr; gap: 18px; }
     .footer-mid { grid-template-columns: 1fr; }
     .cta { padding: 100px 32px; }
     .contact-grid { grid-template-columns: 1fr; }
