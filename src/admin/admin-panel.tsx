@@ -1,5 +1,5 @@
 import { type FormEvent, useEffect, useMemo, useState } from 'react'
-import { LayoutGrid, Palette, Tags, Users, PanelLeftClose, PanelLeftOpen } from 'lucide-react'
+import { LayoutGrid, Palette, Tags, Users, PanelLeftClose, PanelLeftOpen, Inbox } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -7,10 +7,11 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { buildContentSections, buildDefaultTextValues } from '@/editor/content-config'
 import { getAuthSession, login, logout } from '@/lib/auth-api'
+import { fetchContacts, type ContactEntry } from '@/lib/contact-api'
 import { fetchContentEntries, saveContentEntries } from '@/lib/content-api'
 
 type SaveStatus = 'idle' | 'saving' | 'saved' | 'error'
-type PanelModule = 'content' | 'visual' | 'performance' | 'users'
+type PanelModule = 'content' | 'contacts' | 'visual' | 'performance' | 'users'
 
 const THEME_KEY = 'rheon.admin.theme'
 const SIDEBAR_KEY = 'rheon.admin.sidebar.collapsed'
@@ -80,8 +81,27 @@ function buildFieldGroups(fields: Array<{ id: string; label: string; kind?: 'lin
   return { singles, grouped }
 }
 
+function formatSegment(segment: string) {
+  const map: Record<string, string> = {
+    farma: 'Farmacêutico / Drogaria',
+    beleza: 'Beleza / Cosméticos',
+    pet: 'Pet Shop',
+    outro: 'Outro',
+  }
+
+  return map[segment] || segment
+}
+
+function formatDate(date: string) {
+  if (!date) return '-'
+  return new Intl.DateTimeFormat('pt-BR', {
+    dateStyle: 'short',
+    timeStyle: 'short',
+  }).format(new Date(date))
+}
+
 export function AdminPanel({ legacyHtml }: { legacyHtml: string }) {
-  const [activeModule] = useState<PanelModule>('content')
+  const [activeModule, setActiveModule] = useState<PanelModule>('content')
   const [selectedSectionId, setSelectedSectionId] = useState<string | null>(null)
   const [titlesSearch, setTitlesSearch] = useState('')
   const [theme, setTheme] = useState<'dark' | 'light'>(() => getStoredTheme())
@@ -96,8 +116,10 @@ export function AdminPanel({ legacyHtml }: { legacyHtml: string }) {
   const contentSections = useMemo(() => buildContentSections(legacyHtml), [legacyHtml])
   const defaultValues = useMemo(() => buildDefaultTextValues(contentSections), [contentSections])
   const [values, setValues] = useState<Record<string, string>>(defaultValues)
+  const [contacts, setContacts] = useState<ContactEntry[]>([])
   const [isLoaded, setIsLoaded] = useState(false)
   const [saveStatus, setSaveStatus] = useState<SaveStatus>('idle')
+  const [contactsError, setContactsError] = useState('')
 
   useEffect(() => {
     setValues(defaultValues)
@@ -134,9 +156,11 @@ export function AdminPanel({ legacyHtml }: { legacyHtml: string }) {
         setCurrentUser(session.username)
 
         const remoteValues = await fetchContentEntries().catch(() => ({}))
+        const remoteContacts = await fetchContacts().catch(() => [])
         if (ignore) return
 
         setValues({ ...defaultValues, ...remoteValues })
+        setContacts(remoteContacts)
         setIsLoaded(true)
       } finally {
         if (!ignore) setCheckingAuth(false)
@@ -162,7 +186,9 @@ export function AdminPanel({ legacyHtml }: { legacyHtml: string }) {
       setPassword('')
 
       const remoteValues = await fetchContentEntries().catch(() => ({}))
+      const remoteContacts = await fetchContacts().catch(() => [])
       setValues({ ...defaultValues, ...remoteValues })
+      setContacts(remoteContacts)
       setIsLoaded(true)
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Falha ao autenticar.'
@@ -179,6 +205,18 @@ export function AdminPanel({ legacyHtml }: { legacyHtml: string }) {
       setIsLoaded(false)
       setSaveStatus('idle')
       setValues(defaultValues)
+      setContacts([])
+    }
+  }
+
+  async function loadContacts() {
+    try {
+      setContactsError('')
+      const entries = await fetchContacts()
+      setContacts(entries)
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Falha ao carregar contatos.'
+      setContactsError(message)
     }
   }
 
@@ -243,6 +281,7 @@ export function AdminPanel({ legacyHtml }: { legacyHtml: string }) {
 
   const modules: Array<{ id: PanelModule; label: string; enabled: boolean; icon: typeof LayoutGrid }> = [
     { id: 'content', label: 'Conteúdo', enabled: true, icon: LayoutGrid },
+    { id: 'contacts', label: 'Contatos', enabled: true, icon: Inbox },
     { id: 'visual', label: 'Identidade Visual', enabled: false, icon: Palette },
     { id: 'performance', label: 'Tags de Performance', enabled: false, icon: Tags },
     { id: 'users', label: 'Usuários', enabled: false, icon: Users },
@@ -288,6 +327,12 @@ export function AdminPanel({ legacyHtml }: { legacyHtml: string }) {
                 key={module.id}
                 type="button"
                 disabled={isDisabled}
+                onClick={() => {
+                  if (isDisabled) return
+                  setActiveModule(module.id)
+                  setSelectedSectionId(null)
+                  if (module.id === 'contacts') void loadContacts()
+                }}
                 className={`flex w-full items-center gap-3 rounded-md px-3 py-2 text-left text-sm ${
                   isActive ? 'bg-primary text-primary-foreground' : ''
                 } ${isDisabled ? 'cursor-not-allowed text-muted-foreground opacity-60' : 'text-foreground'}`}
@@ -304,9 +349,11 @@ export function AdminPanel({ legacyHtml }: { legacyHtml: string }) {
         <header className="sticky top-0 z-10 border-b border-border bg-background/95 backdrop-blur">
           <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center gap-2 px-4 py-3">
             <div className="mr-auto">
-              <h1 className="text-2xl font-semibold">Gestor de Conteúdo</h1>
+              <h1 className="text-2xl font-semibold">{activeModule === 'contacts' ? 'Gestor de Contatos' : 'Gestor de Conteúdo'}</h1>
               <p className="text-xs text-muted-foreground">
-                Edição por seções com persistência em banco e publicação no site.
+                {activeModule === 'contacts'
+                  ? 'Contatos recebidos pelo formulário do site, salvos no banco.'
+                  : 'Edição por seções com persistência em banco e publicação no site.'}
               </p>
             </div>
             <p className="text-xs text-muted-foreground">Usuário: {currentUser}</p>
@@ -331,7 +378,8 @@ export function AdminPanel({ legacyHtml }: { legacyHtml: string }) {
 
         <main className="mx-auto w-full max-w-6xl space-y-4 px-4 py-5">
           <div className="text-sm text-muted-foreground">
-            {!selectedSection && <span>Conteúdo</span>}
+            {activeModule === 'contacts' && <span>Contatos</span>}
+            {activeModule === 'content' && !selectedSection && <span>Conteúdo</span>}
             {selectedSection && (
               <span>
                 Conteúdo / <span className="text-foreground">{selectedSection.title}</span>
@@ -339,7 +387,60 @@ export function AdminPanel({ legacyHtml }: { legacyHtml: string }) {
             )}
           </div>
 
-          {!selectedSection && (
+          {activeModule === 'contacts' && (
+            <div className="space-y-3">
+              <div className="flex justify-end">
+                <Button size="sm" variant="outline" className="h-10 rounded-[3px]" onClick={() => void loadContacts()}>
+                  Atualizar lista
+                </Button>
+              </div>
+              {contactsError && (
+                <Card>
+                  <CardContent className="py-5 text-sm text-red-500">{contactsError}</CardContent>
+                </Card>
+              )}
+              {!contacts.length && !contactsError && (
+                <Card>
+                  <CardContent className="py-8 text-sm text-muted-foreground">
+                    Nenhum contato recebido até o momento.
+                  </CardContent>
+                </Card>
+              )}
+              {contacts.map((contact) => (
+                <Card key={contact.id}>
+                  <CardHeader>
+                    <div className="flex flex-wrap items-start justify-between gap-3">
+                      <div>
+                        <CardTitle className="text-xl">{contact.name}</CardTitle>
+                        <p className="text-sm text-muted-foreground">
+                          {contact.company} · {formatSegment(contact.segment)}
+                        </p>
+                      </div>
+                      <p className="text-xs text-muted-foreground">{formatDate(contact.created_at)}</p>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="space-y-3 pb-5">
+                    <div className="grid gap-3 md:grid-cols-2">
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">E-mail</p>
+                        <p className="text-sm">{contact.email}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">WhatsApp</p>
+                        <p className="text-sm">{contact.phone || '-'}</p>
+                      </div>
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Mensagem</p>
+                      <p className="whitespace-pre-wrap text-sm text-foreground">{contact.message || '-'}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
+
+          {activeModule === 'content' && !selectedSection && (
             <div className="space-y-3">
               {contentSections.map((section) => (
                 <Card key={section.id}>
@@ -354,7 +455,7 @@ export function AdminPanel({ legacyHtml }: { legacyHtml: string }) {
             </div>
           )}
 
-          {selectedSection && (
+          {activeModule === 'content' && selectedSection && (
             <Card>
               <CardHeader>
                 <div className="flex items-center justify-between gap-2">

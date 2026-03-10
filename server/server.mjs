@@ -37,6 +37,20 @@ async function ensureTable() {
       updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
     );
   `)
+
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS contact_entries (
+      id BIGSERIAL PRIMARY KEY,
+      name TEXT NOT NULL,
+      company TEXT NOT NULL,
+      email TEXT NOT NULL,
+      phone TEXT NOT NULL DEFAULT '',
+      segment TEXT NOT NULL,
+      message TEXT NOT NULL DEFAULT '',
+      status TEXT NOT NULL DEFAULT 'novo',
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    );
+  `)
 }
 
 function secureEqual(a, b) {
@@ -96,6 +110,43 @@ function isAuthenticated(req) {
   return Boolean(verifySessionToken(token))
 }
 
+function normalizeContactPayload(body) {
+  const payload = body && typeof body === 'object' ? body : {}
+
+  return {
+    name: String(payload.name ?? '').trim(),
+    company: String(payload.company ?? '').trim(),
+    email: String(payload.email ?? '').trim(),
+    phone: String(payload.phone ?? '').trim(),
+    segment: String(payload.segment ?? '').trim(),
+    message: String(payload.message ?? '').trim(),
+  }
+}
+
+function validateContactPayload(payload) {
+  if (!payload.name || !payload.company || !payload.email || !payload.segment) {
+    return 'Preencha nome, empresa, e-mail e segmento.'
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  if (!emailRegex.test(payload.email)) {
+    return 'Informe um e-mail válido.'
+  }
+
+  return ''
+}
+
+function formatSegment(segment) {
+  const map = {
+    farma: 'Farmacêutico / Drogaria',
+    beleza: 'Beleza / Cosméticos',
+    pet: 'Pet Shop',
+    outro: 'Outro',
+  }
+
+  return map[segment] || segment
+}
+
 app.get('/api/auth/session', (req, res) => {
   const token = req.cookies?.[SESSION_COOKIE]
   const session = verifySessionToken(token)
@@ -138,6 +189,49 @@ app.post('/api/auth/login', (req, res) => {
 app.post('/api/auth/logout', (_req, res) => {
   res.clearCookie(SESSION_COOKIE, { path: '/' })
   return res.status(200).json({ ok: true })
+})
+
+app.post('/api/contact', async (req, res) => {
+  try {
+    const payload = normalizeContactPayload(req.body)
+    const errorMessage = validateContactPayload(payload)
+
+    if (errorMessage) {
+      return res.status(400).json({ ok: false, message: errorMessage })
+    }
+
+    await pool.query(
+      `
+        INSERT INTO contact_entries (name, company, email, phone, segment, message)
+        VALUES ($1, $2, $3, $4, $5, $6)
+      `,
+      [payload.name, payload.company, payload.email, payload.phone, payload.segment, payload.message],
+    )
+
+    return res.status(200).json({ ok: true })
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Erro ao registrar contato.'
+    return res.status(500).json({ ok: false, message })
+  }
+})
+
+app.get('/api/contacts', async (req, res) => {
+  if (!isAuthenticated(req)) return res.status(401).json({ ok: false, message: 'Não autorizado.' })
+
+  try {
+    const result = await pool.query(
+      `
+        SELECT id, name, company, email, phone, segment, message, status, created_at
+        FROM contact_entries
+        ORDER BY created_at DESC
+      `,
+    )
+
+    return res.status(200).json({ ok: true, contacts: result.rows })
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Erro ao buscar contatos.'
+    return res.status(500).json({ ok: false, message })
+  }
 })
 
 app.get('/api/content', async (_req, res) => {

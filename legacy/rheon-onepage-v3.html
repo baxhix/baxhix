@@ -371,10 +371,10 @@
     letter-spacing: -0.04em;
     color: var(--white);
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 12px;
-    flex-wrap: wrap;
+    gap: 10px;
   }
   .market-total-value {
     white-space: nowrap;
@@ -388,14 +388,14 @@
   }
   .market-total-growth-intro {
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 400;
     letter-spacing: 0;
     color: var(--white);
     line-height: 1.1;
   }
   .market-total-growth-sub {
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 400;
     color: var(--white);
     line-height: 1.15;
   }
@@ -2978,31 +2978,44 @@
   reveals.forEach(el => observer.observe(el));
 
   // Form submit handler
-  function handleFormSubmit(e) {
+  async function handleFormSubmit(e) {
     e.preventDefault();
     const form = document.getElementById('contactForm');
     const success = document.getElementById('formSuccess');
+    const submitButton = form.querySelector('.btn-form-submit');
     
-    // Build WhatsApp message from form data
     const name = document.getElementById('cf-name').value;
     const company = document.getElementById('cf-company').value;
+    const email = document.getElementById('cf-email').value;
     const phone = document.getElementById('cf-phone').value;
     const segment = document.getElementById('cf-segment').value;
     const message = document.getElementById('cf-message').value;
-    
-    const waText = encodeURIComponent(
-      `Olá! Me chamo ${name} da empresa ${company}.\n` +
-      `Segmento: ${segment}\n` +
-      (phone ? `WhatsApp: ${phone}\n` : '') +
-      (message ? `\n${message}` : '')
-    );
-    
-    // Open WhatsApp with pre-filled message
-    window.open(`https://wa.me/5543999218521?text=${waText}`, '_blank');
-    
-    // Show success state
-    form.style.display = 'none';
-    success.style.display = 'block';
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Enviando...';
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, company, email, phone, segment, message }),
+      });
+
+      const result = await response.json().catch(() => ({ ok: false, message: 'Falha ao enviar a mensagem.' }));
+
+      if (!response.ok || !result.ok) {
+        throw new Error(result.message || 'Falha ao enviar a mensagem.');
+      }
+
+      form.style.display = 'none';
+      success.style.display = 'block';
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Falha ao enviar a mensagem.';
+      window.alert(message);
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = 'Enviar mensagem';
+    }
   }
 
   // Mobile nav hamburger
