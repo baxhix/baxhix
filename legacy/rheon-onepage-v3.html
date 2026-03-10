@@ -858,17 +858,17 @@
   }
 
   .ecosystem-cta {
-    width: 450px;
-    height: 90px;
     background: var(--black);
     color: var(--white);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    font-size: 14px;
+    padding: 16px 40px;
+    min-height: 55px;
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
   }
 
@@ -1450,9 +1450,9 @@
   }
 
   .cta-headline em {
-    font-style: italic;
-    font-weight: 300;
-    color: rgba(0,0,0,0.35);
+    font-style: normal;
+    font-weight: 900;
+    color: var(--black);
   }
 
   .cta-sub {
@@ -1461,6 +1461,7 @@
     color: rgba(0,0,0,0.5);
     margin-bottom: 60px;
     line-height: 1.6;
+    white-space: nowrap;
   }
 
   .cta-actions {
@@ -1705,6 +1706,27 @@
     width: 20px;
     height: 20px;
     flex-shrink: 0;
+  }
+
+  .contact-qr {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .contact-qr img {
+    width: 120px;
+    height: auto;
+    display: block;
+  }
+
+  .contact-qr-text {
+    max-width: 200px;
+    font-size: 16px;
+    line-height: 1.35;
+    color: rgba(255,255,255,0.65);
   }
 
   /* ─── WHATSAPP FLOATING BUTTON ─── */
@@ -2061,8 +2083,8 @@
       O ecossistema completo para Farma, Beleza e Pet
     </p>
     <div class="hero-actions reveal reveal-delay-3">
-      <a href="#camadas-ecossistema" class="btn-primary">SOLICITE UMA DEMONSTRAÇÃO</a>
-      <a href="#cases" class="btn-ghost">SAIBA MAIS</a>
+      <a href="#contato" class="btn-primary">SOLICITE UMA DEMONSTRAÇÃO</a>
+      <a href="#contato" class="btn-ghost">SAIBA MAIS</a>
     </div>
   </div>
 
@@ -2716,7 +2738,7 @@
   <div class="cta-bg">RHEON</div>
   <div class="cta-inner">
     <h2 class="cta-headline reveal">
-      Vamos construir<br>o futuro da<br><em>sua operação?</em>
+      Vamos construir<br>o futuro da<br>sua operação?
     </h2>
     <p class="cta-sub reveal reveal-delay-1">
       Fale com nossos especialistas e descubra como o ecossistema RHEON pode transformar sua operação.
@@ -2790,6 +2812,10 @@
           </svg>
           ENVIAR VIA WHATSAPP
         </a>
+        <div class="contact-qr">
+          <img src="/qr-code.png" alt="QR Code">
+          <p class="contact-qr-text">Se preferir, continue a navegação no seu celular</p>
+        </div>
       </div>
 
     </div>
