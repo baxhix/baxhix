@@ -168,6 +168,21 @@
     max-width: 900px;
   }
 
+  .hero-watermark {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-58%);
+    font-size: clamp(120px, 18vw, 260px);
+    font-weight: 900;
+    letter-spacing: -0.08em;
+    line-height: 0.85;
+    color: rgba(255,255,255,0.05);
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+  }
+
   .hero-tag {
     display: inline-flex;
     align-items: center;
@@ -1955,6 +1970,11 @@
     .nav-logo img { height: 22px !important; width: auto !important; }
     .nav-whatsapp { display: none; }
     .hero { padding: 0 32px; }
+    .hero-watermark {
+      right: 32px;
+      font-size: clamp(84px, 22vw, 140px);
+      transform: translateY(-62%);
+    }
     .hero-actions {
       flex-direction: column;
       align-items: center;
@@ -2087,6 +2107,7 @@
       <a href="#contato" class="btn-ghost">SAIBA MAIS</a>
     </div>
   </div>
+  <div class="hero-watermark" aria-hidden="true">RHEON</div>
 
   <div class="hero-bottom">
     <div class="hero-stats">
