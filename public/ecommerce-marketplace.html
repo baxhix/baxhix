@@ -282,6 +282,57 @@
       color: rgba(255,255,255,0.68);
     }
 
+    .growth-differentiation {
+      background: var(--black);
+      color: var(--white);
+      padding-top: 0;
+    }
+    .growth-differentiation-wrap {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+    .growth-differentiation-title {
+      font-size: clamp(36px, 4.8vw, 62px);
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      margin-bottom: 42px;
+      max-width: 880px;
+    }
+    .growth-differentiation-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .growth-differentiation-card {
+      background: #141412;
+      border-top: 4px solid var(--white);
+      min-height: 238px;
+      padding: 24px 20px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .growth-differentiation-icon {
+      width: 34px;
+      height: 34px;
+      color: rgba(255,255,255,0.62);
+      margin-bottom: 18px;
+      flex-shrink: 0;
+    }
+    .growth-differentiation-card-title {
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .growth-differentiation-card-text {
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.68);
+    }
+
     footer {
       background: var(--black);
       padding: 238px 28px 220px;
@@ -326,6 +377,8 @@
       .platform-card { min-height: auto; }
       .operations-core-grid { grid-template-columns: 1fr; }
       .operations-core-card { min-height: auto; }
+      .growth-differentiation-grid { grid-template-columns: 1fr; }
+      .growth-differentiation-card { min-height: auto; }
       footer { padding: 210px 24px 198px; }
       .footer-top, .footer-mid { grid-template-columns: 1fr; gap: 18px; }
     }
@@ -441,6 +494,40 @@ Marketplace</div>
             <svg class="operations-core-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="18" r="1.5" fill="currentColor"/><circle cx="17" cy="18" r="1.5" fill="currentColor"/><path d="M4 6h2l2 8h10l2-6H7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <div class="operations-core-card-title">Checkout Headless</div>
             <p class="operations-core-card-text">Checkout desacoplado. Layout customizável sem sprint de TI.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="growth-differentiation">
+      <div class="growth-differentiation-wrap">
+        <h2 class="growth-differentiation-title">Diferenciação, retenção<br>e crescimento de receita</h2>
+
+        <div class="growth-differentiation-grid">
+          <article class="growth-differentiation-card">
+            <svg class="growth-differentiation-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3.5" y="4.5" width="17\" height=\"15\" rx=\"1.5\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M3.5 9.5h17\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M9.5 9.5v10\" stroke=\"currentColor\" stroke-width=\"1.8\"/></svg>
+            <div class="growth-differentiation-card-title">CMS Headless</div>
+            <p class="growth-differentiation-card-text">Vitrines, LPs, Menus, Templates. Autonomia total para times comerciais.</p>
+          </article>
+          <article class="growth-differentiation-card">
+            <svg class="growth-differentiation-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 4h8l4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 4v4h4" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="11" cy="13" r="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M13 15l2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <div class="growth-differentiation-card-title">Busca Avançada e Recomendações</div>
+            <p class="growth-differentiation-card-text">Busca por sintoma, sinônimos farmacêuticos e substituição inteligente por genérico.</p>
+          </article>
+          <article class="growth-differentiation-card">
+            <svg class="growth-differentiation-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 12l-8 8-8-8 8-8h6l2 2v6z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="16" cy="8" r="1.2" fill="currentColor"/></svg>
+            <div class="growth-differentiation-card-title">Campanhas / Promoções</div>
+            <p class="growth-differentiation-card-text">Motor de campanhas segmentadas por perfil, canal e histórico de compra.</p>
+          </article>
+          <article class="growth-differentiation-card">
+            <svg class="growth-differentiation-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6 16V9" stroke="currentColor" stroke-width="1.8"/><path d="M11 16V6" stroke="currentColor" stroke-width="1.8"/><path d="M16 16v-4" stroke="currentColor" stroke-width="1.8"/><path d="M4 6l5-2 4 2 7-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="growth-differentiation-card-title">Trackeamento e Dados</div>
+            <p class="growth-differentiation-card-text">Captura de comportamento em tempo real em todos os canais.</p>
+          </article>
+          <article class="growth-differentiation-card">
+            <svg class="growth-differentiation-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6.5h16v9H8l-4 3v-12z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 9.5h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <div class="growth-differentiation-card-title">Marketing Tools</div>
+            <p class="growth-differentiation-card-text">Ferramentas de automação, reativação de base e réguas de relacionamento.</p>
           </article>
         </div>
       </div>
