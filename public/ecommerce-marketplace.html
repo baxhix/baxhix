@@ -578,6 +578,66 @@
       color: #000000;
     }
 
+    .integration-layers {
+      background: var(--black);
+      color: var(--white);
+    }
+    .integration-layers-wrap {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+    .integration-layers-title {
+      font-size: clamp(36px, 4.8vw, 62px);
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+      max-width: 860px;
+    }
+    .integration-layers-subtitle {
+      font-size: 20px;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.62);
+      margin-bottom: 36px;
+      max-width: 980px;
+    }
+    .integration-layers-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+    .integration-block {
+      background: #0b0b0b;
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 22px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .integration-block-bar {
+      width: 4px;
+      border-radius: 2px;
+      background: #ffffff;
+      align-self: stretch;
+      flex-shrink: 0;
+    }
+    .integration-block-content {
+      display: flex;
+      flex-direction: column;
+    }
+    .integration-block-title {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 1.4;
+    }
+    .integration-block-description {
+      color: #a0a0a0;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-top: 8px;
+    }
+
     footer {
       background: var(--black);
       padding: 238px 28px 220px;
@@ -633,6 +693,7 @@
       .governance-security-grid { grid-template-columns: 1fr; }
       .governance-security-card { min-height: auto; }
       .card-groups-grid { grid-template-columns: 1fr; gap: 26px; }
+      .integration-layers-grid { grid-template-columns: 1fr; }
       footer { padding: 210px 24px 198px; }
       .footer-top, .footer-mid { grid-template-columns: 1fr; gap: 18px; }
     }
@@ -987,6 +1048,31 @@ Marketplace</div>
               <div class="simple-card-title">Integração nativa com Cosmos Pro</div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="integration-layers">
+      <div class="integration-layers-wrap">
+        <h2 class="integration-layers-title">Camadas de integração da operação digital</h2>
+        <p class="integration-layers-subtitle">Arquitetura API First para conectar canais, operação e ferramentas externas com consistência de dados em tempo real.</p>
+
+        <div class="integration-layers-grid">
+          <article class="integration-block">
+            <div class="integration-block-bar" aria-hidden="true"></div>
+            <div class="integration-block-content">
+              <div class="integration-block-title">Store Front — Camada de Integração (API First) — Canais de vendas</div>
+              <div class="integration-block-description">Middleware que conecta todos os canais de venda online ao núcleo do sistema. Garante que PDV, app, e-commerce e marketplace falem a mesma língua e enxerguem o mesmo estoque, preço e catálogo em tempo real.</div>
+            </div>
+          </article>
+
+          <article class="integration-block">
+            <div class="integration-block-bar" aria-hidden="true"></div>
+            <div class="integration-block-content">
+              <div class="integration-block-title">Backoffice — Camada de Integração (API First) — Camada operacional e ferramentas externas</div>
+              <div class="integration-block-description">Orquestra a comunicação entre os módulos internos (OMS, WMS, RMS, CRM) e os sistemas legados via Cosmos Pro. Garante integridade de dados do pedido até o relatório gerencial.</div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
