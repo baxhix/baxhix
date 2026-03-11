@@ -333,6 +333,57 @@
       color: rgba(255,255,255,0.68);
     }
 
+    .oms-section {
+      background: var(--black);
+      color: var(--white);
+      padding-top: 0;
+    }
+    .oms-wrap {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+    .oms-title {
+      font-size: clamp(36px, 4.8vw, 62px);
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      margin-bottom: 36px;
+      max-width: 820px;
+    }
+    .oms-group {
+      margin-bottom: 22px;
+    }
+    .oms-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .oms-grid + .oms-grid {
+      margin-top: 18px;
+    }
+    .oms-card {
+      background: #0a0a0a;
+      border: 1px solid rgba(255,255,255,0.82);
+      border-radius: 2px;
+      padding: 22px;
+      min-height: 188px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .oms-card-title {
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--white);
+    }
+    .oms-card-text {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #bdbdbd;
+    }
+
     footer {
       background: var(--black);
       padding: 238px 28px 220px;
@@ -379,6 +430,8 @@
       .operations-core-card { min-height: auto; }
       .growth-differentiation-grid { grid-template-columns: 1fr; }
       .growth-differentiation-card { min-height: auto; }
+      .oms-grid { grid-template-columns: 1fr; }
+      .oms-card { min-height: auto; }
       footer { padding: 210px 24px 198px; }
       .footer-top, .footer-mid { grid-template-columns: 1fr; gap: 18px; }
     }
@@ -529,6 +582,58 @@ Marketplace</div>
             <div class="growth-differentiation-card-title">Marketing Tools</div>
             <p class="growth-differentiation-card-text">Ferramentas de automação, reativação de base e réguas de relacionamento.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="oms-section">
+      <div class="oms-wrap">
+        <h2 class="oms-title">OMS: Orquestrador da operação digital</h2>
+
+        <div class="oms-group">
+          <div class="oms-grid">
+            <article class="oms-card">
+              <div class="oms-card-title">Ship-from-Store</div>
+              <p class="oms-card-text">Visão em tempo real de todo o estoque — loja, CD e parceiros.</p>
+            </article>
+            <article class="oms-card">
+              <div class="oms-card-title">Logística Híbrida</div>
+              <p class="oms-card-text">Gestão própria + integrações externas. Roteamento inteligente por custo e proximidade.</p>
+            </article>
+            <article class="oms-card">
+              <div class="oms-card-title">OMS</div>
+              <p class="oms-card-text">Decisão automática, em tempo real, do melhor ponto de estoque para fulfillment (atendimento) de cada pedido.</p>
+            </article>
+            <article class="oms-card">
+              <div class="oms-card-title">Tracking</div>
+              <p class="oms-card-text">Rastreamento nativo de pedido em todos os canais.</p>
+            </article>
+            <article class="oms-card">
+              <div class="oms-card-title">Geolocalização e Mapa de Cobertura</div>
+              <p class="oms-card-text">Mapeamento de cobertura logística para cada região de entrega.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="oms-group">
+          <div class="oms-grid">
+            <article class="oms-card">
+              <div class="oms-card-title">Estoque Unificado</div>
+              <p class="oms-card-text">Qualquer loja física como ponto de fulfillment digital, de maneira nativa.</p>
+            </article>
+            <article class="oms-card">
+              <div class="oms-card-title">Click &amp; Collect</div>
+              <p class="oms-card-text">Compra online, retirada na loja — em tempo real, com confirmação de estoque.</p>
+            </article>
+            <article class="oms-card">
+              <div class="oms-card-title">Prateleira Infinita</div>
+              <p class="oms-card-text">Venda de produto sem estoque na loja física ou otimização de estoque.</p>
+            </article>
+            <article class="oms-card">
+              <div class="oms-card-title">Roteamento Inteligente</div>
+              <p class="oms-card-text">Motor reduz custo logístico automaticamente. Menos custo, mais margem.</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
