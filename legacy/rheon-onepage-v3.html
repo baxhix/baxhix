@@ -958,11 +958,11 @@
   }
 
   .case-logo-wrap {
-    height: 76px;
+    height: 112px;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
-    margin-bottom: 18px;
+    margin-bottom: 28px;
   }
 
   .case-logo {
@@ -979,7 +979,10 @@
   }
 
   .case-logo-rede {
-    max-width: 112px;
+    width: 96px;
+    max-width: 96px;
+    height: 96px;
+    object-fit: contain;
   }
 
   .case-client {
@@ -989,6 +992,9 @@
     text-transform: uppercase;
     color: var(--gray-600);
     margin-bottom: 16px;
+    min-height: 38px;
+    display: flex;
+    align-items: flex-end;
   }
 
   .case-headline {
@@ -2033,11 +2039,15 @@
       margin-right: auto;
     }
     .case-logo-wrap {
-      height: 56px;
+      height: 72px;
       margin-bottom: 14px;
     }
     .case-logo-ultrafarma { max-width: 127px; }
-    .case-logo-rede { max-width: 67px; }
+    .case-logo-rede {
+      width: 58px;
+      max-width: 58px;
+      height: 58px;
+    }
     .case-client,
     .case-headline,
     .case-detail,
