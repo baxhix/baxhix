@@ -1853,10 +1853,12 @@
       grid-template-columns: 1fr;
     }
     .whatsapp-float {
+      position: fixed !important;
       bottom: 20px;
       right: 20px;
       width: 52px;
       height: 52px;
+      transform: translateZ(0);
     }
     .whatsapp-float svg { width: 26px; height: 26px; }
   }
@@ -2038,6 +2040,14 @@
     .numbers-grid { grid-template-columns: repeat(2, 1fr); }
     .number-item {
       padding-left: 0;
+    }
+    .numbers-grid > .number-item:nth-child(2),
+    .numbers-grid > .number-item:nth-child(4) {
+      padding-left: 20px;
+    }
+    .numbers-grid > .number-item:nth-child(3),
+    .numbers-grid > .number-item:nth-child(4) {
+      padding-top: 20px;
     }
     .number-value {
       font-size: clamp(30px, 7vw, 44px);
