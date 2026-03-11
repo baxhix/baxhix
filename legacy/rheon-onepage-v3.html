@@ -300,29 +300,6 @@
     line-height: 1.45;
   }
 
-  .hero-scroll {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gray-600);
-  }
-
-  .scroll-line {
-    width: 1px;
-    height: 48px;
-    background: var(--gray-600);
-    animation: scrollLine 2s ease-in-out infinite;
-  }
-
-  @keyframes scrollLine {
-    0%, 100% { opacity: 0.3; transform: scaleY(1); }
-    50% { opacity: 1; transform: scaleY(0.7); }
-  }
-
   /* ─── SECTION BASE ─── */
   section {
     padding: 120px 60px;
@@ -352,7 +329,7 @@
     line-height: 1.0;
     letter-spacing: -0.03em;
     color: var(--white);
-    margin-bottom: 24px;
+    margin-bottom: 70px;
   }
 
   .section-headline em {
@@ -504,7 +481,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    margin-top: 60px;
+    margin-top: 0;
   }
 
   .problem-card {
@@ -912,7 +889,7 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 1px;
     background: rgba(0,0,0,0.08);
-    margin-top: 60px;
+    margin-top: 0;
     max-width: 1320px;
     margin-left: 0;
     margin-right: auto;
@@ -952,7 +929,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 1px;
     background: rgba(255,255,255,0.06);
-    margin-top: 60px;
+    margin-top: 0;
     max-width: 1320px;
     margin-left: 0;
     margin-right: auto;
@@ -1137,7 +1114,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 1px;
     background: rgba(0,0,0,0.08);
-    margin-top: 60px;
+    margin-top: 0;
     max-width: 1320px;
     margin-left: 0;
     margin-right: auto;
@@ -1221,7 +1198,7 @@
   .methodology .section-headline { color: #000; }
 
   .methodology-diagram {
-    margin-top: 60px;
+    margin-top: 0;
     background: transparent;
   }
 
@@ -2137,7 +2114,6 @@
     </p>
     <div class="hero-actions reveal reveal-delay-3">
       <a href="#contato" class="btn-primary">SOLICITE UMA DEMONSTRAÇÃO</a>
-      <a href="#contato" class="btn-ghost">SAIBA MAIS</a>
     </div>
   </div>
   <div class="hero-watermark" aria-hidden="true">RHEON</div>
@@ -2167,9 +2143,6 @@
       <div class="stat-item stat-item-long">
         <div class="stat-number">EXPERIÊNCIA COM MÉDIAS E GRANDES OPERAÇÕES</div>
       </div>
-    </div>
-    <div class="hero-scroll">
-      <div class="scroll-line"></div>
     </div>
   </div>
 </section>
