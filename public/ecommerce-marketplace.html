@@ -87,7 +87,7 @@
     }
     .hero-wrap {
       display: grid;
-      grid-template-columns: 1.05fr 1fr;
+      grid-template-columns: 1fr;
       gap: 48px;
       align-items: center;
       max-width: 1320px;
@@ -99,13 +99,6 @@
       letter-spacing: -0.03em;
       margin-bottom: 22px;
       font-weight: 900;
-    }
-    .hero p {
-      font-size: 24px;
-      line-height: 1.5;
-      color: var(--gray-200);
-      max-width: 720px;
-      margin-bottom: 28px;
     }
     .hero-actions {
       display: flex;
@@ -125,51 +118,6 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-    }
-    .btn-ghost {
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--gray-400);
-      text-decoration: none;
-      border-bottom: 1px solid var(--gray-400);
-      padding-bottom: 2px;
-    }
-    .hero-visual {
-      width: 100%;
-      min-height: 380px;
-      background: linear-gradient(135deg, #151513 0%, #232320 100%);
-      border: 1px solid rgba(255,255,255,0.12);
-      display: grid;
-      place-items: center;
-      padding: 28px;
-    }
-    .hero-visual-grid {
-      width: 100%;
-      max-width: 520px;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-    .hero-visual-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      min-height: 138px;
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .hero-visual-card strong {
-      font-size: 15px;
-      line-height: 1.3;
-      color: var(--white);
-    }
-    .hero-visual-card span {
-      font-size: 13px;
-      line-height: 1.45;
-      color: rgba(255,255,255,0.68);
     }
 
     .platform-structure {
@@ -225,7 +173,7 @@
       flex-shrink: 0;
     }
     .platform-card-title {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 800;
       line-height: 1.2;
       color: var(--black);
@@ -270,7 +218,7 @@
       flex-shrink: 0;
     }
     .operations-core-card-title {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 800;
       line-height: 1.2;
       color: var(--white);
@@ -321,7 +269,7 @@
       flex-shrink: 0;
     }
     .growth-differentiation-card-title {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 800;
       line-height: 1.2;
       color: var(--white);
@@ -581,9 +529,9 @@
       padding: 18px 18px;
     }
     .simple-card-title {
-      font-size: 14px;
+      font-size: 18px;
       font-weight: 600;
-      line-height: 1.45;
+      line-height: 1.4;
       color: #000000;
     }
 
@@ -728,11 +676,8 @@
       .nav-links, .nav-cta { display: none; }
       section { padding: 74px 20px; }
       .hero-wrap { grid-template-columns: 1fr; gap: 28px; }
-      .hero p { font-size: 18px; }
       .hero-actions { flex-direction: column; align-items: stretch; }
       .btn-primary { width: 100%; text-align: center; }
-      .btn-ghost { text-align: center; align-self: center; }
-      .hero-visual-grid { grid-template-columns: 1fr; }
       .platform-grid { grid-template-columns: 1fr; }
       .platform-card { min-height: auto; }
       .operations-core-grid { grid-template-columns: 1fr; }
@@ -788,19 +733,9 @@
     <section class="hero">
       <div class="hero-wrap">
         <div>
-          <h1>Estrutura E-commerce e/ou Marketplace para operações que exigem governança, segurança e escala.</h1>
-          <p>Conecte catálogo, pedidos, marketing, sellers e backoffice em uma arquitetura única, preparada para crescer com previsibilidade.</p>
+          <h1>E-commerce e/ou Marketplace</h1>
           <div class="hero-actions">
             <a href="/#contato" class="btn-primary">SOLICITE UMA DEMONSTRAÇÃO</a>
-            <a href="/#contato" class="btn-ghost">SAIBA MAIS</a>
-          </div>
-        </div>
-        <div class="hero-visual" aria-hidden="true">
-          <div class="hero-visual-grid">
-            <div class="hero-visual-card"><strong>Catálogo e CMS</strong><span>Gestão de vitrines, conteúdo, campanhas e coleção de produtos.</span></div>
-            <div class="hero-visual-card"><strong>OMS e Pedidos</strong><span>Orquestração operacional com visibilidade e controle ponta a ponta.</span></div>
-            <div class="hero-visual-card"><strong>Marketing e Conversão</strong><span>Campanhas, personalização e experiências conectadas à operação.</span></div>
-            <div class="hero-visual-card"><strong>Marketplace</strong><span>Controle de sellers, onboarding e governança de ecossistema.</span></div>
           </div>
         </div>
       </div>
