@@ -2031,6 +2031,12 @@
     .ecosystem-layer-right { padding: 0 20px 24px 20px; border-left: none; }
     .ecosystem-layer-left { padding: 24px 20px 16px 20px; }
     .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+    .number-item {
+      padding-left: 0;
+    }
+    .number-value {
+      font-size: clamp(30px, 7vw, 44px);
+    }
     .cases-grid {
       grid-template-columns: 1fr;
       margin-top: 40px;
@@ -2038,16 +2044,18 @@
     .case-card {
       padding: 36px 24px;
       overflow: hidden;
+      padding-left: 0;
     }
     .case-logo {
       max-width: 100%;
       height: auto;
       margin-left: 0;
-      margin-right: auto;
+      margin-right: 0;
     }
     .case-logo-wrap {
       height: 72px;
       margin-bottom: 14px;
+      justify-content: flex-start;
     }
     .case-logo-ultrafarma { max-width: 127px; }
     .case-logo-rede {
@@ -2085,6 +2093,12 @@
     .method-track { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .method-track::before { display: block; }
     .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonials-grid > .testimonial-card {
+      padding-left: 0;
+    }
+    .testimonials-grid > .testimonial-card.testimonial-card-mobile-top {
+      padding-top: 24px;
+    }
     .testimonial-author {
       flex-direction: column;
       align-items: flex-start;
@@ -2101,6 +2115,7 @@
     footer { padding: 210px 24px 198px; }
     .footer-top { grid-template-columns: 1fr; gap: 18px; }
     .footer-mid { grid-template-columns: 1fr; }
+    .footer-qr-col { display: none; }
     .cta { padding: 100px 32px; }
     .contact-grid { grid-template-columns: 1fr; }
     .contact-form-side { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.1); padding: 40px 24px; }
@@ -2538,7 +2553,7 @@
         </div>
       </div>
     </div>
-    <div class="testimonial-card reveal reveal-delay-1">
+    <div class="testimonial-card testimonial-card-mobile-top reveal reveal-delay-1">
       <div class="testimonial-quote">"O tempo de desenvolvimento e a qualidade da entrega, além da flexibilidade de migração, nos fez migrar com muita segurança. Quebramos o recorde histórico do canal nos primeiros 60 dias."</div>
       <div class="testimonial-author">
         <div class="testimonial-author-logo-wrap">
@@ -2562,7 +2577,7 @@
         </div>
       </div>
     </div>
-    <div class="testimonial-card reveal reveal-delay-3">
+    <div class="testimonial-card testimonial-card-mobile-top reveal reveal-delay-3">
       <div class="testimonial-quote">"Estão sempre presentes e comprometidos a nos atender não só tecnicamente, mas com excelente atendimento e proatividade em trazer soluções ao invés de questionar problemas. Na prática, acabam sendo mais que um fornecedor."</div>
       <div class="testimonial-author">
         <div class="testimonial-author-logo-wrap">
