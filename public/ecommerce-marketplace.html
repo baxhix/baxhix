@@ -178,6 +178,7 @@
       line-height: 1.2;
       color: var(--black);
       white-space: pre-line;
+      overflow-wrap: anywhere;
     }
 
     .operations-core {
@@ -225,9 +226,10 @@
       margin-bottom: 12px;
     }
     .operations-core-card-text {
-      font-size: 16px;
+      font-size: 14px;
       line-height: 1.6;
       color: rgba(255,255,255,0.68);
+      overflow-wrap: anywhere;
     }
 
     .growth-differentiation {
@@ -274,11 +276,13 @@
       line-height: 1.2;
       color: var(--white);
       margin-bottom: 12px;
+      overflow-wrap: anywhere;
     }
     .growth-differentiation-card-text {
-      font-size: 16px;
+      font-size: 14px;
       line-height: 1.6;
       color: rgba(255,255,255,0.68);
+      overflow-wrap: anywhere;
     }
 
     .oms-section {
@@ -311,7 +315,7 @@
     }
     .oms-card {
       background: #0a0a0a;
-      border: 1px solid rgba(255,255,255,0.82);
+      border: 1px solid rgba(255,255,255,0.24);
       border-radius: 2px;
       padding: 22px;
       min-height: 188px;
@@ -324,12 +328,14 @@
       font-weight: 800;
       line-height: 1.2;
       color: var(--white);
+      overflow-wrap: anywhere;
     }
     .oms-card-text {
       font-size: 14px;
       font-weight: 400;
       line-height: 1.6;
       color: #bdbdbd;
+      overflow-wrap: anywhere;
     }
 
     .channel-expansion {
@@ -356,7 +362,7 @@
     }
     .channel-expansion-card {
       background: #0a0a0a;
-      border: 1px solid rgba(255,255,255,0.82);
+      border: 1px solid rgba(255,255,255,0.24);
       border-radius: 2px;
       padding: 22px;
       min-height: 188px;
@@ -375,12 +381,14 @@
       font-weight: 800;
       line-height: 1.2;
       color: var(--white);
+      overflow-wrap: anywhere;
     }
     .channel-expansion-card-text {
       font-size: 14px;
       font-weight: 400;
       line-height: 1.6;
       color: #bdbdbd;
+      overflow-wrap: anywhere;
     }
 
     .generic-saas-limitations {
@@ -407,7 +415,7 @@
     }
     .generic-saas-limitations-card {
       background: #0a0a0a;
-      border: 1px solid rgba(255,255,255,0.82);
+      border: 1px solid rgba(255,255,255,0.24);
       border-radius: 2px;
       padding: 22px;
       min-height: 188px;
@@ -426,12 +434,14 @@
       font-weight: 800;
       line-height: 1.2;
       color: var(--white);
+      overflow-wrap: anywhere;
     }
     .generic-saas-limitations-card-text {
       font-size: 14px;
       font-weight: 400;
       line-height: 1.6;
       color: #bdbdbd;
+      overflow-wrap: anywhere;
     }
 
     .governance-security {
@@ -458,7 +468,7 @@
     }
     .governance-security-card {
       background: #0a0a0a;
-      border: 1px solid rgba(255,255,255,0.82);
+      border: 1px solid rgba(255,255,255,0.24);
       border-radius: 2px;
       padding: 22px;
       min-height: 188px;
@@ -477,12 +487,14 @@
       font-weight: 800;
       line-height: 1.2;
       color: var(--white);
+      overflow-wrap: anywhere;
     }
     .governance-security-card-text {
       font-size: 14px;
       font-weight: 400;
       line-height: 1.6;
       color: #bdbdbd;
+      overflow-wrap: anywhere;
     }
 
     .card-groups-section {
@@ -533,6 +545,7 @@
       font-weight: 600;
       line-height: 1.4;
       color: #000000;
+      overflow-wrap: anywhere;
     }
 
     .integration-layers {
@@ -565,7 +578,7 @@
     }
     .integration-block {
       background: #0b0b0b;
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
       padding: 22px;
       display: flex;
       gap: 16px;
@@ -584,15 +597,17 @@
     }
     .integration-block-title {
       color: #ffffff;
-      font-weight: 700;
-      font-size: 17px;
-      line-height: 1.4;
+      font-weight: 800;
+      font-size: 18px;
+      line-height: 1.2;
+      overflow-wrap: anywhere;
     }
     .integration-block-description {
-      color: #a0a0a0;
+      color: #bdbdbd;
       font-size: 14px;
       line-height: 1.6;
       margin-top: 8px;
+      overflow-wrap: anywhere;
     }
 
     .benefits-section {
@@ -639,6 +654,7 @@
       font-size: 16px;
       color: #555555;
       line-height: 1.6;
+      overflow-wrap: anywhere;
     }
 
     footer {
@@ -672,32 +688,136 @@
     .footer-qr-text { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.35; }
 
     @media (max-width: 1024px) {
-      nav { padding: 16px; }
+      nav {
+        padding: 16px 20px;
+        justify-content: center;
+      }
+      .nav-logo img { height: 24px; }
       .nav-links, .nav-cta { display: none; }
-      section { padding: 74px 20px; }
-      .hero-wrap { grid-template-columns: 1fr; gap: 28px; }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-      .btn-primary { width: 100%; text-align: center; }
+      main { padding-top: 88px; }
+      section { padding: 64px 20px; }
+      .hero { padding-top: 8px; }
+      .hero-wrap {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        max-width: 100%;
+      }
+      .hero h1 {
+        font-size: clamp(34px, 10vw, 48px);
+        margin-bottom: 18px;
+        max-width: 10ch;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+      .btn-primary {
+        width: 100%;
+        text-align: center;
+        padding: 15px 18px;
+      }
+      .section-kicker {
+        font-size: 12px;
+        margin-bottom: 16px;
+      }
+      .section-title,
+      .operations-core-title,
+      .growth-differentiation-title,
+      .oms-title,
+      .channel-expansion-title,
+      .generic-saas-limitations-title,
+      .governance-security-title,
+      .card-groups-title,
+      .integration-layers-title,
+      .benefits-title {
+        font-size: clamp(28px, 8vw, 40px);
+        line-height: 1.08;
+        margin-bottom: 24px;
+      }
+      .section-subtitle,
+      .integration-layers-subtitle {
+        font-size: 16px;
+        line-height: 1.55;
+        margin-bottom: 28px;
+      }
       .platform-grid { grid-template-columns: 1fr; }
-      .platform-card { min-height: auto; }
+      .platform-card,
+      .operations-core-card,
+      .growth-differentiation-card,
+      .oms-card,
+      .channel-expansion-card,
+      .generic-saas-limitations-card,
+      .governance-security-card,
+      .integration-block,
+      .simple-card {
+        min-height: auto;
+      }
+      .platform-card,
+      .operations-core-card,
+      .growth-differentiation-card,
+      .oms-card,
+      .channel-expansion-card,
+      .generic-saas-limitations-card,
+      .governance-security-card {
+        padding: 20px 18px;
+      }
+      .platform-icon,
+      .operations-core-icon,
+      .growth-differentiation-icon,
+      .channel-expansion-icon,
+      .generic-saas-limitations-icon,
+      .governance-security-icon {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 14px;
+      }
+      .platform-card-title,
+      .operations-core-card-title,
+      .growth-differentiation-card-title,
+      .oms-card-title,
+      .channel-expansion-card-title,
+      .generic-saas-limitations-card-title,
+      .governance-security-card-title,
+      .simple-card-title,
+      .integration-block-title {
+        font-size: 16px;
+      }
+      .operations-core-card-text,
+      .growth-differentiation-card-text,
+      .oms-card-text,
+      .channel-expansion-card-text,
+      .generic-saas-limitations-card-text,
+      .governance-security-card-text,
+      .integration-block-description,
+      .benefits-item {
+        font-size: 14px;
+      }
       .operations-core-grid { grid-template-columns: 1fr; }
-      .operations-core-card { min-height: auto; }
       .growth-differentiation-grid { grid-template-columns: 1fr; }
-      .growth-differentiation-card { min-height: auto; }
       .oms-grid { grid-template-columns: 1fr; }
-      .oms-card { min-height: auto; }
       .channel-expansion-grid { grid-template-columns: 1fr; }
-      .channel-expansion-card { min-height: auto; }
       .generic-saas-limitations-grid { grid-template-columns: 1fr; }
-      .generic-saas-limitations-card { min-height: auto; }
       .governance-security-grid { grid-template-columns: 1fr; }
-      .governance-security-card { min-height: auto; }
       .card-groups-grid { grid-template-columns: 1fr; gap: 26px; }
-      .integration-layers-grid { grid-template-columns: 1fr; }
+      .card-group { gap: 12px; }
+      .integration-layers-grid { grid-template-columns: 1fr; gap: 18px; }
+      .integration-block { padding: 20px 18px; }
       .benefits-section { padding: 74px 20px; }
       .benefits-grid { grid-template-columns: 1fr; gap: 28px; }
-      footer { padding: 210px 24px 198px; }
-      .footer-top, .footer-mid { grid-template-columns: 1fr; gap: 18px; }
+      .benefits-group-divider { margin-bottom: 16px; }
+      footer { padding: 120px 24px 110px; }
+      .footer-wrap { gap: 36px; }
+      .footer-logo-top { margin-bottom: 20px; }
+      .footer-top, .footer-mid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .footer-col-list { gap: 10px; }
+      .footer-qr-col {
+        align-items: flex-start;
+        text-align: left;
+      }
     }
 
     @media (max-width: 1200px) {
@@ -820,7 +940,7 @@ Marketplace</div>
 
         <div class="growth-differentiation-grid">
           <article class="growth-differentiation-card">
-            <svg class="growth-differentiation-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3.5" y="4.5" width="17\" height=\"15\" rx=\"1.5\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M3.5 9.5h17\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M9.5 9.5v10\" stroke=\"currentColor\" stroke-width=\"1.8\"/></svg>
+            <svg class="growth-differentiation-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3.5" y="4.5" width="17" height="15" rx="1.5" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 9.5h17" stroke="currentColor" stroke-width="1.8"/><path d="M9.5 9.5v10" stroke="currentColor" stroke-width="1.8"/></svg>
             <div class="growth-differentiation-card-title">CMS Headless</div>
             <p class="growth-differentiation-card-text">Vitrines, LPs, Menus, Templates. Autonomia total para times comerciais.</p>
           </article>
@@ -945,22 +1065,22 @@ Marketplace</div>
             <p class="generic-saas-limitations-card-text">Gestão nativa de convênios corporativos. Autorização integrada ao checkout sem fricção.</p>
           </article>
           <article class="generic-saas-limitations-card">
-            <svg class="generic-saas-limitations-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 20V7l4-3 4 3v13M8 11h8M16 20V5h4v15\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>
+            <svg class="generic-saas-limitations-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 20V7l4-3 4 3v13M8 11h8M16 20V5h4v15" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg>
             <div class="generic-saas-limitations-card-title">Espaço Saúde / Serviços</div>
             <p class="generic-saas-limitations-card-text">Conteúdo educativo e agendamento de serviços farmacêuticos. Receita além do produto.</p>
           </article>
           <article class="generic-saas-limitations-card">
-            <svg class="generic-saas-limitations-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x=\"5\" y=\"4\" width=\"14\" height=\"16\" rx=\"2\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M9 8h6M9 12h6M9 16h4\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"/></svg>
+            <svg class="generic-saas-limitations-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="4" width="14" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M9 8h6M9 12h6M9 16h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
             <div class="generic-saas-limitations-card-title">Regras e Anúncios de Produtos Controlados</div>
             <p class="generic-saas-limitations-card-text">Filtro regulatório embutido no catálogo. Anúncio de controlado bloqueado por design.</p>
           </article>
           <article class="generic-saas-limitations-card">
-            <svg class="generic-saas-limitations-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d=\"M9 4h6l1 2h3a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a1 1 0 0 1 1-1h3l1-2z\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linejoin=\"round\"/><path d=\"M9 13l2 2 4-4\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>
+            <svg class="generic-saas-limitations-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 4h6l1 2h3a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a1 1 0 0 1 1-1h3l1-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 13l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <div class="generic-saas-limitations-card-title">Gestão de Receita e Venda de Controlados (SNGPC)</div>
             <p class="generic-saas-limitations-card-text">Registro automático no SNGPC / ANVISA a cada venda. Zero intervenção manual.</p>
           </article>
           <article class="generic-saas-limitations-card">
-            <svg class="generic-saas-limitations-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x=\"4\" y=\"4\" width=\"7\" height=\"7\" stroke=\"currentColor\" stroke-width=\"1.8\"/><rect x=\"13\" y=\"4\" width=\"7\" height=\"7\" stroke=\"currentColor\" stroke-width=\"1.8\"/><rect x=\"4\" y=\"13\" width=\"7\" height=\"7\" stroke=\"currentColor\" stroke-width=\"1.8\"/><rect x=\"13\" y=\"13\" width=\"7\" height=\"7\" stroke=\"currentColor\" stroke-width=\"1.8\"/></svg>
+            <svg class="generic-saas-limitations-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="7" height="7" stroke="currentColor" stroke-width="1.8"/><rect x="13" y="4" width="7" height="7" stroke="currentColor" stroke-width="1.8"/><rect x="4" y="13" width="7" height="7" stroke="currentColor" stroke-width="1.8"/><rect x="13" y="13" width="7" height="7" stroke="currentColor" stroke-width="1.8"/></svg>
             <div class="generic-saas-limitations-card-title">Implementação Exclusiva</div>
             <p class="generic-saas-limitations-card-text">Módulos customizados por segmento (Farma, Beleza, Pet) com expertise de 30 anos.</p>
           </article>
@@ -979,7 +1099,7 @@ Marketplace</div>
             <p class="governance-security-card-text">Visão unificada da operação em tempo real. Board toma decisões com dados, não achismos.</p>
           </article>
           <article class="governance-security-card">
-            <svg class="governance-security-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 19c0-3.1 2.8-5.5 5.5-5.5 1.1 0 2.1.2 3 .7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="18" cy="16" r="2.2" stroke="currentColor" stroke-width="1.6"/><path d="M18 12.5v1.3M18 18.2v1.3M14.9 16h1.3M19.8 16h1.3\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\"/></svg>
+            <svg class="governance-security-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 19c0-3.1 2.8-5.5 5.5-5.5 1.1 0 2.1.2 3 .7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="18" cy="16" r="2.2" stroke="currentColor" stroke-width="1.6"/><path d="M18 12.5v1.3M18 18.2v1.3M14.9 16h1.3M19.8 16h1.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
             <div class="governance-security-card-title">Gestão de Usuários e Perfis de Acesso</div>
             <p class="governance-security-card-text">Controle granular de permissões. Conformidade com LGPD para dados sensíveis de saúde.</p>
           </article>
