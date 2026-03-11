@@ -435,6 +435,57 @@
       color: #bdbdbd;
     }
 
+    .generic-saas-limitations {
+      background: var(--black);
+      color: var(--white);
+      padding-top: 0;
+    }
+    .generic-saas-limitations-wrap {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+    .generic-saas-limitations-title {
+      font-size: clamp(36px, 4.8vw, 62px);
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      margin-bottom: 36px;
+      max-width: 820px;
+    }
+    .generic-saas-limitations-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .generic-saas-limitations-card {
+      background: #0a0a0a;
+      border: 1px solid rgba(255,255,255,0.82);
+      border-radius: 2px;
+      padding: 22px;
+      min-height: 188px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .generic-saas-limitations-icon {
+      width: 34px;
+      height: 34px;
+      color: rgba(255,255,255,0.62);
+      flex-shrink: 0;
+    }
+    .generic-saas-limitations-card-title {
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--white);
+    }
+    .generic-saas-limitations-card-text {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #bdbdbd;
+    }
+
     footer {
       background: var(--black);
       padding: 238px 28px 220px;
@@ -485,6 +536,8 @@
       .oms-card { min-height: auto; }
       .channel-expansion-grid { grid-template-columns: 1fr; }
       .channel-expansion-card { min-height: auto; }
+      .generic-saas-limitations-grid { grid-template-columns: 1fr; }
+      .generic-saas-limitations-card { min-height: auto; }
       footer { padding: 210px 24px 198px; }
       .footer-top, .footer-mid { grid-template-columns: 1fr; gap: 18px; }
     }
@@ -720,6 +773,40 @@ Marketplace</div>
             <svg class="channel-expansion-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="5" cy="12" r="2" fill="currentColor"/><circle cx="19" cy="6" r="2" fill="currentColor"/><circle cx="19" cy="18" r="2" fill="currentColor"/><path d="M7 11l10-4M7 13l10 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
             <div class="channel-expansion-card-title">Gestão / Regras de Match de Produtos</div>
             <p class="channel-expansion-card-text">Motor de match entre produtos dos sellers e catálogo master com regras de equivalência.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="generic-saas-limitations">
+      <div class="generic-saas-limitations-wrap">
+        <h2 class="generic-saas-limitations-title">O que SaaS genérico<br>não consegue entregar</h2>
+
+        <div class="generic-saas-limitations-grid">
+          <article class="generic-saas-limitations-card">
+            <svg class="generic-saas-limitations-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            <div class="generic-saas-limitations-card-title">Benefícios e Convênios</div>
+            <p class="generic-saas-limitations-card-text">Gestão nativa de convênios corporativos. Autorização integrada ao checkout sem fricção.</p>
+          </article>
+          <article class="generic-saas-limitations-card">
+            <svg class="generic-saas-limitations-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 20V7l4-3 4 3v13M8 11h8M16 20V5h4v15\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>
+            <div class="generic-saas-limitations-card-title">Espaço Saúde / Serviços</div>
+            <p class="generic-saas-limitations-card-text">Conteúdo educativo e agendamento de serviços farmacêuticos. Receita além do produto.</p>
+          </article>
+          <article class="generic-saas-limitations-card">
+            <svg class="generic-saas-limitations-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x=\"5\" y=\"4\" width=\"14\" height=\"16\" rx=\"2\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M9 8h6M9 12h6M9 16h4\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"/></svg>
+            <div class="generic-saas-limitations-card-title">Regras e Anúncios de Produtos Controlados</div>
+            <p class="generic-saas-limitations-card-text">Filtro regulatório embutido no catálogo. Anúncio de controlado bloqueado por design.</p>
+          </article>
+          <article class="generic-saas-limitations-card">
+            <svg class="generic-saas-limitations-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d=\"M9 4h6l1 2h3a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a1 1 0 0 1 1-1h3l1-2z\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linejoin=\"round\"/><path d=\"M9 13l2 2 4-4\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>
+            <div class="generic-saas-limitations-card-title">Gestão de Receita e Venda de Controlados (SNGPC)</div>
+            <p class="generic-saas-limitations-card-text">Registro automático no SNGPC / ANVISA a cada venda. Zero intervenção manual.</p>
+          </article>
+          <article class="generic-saas-limitations-card">
+            <svg class="generic-saas-limitations-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x=\"4\" y=\"4\" width=\"7\" height=\"7\" stroke=\"currentColor\" stroke-width=\"1.8\"/><rect x=\"13\" y=\"4\" width=\"7\" height=\"7\" stroke=\"currentColor\" stroke-width=\"1.8\"/><rect x=\"4\" y=\"13\" width=\"7\" height=\"7\" stroke=\"currentColor\" stroke-width=\"1.8\"/><rect x=\"13\" y=\"13\" width=\"7\" height=\"7\" stroke=\"currentColor\" stroke-width=\"1.8\"/></svg>
+            <div class="generic-saas-limitations-card-title">Implementação Exclusiva</div>
+            <p class="generic-saas-limitations-card-text">Módulos customizados por segmento (Farma, Beleza, Pet) com expertise de 30 anos.</p>
           </article>
         </div>
       </div>
