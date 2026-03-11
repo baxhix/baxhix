@@ -232,6 +232,56 @@
       white-space: pre-line;
     }
 
+    .operations-core {
+      background: var(--black);
+      color: var(--white);
+    }
+    .operations-core-wrap {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+    .operations-core-title {
+      font-size: clamp(36px, 4.8vw, 62px);
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      margin-bottom: 42px;
+      max-width: 920px;
+    }
+    .operations-core-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .operations-core-card {
+      background: #141412;
+      border-top: 4px solid var(--white);
+      min-height: 238px;
+      padding: 24px 20px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .operations-core-icon {
+      width: 34px;
+      height: 34px;
+      color: rgba(255,255,255,0.62);
+      margin-bottom: 18px;
+      flex-shrink: 0;
+    }
+    .operations-core-card-title {
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .operations-core-card-text {
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.68);
+    }
+
     footer {
       background: var(--black);
       padding: 238px 28px 220px;
@@ -274,6 +324,8 @@
       .hero-visual-grid { grid-template-columns: 1fr; }
       .platform-grid { grid-template-columns: 1fr; }
       .platform-card { min-height: auto; }
+      .operations-core-grid { grid-template-columns: 1fr; }
+      .operations-core-card { min-height: auto; }
       footer { padding: 210px 24px 198px; }
       .footer-top, .footer-mid { grid-template-columns: 1fr; gap: 18px; }
     }
@@ -355,6 +407,40 @@ Marketplace</div>
           <article class="platform-card">
             <svg class="platform-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6 16V9" stroke="currentColor" stroke-width="1.8"/><path d="M11 16V6" stroke="currentColor" stroke-width="1.8"/><path d="M16 16v-4" stroke="currentColor" stroke-width="1.8"/><path d="M4 6l5-2 4 2 7-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <div class="platform-card-title">Recursos e integrações exclusivas do setor</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="operations-core">
+      <div class="operations-core-wrap">
+        <h2 class="operations-core-title">Estrutura operacional e<br>motor central de todas as transações digitais</h2>
+
+        <div class="operations-core-grid">
+          <article class="operations-core-card">
+            <svg class="operations-core-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 12v7a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 20V4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M4 9h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M7 4h10a2 2 0 0 1 2 2v3H5V6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            <div class="operations-core-card-title">Catálogo</div>
+            <p class="operations-core-card-text">Gestão centralizada de produtos, tarjas, PMC e sinônimos farmacêuticos.</p>
+          </article>
+          <article class="operations-core-card">
+            <svg class="operations-core-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 7.5c0-1.9-1.8-3-4-3s-4 1.1-4 3 1.8 3 4 3 4 1.1 4 3-1.8 3-4 3-4-1.1-4-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="operations-core-card-title">Preço</div>
+            <p class="operations-core-card-text">Motor de precificação com controle de PMC. Impede venda acima do teto regulado.</p>
+          </article>
+          <article class="operations-core-card">
+            <svg class="operations-core-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 10h18" stroke="currentColor" stroke-width="1.8"/><path d="M7 15h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <div class="operations-core-card-title">Pagamento</div>
+            <p class="operations-core-card-text">Integrações com meios de pagamento. Fluxo nativo com PBMs e convênios.</p>
+          </article>
+          <article class="operations-core-card">
+            <svg class="operations-core-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12a8 8 0 0 1 16 0" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="12" width="4" height="6" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="17" y="12" width="4" height="6" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M12 20h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <div class="operations-core-card-title">Pedidos / Televendas</div>
+            <p class="operations-core-card-text">Orquestração de pedidos online e por telefone em fluxo unificado.</p>
+          </article>
+          <article class="operations-core-card">
+            <svg class="operations-core-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="18" r="1.5" fill="currentColor"/><circle cx="17" cy="18" r="1.5" fill="currentColor"/><path d="M4 6h2l2 8h10l2-6H7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="operations-core-card-title">Checkout Headless</div>
+            <p class="operations-core-card-text">Checkout desacoplado. Layout customizável sem sprint de TI.</p>
           </article>
         </div>
       </div>
