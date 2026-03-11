@@ -545,6 +545,15 @@
       max-width: 1320px;
       margin: 0 auto;
     }
+    .card-groups-title {
+      font-size: clamp(36px, 4.8vw, 62px);
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      margin-bottom: 42px;
+      max-width: 720px;
+      color: #111111;
+    }
     .card-groups-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -638,6 +647,52 @@
       margin-top: 8px;
     }
 
+    .benefits-section {
+      background: #f4f4f2;
+      color: #111111;
+      padding: 80px 60px;
+    }
+    .benefits-wrap {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+    .benefits-title {
+      color: #111111;
+      font-weight: 700;
+      font-size: clamp(40px, 4.2vw, 48px);
+      line-height: 1.2;
+      margin-bottom: 56px;
+      max-width: 700px;
+      letter-spacing: -0.02em;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 56px;
+    }
+    .benefits-group-title {
+      color: #111111;
+      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    .benefits-group-divider {
+      width: 100%;
+      height: 1px;
+      background: #d9d9d9;
+      margin-bottom: 20px;
+    }
+    .benefits-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .benefits-item {
+      font-size: 16px;
+      color: #555555;
+      line-height: 1.6;
+    }
+
     footer {
       background: var(--black);
       padding: 238px 28px 220px;
@@ -694,8 +749,18 @@
       .governance-security-card { min-height: auto; }
       .card-groups-grid { grid-template-columns: 1fr; gap: 26px; }
       .integration-layers-grid { grid-template-columns: 1fr; }
+      .benefits-section { padding: 74px 20px; }
+      .benefits-grid { grid-template-columns: 1fr; gap: 28px; }
       footer { padding: 210px 24px 198px; }
       .footer-top, .footer-mid { grid-template-columns: 1fr; gap: 18px; }
+    }
+
+    @media (max-width: 1200px) {
+      .benefits-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; }
+    }
+
+    @media (max-width: 720px) {
+      .benefits-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -1004,6 +1069,7 @@ Marketplace</div>
 
     <section class="card-groups-section">
       <div class="card-groups-wrap">
+        <h2 class="card-groups-title">Conectado a todo o<br>ecossistema do varejo</h2>
         <div class="card-groups-grid">
           <div class="card-group">
             <div class="card-group-title">Marketplaces</div>
@@ -1054,7 +1120,7 @@ Marketplace</div>
 
     <section class="integration-layers">
       <div class="integration-layers-wrap">
-        <h2 class="integration-layers-title">Camadas de integração da operação digital</h2>
+        <h2 class="integration-layers-title">Ecossistema aberto para qualquer integração<br>Camadas de integração de ponta a ponta</h2>
         <p class="integration-layers-subtitle">Arquitetura API First para conectar canais, operação e ferramentas externas com consistência de dados em tempo real.</p>
 
         <div class="integration-layers-grid">
@@ -1073,6 +1139,44 @@ Marketplace</div>
               <div class="integration-block-description">Orquestra a comunicação entre os módulos internos (OMS, WMS, RMS, CRM) e os sistemas legados via Cosmos Pro. Garante integridade de dados do pedido até o relatório gerencial.</div>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits-section">
+      <div class="benefits-wrap">
+        <h2 class="benefits-title">Menos risco. Mais receita.<br>Governança que gera lucro.</h2>
+
+        <div class="benefits-grid">
+          <div class="benefits-group">
+            <div class="benefits-group-title">Financeiro</div>
+            <div class="benefits-group-divider"></div>
+            <div class="benefits-list">
+              <div class="benefits-item">Aumento de conversão com PBM Hub (+30%) e Checkout Headless sem abandono.</div>
+              <div class="benefits-item">Otimização de margem com sugestão automática de genérico.</div>
+              <div class="benefits-item">Prateleira Infinita aumenta GMV sem novo armazém.</div>
+            </div>
+          </div>
+
+          <div class="benefits-group">
+            <div class="benefits-group-title">Operacional</div>
+            <div class="benefits-group-divider"></div>
+            <div class="benefits-list">
+              <div class="benefits-item">Estoque unificado elimina ruptura entre canais.</div>
+              <div class="benefits-item">Ship-from-store e Click &amp; Collect com integrações nativas.</div>
+              <div class="benefits-item">Roteamento logístico inteligente reduz custo de entrega.</div>
+            </div>
+          </div>
+
+          <div class="benefits-group">
+            <div class="benefits-group-title">Compliance &amp; Governança</div>
+            <div class="benefits-group-divider"></div>
+            <div class="benefits-list">
+              <div class="benefits-item">Conformidade com os órgãos regulatórios evita qualquer tipo de multa ou até mesmo suspensão da operação.</div>
+              <div class="benefits-item">Conformidade com LGPD para dados sensíveis de saúde.</div>
+              <div class="benefits-item">Logs automáticos respondem auditorias sem trabalho manual.</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
