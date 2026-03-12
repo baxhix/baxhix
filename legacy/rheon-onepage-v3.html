@@ -267,18 +267,36 @@
     padding-bottom: 48px;
     border-top: 1px solid rgba(255,255,255,0.08);
     padding-top: 32px;
+    overflow: hidden;
   }
 
   .hero-logos-strip {
     width: 100%;
-    max-width: 1660px;
-    margin: 0 auto;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .hero-logos-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    gap: 0;
   }
 
   .hero-logos-strip img {
-    width: 100%;
+    width: min(1760px, calc(100vw - 120px));
     height: auto;
     display: block;
+    flex: 0 0 auto;
+  }
+
+  .hero-logos-strip img + img {
+    display: none;
+  }
+
+  @keyframes heroLogosMarquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
 
   /* ─── SECTION BASE ─── */
@@ -2110,11 +2128,16 @@
       padding-top: 24px;
     }
     .hero-logos-strip {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
+      overflow: hidden;
+    }
+    .hero-logos-track {
+      animation: heroLogosMarquee 22s linear infinite;
     }
     .hero-logos-strip img {
-      min-width: 980px;
+      width: 980px;
+    }
+    .hero-logos-strip img + img {
+      display: block;
     }
     .market-header { flex-direction: column; gap: 32px; }
     .market-total { text-align: left; }
@@ -2173,7 +2196,10 @@
 
   <div class="hero-bottom">
     <div class="hero-logos-strip">
-      <img src="/hero-logos.png" alt="Marcas atendidas pela RHEON">
+      <div class="hero-logos-track">
+        <img src="/hero-logos.png" alt="Marcas atendidas pela RHEON">
+        <img src="/hero-logos.png" alt="" aria-hidden="true">
+      </div>
     </div>
   </div>
 </section>
