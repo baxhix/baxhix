@@ -283,15 +283,24 @@
     gap: 0;
   }
 
-  .hero-logos-strip img {
-    width: min(1760px, calc(100vw - 120px));
-    height: auto;
-    display: block;
+  .hero-logos-sequence {
+    display: flex;
+    align-items: center;
+    gap: 46px;
     flex: 0 0 auto;
   }
 
-  .hero-logos-strip img + img {
-    display: none;
+  .hero-logos-strip img {
+    height: 34px;
+    width: auto;
+    height: auto;
+    display: block;
+    flex: 0 0 auto;
+    max-width: none;
+  }
+
+  .hero-logos-sequence[aria-hidden="true"] {
+    margin-left: 46px;
   }
 
   @keyframes heroLogosMarquee {
@@ -2191,14 +2200,12 @@
     }
     .hero-logos-track {
       animation: heroLogosMarquee 22s linear infinite;
-      gap: 25px;
+      gap: 0;
       will-change: transform;
     }
     .hero-logos-strip img {
-      width: 1180px;
-    }
-    .hero-logos-strip img + img {
-      display: block;
+      height: 42px;
+      width: auto;
     }
     .market-header { flex-direction: column; gap: 32px; }
     .market-total { text-align: left; }
