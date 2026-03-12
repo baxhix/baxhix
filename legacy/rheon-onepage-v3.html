@@ -1839,7 +1839,7 @@
   /* ─── CONTACT RESPONSIVE ─── */
   @media (max-width: 768px) {
     .hero {
-      min-height: auto;
+      min-height: calc(100vh - 64px);
       grid-template-rows: auto auto;
       padding: 0 24px;
     }
@@ -1865,8 +1865,9 @@
       margin-bottom: 30px;
     }
     .hero-bottom {
-      padding-top: 34px;
-      padding-bottom: 28px;
+      margin-top: auto;
+      padding-top: 56px;
+      padding-bottom: 44px;
     }
     .contact-grid {
       grid-template-columns: 1fr;
