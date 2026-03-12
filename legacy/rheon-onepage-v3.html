@@ -281,6 +281,8 @@
     align-items: center;
     width: max-content;
     gap: 0;
+    animation: heroLogosMarquee 34s linear infinite;
+    will-change: transform;
   }
 
   .hero-logos-sequence {
@@ -293,7 +295,6 @@
   .hero-logos-strip img {
     height: 34px;
     width: auto;
-    height: auto;
     display: block;
     flex: 0 0 auto;
     max-width: none;
@@ -2201,7 +2202,6 @@
     .hero-logos-track {
       animation: heroLogosMarquee 22s linear infinite;
       gap: 0;
-      will-change: transform;
     }
     .hero-logos-strip img {
       height: 42px;
@@ -2265,8 +2265,14 @@
   <div class="hero-bottom">
     <div class="hero-logos-strip">
       <div class="hero-logos-track">
-        <img src="/hero-logos.png" alt="Marcas atendidas pela RHEON">
-        <img src="/hero-logos.png" alt="" aria-hidden="true">
+        <div class="hero-logos-sequence">
+          <img src="/hero-logos.png" alt="Marcas atendidas pela RHEON">
+          <img src="/hero-logos-2.png" alt="Outras marcas atendidas pela RHEON">
+        </div>
+        <div class="hero-logos-sequence" aria-hidden="true">
+          <img src="/hero-logos.png" alt="">
+          <img src="/hero-logos-2.png" alt="">
+        </div>
       </div>
     </div>
   </div>
