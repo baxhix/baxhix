@@ -1839,16 +1839,15 @@
   /* ─── CONTACT RESPONSIVE ─── */
   @media (max-width: 768px) {
     .hero {
-      min-height: 100svh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      min-height: calc(100svh - 72px);
+      display: block;
+      position: relative;
       padding: 0 24px;
     }
     .hero-content {
       justify-content: flex-start;
-      padding-top: 120px;
-      padding-bottom: 0;
+      padding-top: 104px;
+      padding-bottom: 180px;
       max-width: none;
     }
     .hero-watermark {
@@ -1867,9 +1866,13 @@
       margin-bottom: 30px;
     }
     .hero-bottom {
-      margin-top: 20px;
-      padding-top: 20px;
-      padding-bottom: 28px;
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 18px;
+      margin-top: 0;
+      padding-top: 18px;
+      padding-bottom: 0;
     }
     .contact-grid {
       grid-template-columns: 1fr;
