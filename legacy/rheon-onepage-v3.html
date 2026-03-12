@@ -1838,6 +1838,32 @@
 
   /* ─── CONTACT RESPONSIVE ─── */
   @media (max-width: 768px) {
+    .hero {
+      min-height: auto;
+      grid-template-rows: auto auto;
+      padding: 0 24px;
+    }
+    .hero-content {
+      justify-content: flex-start;
+      padding-top: 92px;
+      padding-bottom: 18px;
+      max-width: none;
+    }
+    .hero-watermark {
+      display: none;
+    }
+    .hero-tag {
+      margin-bottom: 24px;
+    }
+    .hero-headline {
+      font-size: clamp(42px, 11vw, 54px);
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-size: 20px;
+      line-height: 1.3;
+      margin-bottom: 24px;
+    }
     .contact-grid {
       grid-template-columns: 1fr;
     }
@@ -2124,8 +2150,8 @@
       flex-basis: auto;
     }
     .hero-bottom {
-      padding-bottom: 32px;
-      padding-top: 24px;
+      padding-bottom: 20px;
+      padding-top: 18px;
     }
     .hero-logos-strip {
       overflow: hidden;
