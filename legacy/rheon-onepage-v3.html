@@ -263,41 +263,22 @@
   .btn-ghost:hover { color: var(--white); border-color: var(--white); }
 
   .hero-bottom {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
+    display: block;
     padding-bottom: 48px;
     border-top: 1px solid rgba(255,255,255,0.08);
     padding-top: 32px;
   }
 
-  .hero-stats {
-    display: flex;
-    gap: 60px;
-    flex-wrap: wrap;
-    row-gap: 14px;
+  .hero-logos-strip {
+    width: 100%;
+    max-width: 1660px;
+    margin: 0 auto;
   }
 
-  .stat-item {}
-  .stat-number {
-    font-size: 30px;
-    font-weight: 800;
-    color: var(--white);
-    letter-spacing: -0.02em;
-  }
-  .stat-label {
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--gray-400);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-top: 4px;
-  }
-  .stat-item-long .stat-label {
-    margin-top: 0;
-    max-width: 420px;
-    letter-spacing: 0.03em;
-    line-height: 1.45;
+  .hero-logos-strip img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   /* ─── SECTION BASE ─── */
@@ -2124,7 +2105,17 @@
       width: 146px;
       flex-basis: auto;
     }
-    .hero-stats { gap: 32px; flex-wrap: wrap; }
+    .hero-bottom {
+      padding-bottom: 32px;
+      padding-top: 24px;
+    }
+    .hero-logos-strip {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .hero-logos-strip img {
+      min-width: 980px;
+    }
     .market-header { flex-direction: column; gap: 32px; }
     .market-total { text-align: left; }
     .clients { padding: 60px 32px; }
@@ -2181,30 +2172,8 @@
   <div class="hero-watermark" aria-hidden="true">RHEON</div>
 
   <div class="hero-bottom">
-    <div class="hero-stats">
-      <div class="stat-item">
-        <div class="stat-number">30 ANOS</div>
-        <div class="stat-label">EXPERIÊNCIA COMBINADA</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">NPS 9.42</div>
-        <div class="stat-label">SATISFAÇÃO DOS CLIENTES</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">6000+</div>
-        <div class="stat-label">LOJAS FÍSICAS ATIVAS</div>
-      </div>
-      <div class="stat-item stat-item-long">
-        <div class="stat-number">ESPECIALISTAS EM DIGITAL COMMERCE</div>
-        <div class="stat-label">(CANAIS DIGITAIS B2C, B2B E D2C)</div>
-      </div>
-      <div class="stat-item stat-item-long">
-        <div class="stat-number">REFERÊNCIA EM TECNOLOGIA DE GESTÃO</div>
-        <div class="stat-label">E VENDAS PARA O MUNDO FÍSICO</div>
-      </div>
-      <div class="stat-item stat-item-long">
-        <div class="stat-number">EXPERIÊNCIA COM MÉDIAS E GRANDES OPERAÇÕES</div>
-      </div>
+    <div class="hero-logos-strip">
+      <img src="/hero-logos.png" alt="Marcas atendidas pela RHEON">
     </div>
   </div>
 </section>
