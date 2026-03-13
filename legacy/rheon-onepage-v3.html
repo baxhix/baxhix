@@ -3121,7 +3121,7 @@
       if (!target) return;
       event.preventDefault();
       const isMobile = window.matchMedia('(max-width: 768px)').matches;
-      const navOffset = isMobile && href === '#contato' ? 36 : 96;
+      const navOffset = isMobile && href === '#contato' ? 12 : 96;
       const top = target.getBoundingClientRect().top + window.scrollY - navOffset;
       window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
     });
