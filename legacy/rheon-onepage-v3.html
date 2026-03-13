@@ -1899,6 +1899,9 @@
     .contact-info-side {
       padding: 40px 24px;
     }
+    .contact-qr {
+      display: none;
+    }
     .form-row {
       grid-template-columns: 1fr;
     }
@@ -3117,7 +3120,8 @@
       const target = document.querySelector(href);
       if (!target) return;
       event.preventDefault();
-      const navOffset = 96;
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      const navOffset = isMobile && href === '#contato' ? 36 : 96;
       const top = target.getBoundingClientRect().top + window.scrollY - navOffset;
       window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
     });
