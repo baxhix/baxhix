@@ -1982,7 +1982,8 @@
       margin-top: 0;
     }
     .method-mobile-phase {
-      margin-bottom: 32px;
+      gap: 0;
+      margin-bottom: 56px;
     }
     .method-mobile-phase:last-child {
       margin-bottom: 0;
@@ -1990,7 +1991,7 @@
     .method-mobile-phase .method-objective {
       min-height: 92px;
       padding: 14px 16px 16px;
-      margin-bottom: 8px;
+      margin-bottom: 0;
     }
     .method-mobile-phase .method-delivery {
       min-height: 108px;
@@ -2004,8 +2005,11 @@
     }
     .method-mobile-phase .method-objective-title,
     .method-mobile-phase .method-delivery-title {
-      font-size: 18px;
-      line-height: 1.25;
+      font-size: 16px;
+      line-height: 1.2;
+    }
+    .method-mobile-phase .method-mobile-connector:first-of-type {
+      height: 18px;
     }
     .method-mobile-phase .method-phase-circle {
       width: 100px;
@@ -2019,7 +2023,12 @@
       font-size: 12px;
     }
     .method-mobile-track {
+      border-top: none;
+      padding-top: 12px;
       gap: 12px 10px;
+    }
+    .method-mobile-track::before {
+      display: none;
     }
     .method-mobile-track .method-item {
       padding-top: 12px;
