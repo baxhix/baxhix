@@ -68,7 +68,7 @@ function getAuthSecret() {
 
 function getAdminCredentials() {
   const username = process.env.CMS_ADMIN_USERNAME || 'admin'
-  const password = process.env.CMS_ADMIN_PASSWORD || 'admin123'
+  const password = process.env.CMS_ADMIN_PASSWORD || 'X9@qL!7v#R2$kZ8&fT3*Wp'
   return { username, password }
 }
 

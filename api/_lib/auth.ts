@@ -59,7 +59,7 @@ export function getAdminCredentials(host?: string): AdminCredentials | null {
   }
 
   if (isLocalhostHost(host)) {
-    return { username: 'admin', password: 'admin123' }
+    return { username: 'admin', password: 'X9@qL!7v#R2$kZ8&fT3*Wp' }
   }
 
   return null
