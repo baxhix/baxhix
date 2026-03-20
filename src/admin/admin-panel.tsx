@@ -270,9 +270,6 @@ export function AdminPanel({ legacyHtml }: { legacyHtml: string }) {
                 Entrar
               </Button>
             </form>
-            <p className="mt-3 text-xs text-muted-foreground">
-              Em localhost, padrão inicial: admin / admin123 (altere no deploy).
-            </p>
           </CardContent>
         </Card>
       </div>
