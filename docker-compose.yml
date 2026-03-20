@@ -5,11 +5,11 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - PORT=3000
-      - POSTGRES_URL=postgresql://rheon:rheon@db:5432/rheon
-      - CMS_ADMIN_USERNAME=admin
-      - CMS_ADMIN_PASSWORD=X9@qL!7v#R2$kZ8&fT3*Wp
-      - CMS_AUTH_SECRET=change-me-in-production
+      PORT: "3000"
+      POSTGRES_URL: "postgresql://rheon:rheon@db:5432/rheon"
+      CMS_ADMIN_USERNAME: "admin"
+      CMS_ADMIN_PASSWORD: 'X9@qL!7v#R2$kZ8&fT3*Wp'
+      CMS_AUTH_SECRET: "change-me-in-production"
     depends_on:
       - db
     restart: unless-stopped
@@ -18,9 +18,9 @@ services:
     image: postgres:16-alpine
     container_name: rheon_db
     environment:
-      - POSTGRES_USER=rheon
-      - POSTGRES_PASSWORD=rheon
-      - POSTGRES_DB=rheon
+      POSTGRES_USER: "rheon"
+      POSTGRES_PASSWORD: "rheon"
+      POSTGRES_DB: "rheon"
     volumes:
       - rheon_db_data:/var/lib/postgresql/data
     restart: unless-stopped
